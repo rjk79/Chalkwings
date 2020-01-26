@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import './navbar.css'
+import '../../assets/stylesheets/navbar.css'
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -14,7 +14,7 @@ class NavBar extends React.Component {
         this.props.logout();
     }
 
-    // Selectively render links dependent on whether the user is logged in
+    // render links dependent on whether the user is logged in
     getLinks() {
         if (this.props.loggedIn) {
             return (
@@ -22,7 +22,7 @@ class NavBar extends React.Component {
                     <Link to={'/climbs'}>All Climbs</Link>
                     <Link to={'/profile'}>Profile</Link>
                     <Link to={'/new_climb'}>Create A Climb</Link>
-                    <button onClick={this.logoutUser}>Logout</button>
+                    <button className="logout-button" onClick={this.logoutUser}>Logout</button>
                 </div>
             );
         } else {
@@ -37,8 +37,8 @@ class NavBar extends React.Component {
 
     render() {
         return (
-            <div className="NavBar">
-                <h1>Chalkwings</h1>
+            <div className="navbar">
+                <Link className="appname" to="/"> Chalkwings </Link>
                 {this.getLinks()}
             </div>
         );

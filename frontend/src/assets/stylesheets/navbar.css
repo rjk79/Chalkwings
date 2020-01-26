@@ -1,0 +1,40 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: black;
+}
+
+.links1 {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.links1 > * {
+    color: white;
+}
+
+.links2 {
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.links2 > * {
+    color: white;
+}
+
+.appname {
+    font-size: 36px;
+    color: white;
+}
+
+.spacer {
+    width: 80%;
+}
+
+.logout-button {
+    background: black;
+    border: none;
+}

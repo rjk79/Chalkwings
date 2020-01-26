@@ -1,5 +1,6 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+import '../../assets/stylesheets/login_form.css'
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -59,9 +60,9 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="login-form-container">
                 <form onSubmit={this.handleSubmit}>
-                    <div>
+                    <div className="login-form">
                         <input type="text"
                             value={this.state.username}
                             onChange={this.update('username')}
@@ -74,8 +75,9 @@ class LoginForm extends React.Component {
                             placeholder="Password"
                         />
                         <br />
-                        <input className="btn btn-primary" type="submit" value="Submit" />
+                        <input className="btn btn-primary" type="submit" value="Log In" />
                         {this.renderErrors()}
+                    <Link className="" to="/signup"> Are you a new user? </Link>
                     </div>
                 </form>
             </div>
