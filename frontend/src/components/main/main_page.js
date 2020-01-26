@@ -5,10 +5,9 @@ class MainPage extends React.Component {
     render() {
         return (
             <div>
-                <h1>Chalkwings</h1>
                 <footer>
                     
-        </footer>
+                </footer>
             </div>
         );
     }
