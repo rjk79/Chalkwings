@@ -16,6 +16,7 @@ class ClimbCompose extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleSubmitSession = this.handleSubmitSession.bind(this)
+        this.handleRemove = this.handleRemove.bind(this)
     }
 
     componentWillReceiveProps(nextProps) {
@@ -50,6 +51,11 @@ class ClimbCompose extends React.Component {
             this.setState(newState)
         }
     }
+    handleRemove(){
+        let newState = merge({}, this.state)
+        newState.session.pop()
+        this.setState(newState)
+    }
     handleSubmitSession(){
         
         for (let idx in this.state.session){  
@@ -64,7 +70,11 @@ class ClimbCompose extends React.Component {
                 <tr>
                     <td onClick={this.handleClick(3*i)}>V{3*i}</td>
                     <td onClick={this.handleClick(3 * i+1)}>V{3*i + 1}</td>
-                    <td onClick={this.handleClick(3 * i+2)}>V{3*i + 2}</td>
+                    
+                    {i !== 3 ? <td onClick={this.handleClick(3 * i + 2)}>V{3 * i + 2}</td> :
+                        <td onClick={this.handleRemove}> Del </td>
+                    }
+                    
                 </tr>
             )
         }
