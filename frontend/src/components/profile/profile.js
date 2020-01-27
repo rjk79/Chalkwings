@@ -40,7 +40,7 @@ class Profile extends React.Component {
                 <div>
                     <h2>All of Your Climbs</h2>
                     {this.state.climbs.map(climb => (
-                        <ClimbBox key={climb._id} name={climb.name} grade={climb.grade} />
+                        <ClimbBox key={climb._id} name={climb.name} grade={climb.grade} date={climb.date} />
                     ))}
                     <BarChart
                         width={500}

@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const path = require('path');
 
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -33,4 +34,20 @@ if (process.env.NODE_ENV === 'production') {
     })
 }
 
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+let server = app.listen(port, () => console.log(`Server is running on port ${port}`));
+
+
+//socket.io
+const socketIO = require('socket.io');
+const io = socketIO(server);
+
+io.on('connection', (socket) => {
+    console.log('Client connected');
+    socket.on('disconnect', () => console.log('Client disconnected'));
+
+    socket.on('send', message => { //use socket instead of io 
+        io.emit('receive', message) //use io instead of socket to emit to all other sockets
+    })
+});
+
+// setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
