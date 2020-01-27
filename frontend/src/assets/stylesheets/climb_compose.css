@@ -1,0 +1,11 @@
+.compose-boulder-container {
+    display: flex;
+    justify-content: center;
+}
+.compose-boulder-form {
+    width: 30%;
+}
+.compose-boulder {
+    display: flex;
+    flex-direction: column;
+}

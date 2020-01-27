@@ -1,16 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const ClimbSchema = new Schema({
+const SessionSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'users'
     },
-    name: {
-        type: String,
-        required: true
-    },
-    grade: {
+    points: {
         type: Number,
         required: true
     },

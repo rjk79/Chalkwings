@@ -2,64 +2,20 @@ import React from 'react'
 
 class FortyTips extends React.Component {
     render(){
+        const fs = require("fs");
+        fs.readFile('fortytips.txt', 'utf-8', (err, data) => {
+            if (err) throw err;
+            console.log(data);
+        }) 
+        // text = text.map(line => (
+        //     <>
+        //     line <br/>
+        //     </>
+        // ))
         return (
         <>
         <h1>40 Tips for Rock Climbing</h1>
-        Step using the tip of your shoe.  Use the point of your shoe to step on holds and be conscious of whether the left edge, right edge, or center point should be used. <br/>
-        Keep your arms straight. Keep them straight as often as you can but if you need to move into a powerful move soon after then keep them slightly bent since pulling up from a straight arm position is much harder. Also bend them at the later stage of a movement if it is very long.<br/>
-        Stay close to the wall, especially your hips.  Unless you need to jump out over an overhang in which case staying close will increase your swing. <br/>
-        Look at your hands and feet as you place them. A good exercise is to count to 2 before you a place a hand or foot on a hold.  It has been reported that using your eyes is vastly more important than feeling that your toe on a hold or hearing your toe step on a hold.<br/>
-        Step on holds silently.  This will ensure that you are moving with control and not rushing things desperately.<br/>
-        Read the route from the ground. Condition the correct neurons for firing quickly, in sync, and on time by pantomiming the moves from the ground even though it may look silly.<br/>
-        Use same side-foot to reach with a hand.  For example, if you are reaching up with your right hand try to step off hard from your right foot.  Harder climbs may force you to use the opposite foot.<br/>
-        Turn away from the direction you are reaching.  This is useful on overhangs.  If you are reaching up with your right hand, turn your body to the left while making the move.<br/>
-        Drop knees.  This facilitates the above movement.  If you are on an overhang and you have a relatively high foot, turn your body to the opposite side you are reaching by stepping on the hold and then turning your knee downwards.<br/>
-        Hand match by using piano matching as often as you can.  This means removing a finger at a time from one hand while placing a finger on one at a time with the other hand.<br/>
-        Minimize the force you use to grab holds.  If you can hang on a hold by grabbing less hard, then do it.  Grab harder only when you need to like when you are powering off a hold.<br/>
-        Foot matching is best done by first crossing your heels and placing your toes over each other.  Wiggle your lower foot out rapidly then let your new foot drop into place.<br/>
-        Learn how to use different hold types: slopers, jugs, crimps, pinchers, finger pockets. <br/>
-        Slopers are often best gripped in a meat hook position where your fingers are pointing along the wall rather than towards the wall.  Your fingers can face either direction.  Meat hooking likely works because the human hand can exert greater grip strength if the wrist is angled slightly outwards.  If you are meat hooking multiple slopers you can create compression or expansion oppositional forces which will hold you on the wall.  Keep your wrist flexed downwards whenever possible relative to your hand to increase friction.  This is assisted by staying low with your whole body when on slopers.  When moving on slopers, move slowly since they are obviously often slippery. <br/>
-        Jugs are great for rests. Learn how to abuse them by heel hooking, toe hooking them, etc.<br/>
-        Crimps should be grabbed open handed as often as possible when you first start climbing so as to protect your tendons.  This means not bending your fingers back when grabbing them.  A closed grip, which usually means putting your thumb over your index fingers, can be useful to execute moves when you need to weight crimps more and you are an experienced climber.<br/>
-        Use your thumb whenever you can, especially on pinchers.  Taking advantage of opposition is very important in climbing and your thumbs are valuable for providing oppositional force relative to your fingers.  Even if it feels slightly awkward to stretch your grip around a large pincher, it may be what you need.<br/>
-        For finger pockets, prioritize using your middle two fingers whenever you can since they can exert the most force.  You can switch to other fingers to rest your strongest ones though.<br/>
-        Avoid readjusting when you place a foot/hand down.  A good exercise is trying a group of routes but not letting you move your hands or feet once you place them on a hold.  This will teach accurate placement.<br/>
-        Maximize the number of fingers you put on holds.  Each time you let a finger slip off, you can imagine that you are reducing your force by 25% since you have 4 fingers.<br/>
-        Leave or make room to put both hands on holds when you expect that you will need to.<br/>
-        Balance using your leg to counterbalance.  A good exercise is standing with your legs together and arms straight above your head.  Slowly lower one arm and then raise one leg to counteract the movement and balance.  Repeat with the other side.<br/>
-        Memorize holds underneath ledges or around aretes.  You probably won’t be able to locate them in the moment.  Use chalk lines to indicate where they are.<br/>
-        Smear more and harder.  Smearing can allow you to pincer around an arete which creates opposition with your legs like a bike.<br/>
-        Learn to flag.  Use the side of your foot instead of the front of your foot when doing large “drive by” moves to flag especially hard. Instep flagging will feel better when standing upright than back flagging.<br/>
-        Mantling.  Use the muscle below your armpit to mantle higher rather than your arms, which should be straight.<br/>
-        Heel hooking -  Have knee pointing away from wall while you set the heel down.  Point toe down to lock it as knee/shin bone moves towards the wall.<br/>
-        Toe hooking - This is more about using core tension rather than using leg muscles.  Throw your body backwards, away from your toe hook, if you need to gain tension.<br/>
-        Dynos - You can do straight arm vs bent arm dynos depending on steepness. look at the target hold while in the air. bend your arms to control the swing<br/>
-        Knee locks - Adjust the angle of your shin bone to make it fit.<br/>
-        Biking - Simultaneously Toe hooking and stepping down on a hold with a foot will keep your foot in place.<br/>
-        Camming - Often when heel hooking you can turn your toes into the wall hard to jam your foot in place.<br/>
-        Use opposition to stay on wall.  Expansion and compression will keep you on the wall when the individual holds themselves will not.  This means pulling holds away from each other or pushing them towards each other.<br/>
-        Look for chalk and rubber on the holds to determine where to grab them.  This can suggest heel/toe hooks which are tricky to assume otherwise.<br/>
-        When climbing dynamically, use momentum from eccentric movements to make large moves.  So when reaching a certain direction, move the opposite way first to gain momentum.  When climbing statically let the momentum dissipate before making another move.  It’s good to try both methods on a given move.<br/>
-        Use bolt holes on holds. <br/>
-        Use aretes even if momentarly.<br/>
-        Use volumes properly.  Step on outermost portion to keep body angled into wall even though it is counterintuitive.<br/>
-        Use pogos for stepping off a foot which is on the opposite side relative to the one you are reaching.  This utilizes leg momentum and you want to swing your same-side foot while keeping it straight.<br/>
-        Point your toe down on holds that are angled down.  This is especially important on overhangs.<br/>
-        Head momentum - Throwing your head into the wall while you make a move can assist in keeping you into the wall.<br/>
-        Start with non-stepping foot as close to wall as possible when getting up on the starting holds.  This way it doesn’t have to fly into the proper flagging position which would waste energy and potentially throw you off balance. <br/>
-        Use warm up to calibrate your feet and ensure they are taking as much weight as possible.<br/>
-        Sync your exhaling with your with movements.<br/>
-        The most important muscles to train are your trapezius, rhomboids, triceps, and lats.<br/>
-        Climb faster.  If you can do the same moves but in a shorter amount of time without swinging recklessly, you are objectively climbing better.  Your performance/max strength will drop significantly after being on the wall roughly more than a minute. <br/>
-        Learn dyno techniques. Look at the target hold as you jump; don’t close your eyes. If you need to also move horizontally, the lead foot should point in that direction and the back foot should point into the wall. When controlling the target hold, bend your biceps to control the swing and straddle+bend your legs. Aiming your fingers a few inches more into the wall can help you reach the target hold. Squat stretches and depth jumps can improve jump height.<br/>
-        If a move seems far, you can line it up with your wingspan from the ground, count the number of bolt holes it spans, and measure the distance from the nearest foot chip to evaluate it better.<br/>
-        View climbs from multiple angles. Even pros keep their chalk bags far from the wall or use liquid to chalk to stall themselves and thus, to force themselves to look at the wall from different perspectives and take longer breaks.<br/>
-        Sometimes different shoes do make a difference. Adam Ondra will wear two different shoes at once if he needs to stick a critical heel hook.<br/>
-        Stretch more. Akiyo Noguchi was allowed to use a volume from a completely different but neighboring climb since she had enough, strong active flexibility to reach it.<br/>
-        Use passive flexibility instead of active whenever possible.<br/>
-        Learn calisthenics/gymnastics for basic principles.<br/>
-        Doing yoga doesn’t make for a great rest day.<br/>
-        Lead movements with your hips. Campusing can help teach this.<br/>
+        {/* {text} */}
         </>
         )
     }

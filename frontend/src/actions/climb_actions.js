@@ -31,8 +31,9 @@ export const fetchUserClimbs = id => dispatch => (
         .catch(err => console.log(err))
 );
 
-export const composeClimb = data => dispatch => (
+export const composeClimb = data => dispatch => {
+    return (
     writeClimb(data)
         .then(climb => dispatch(receiveNewClimb(climb)))
         .catch(err => console.log(err))
-);
+)};

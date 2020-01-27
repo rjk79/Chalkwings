@@ -21,7 +21,7 @@ class NavBar extends React.Component {
                 <div className="links1">
                     <Link to={'/climbs'}>All Climbs</Link>
                     <Link to={'/profile'}>Profile</Link>
-                    <Link to={'/new_climb'}>Create A Climb</Link>
+                    <Link to={'/new_climb'}>Log A Climb</Link>
                     <button className="logout-button" onClick={this.logoutUser}>Logout</button>
                 </div>
             );
