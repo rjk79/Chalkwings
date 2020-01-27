@@ -41,9 +41,7 @@ class Profile extends React.Component {
             return (
                 <div className="profile">
                     <h2>All of Your Climbs</h2>
-                    {this.state.climbs.map(climb => (
-                        <ClimbBox key={climb._id} name={climb.name} grade={climb.grade} date={climb.date} />
-                    ))}
+                    
                     <div className="boulder-chart">
 
                     <ResponsiveContainer>
@@ -65,6 +63,9 @@ class Profile extends React.Component {
                         </BarChart>
                     </ResponsiveContainer>
                     </div>
+                    {this.state.climbs.map(climb => (
+                        <ClimbBox key={climb._id} name={climb.name} grade={climb.grade} date={climb.date} />
+                    ))}
                 </div>
             );
         }

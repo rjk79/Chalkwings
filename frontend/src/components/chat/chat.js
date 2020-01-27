@@ -48,12 +48,12 @@ class Chat extends React.Component {
         this.setState({draft: ""})
     }
     render() {
-        let messages = this.state.messages.map(message => (
-            <li>{message.username}: {message.text}</li>
+        let messages = this.state.messages.map((message, idx) => (
+            <li key={idx}>{message.username}: {message.text}</li>
         ))
         return (
-            <div>
-
+            <div className="chat">
+                <h2>Discussion</h2>
                 <ul className="messages">
                 {messages} 
                 </ul>

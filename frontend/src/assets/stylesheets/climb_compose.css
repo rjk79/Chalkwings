@@ -1,3 +1,36 @@
+.compose-session {
+    display: flex;
+    flex-direction: column;
+}
+.compose-session tr td {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    background: rgb(93, 8, 123);
+    color: white;
+}
+
+.compose-session tr td:hover {
+    opacity: .5;
+}
+.session {
+    list-style: none;
+    display: flex;
+}
+.session li {
+    background: rgb(255, 228, 22);
+    border-radius: 25%;
+    width: 30px;
+    text-align: center;
+}
+.submit-session-button {
+    border: 2px solid black;
+    background: white;
+    border-radius: 5px;
+}
+
 .compose-boulder-container {
     display: flex;
     justify-content: center;
