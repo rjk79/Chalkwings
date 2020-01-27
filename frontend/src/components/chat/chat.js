@@ -32,6 +32,8 @@ class Chat extends React.Component {
         let newState = merge({}, this.state)
         newState.messages.push(message)
         this.setState(newState)
+        let messages = document.getElementsByClassName("messages")[0]
+        messages.scrollTop = messages.scrollHeight;
     }
 
     componentWillUnmount(){
@@ -49,7 +51,7 @@ class Chat extends React.Component {
     }
     render() {
         let messages = this.state.messages.map((message, idx) => (
-            <li key={idx}>{message.username}: {message.text}</li>
+            <li key={idx}><strong>{message.username}:</strong> {message.text}</li>
         ))
         return (
             <div className="chat">
@@ -58,8 +60,8 @@ class Chat extends React.Component {
                 {messages} 
                 </ul>
                 <form onSubmit={this.handleSubmit}>
-                    <input value={this.state.draft} onChange={this.handleChange()} />
-                    <input type="submit" value="Submit" />
+                    <input className="draft" type="text" value={this.state.draft} onChange={this.handleChange()} />
+                    <input className="send-button" type="submit" value="Send" />
                 </form>
             </div>
         );

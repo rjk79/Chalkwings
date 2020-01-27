@@ -1,8 +1,16 @@
 .compose-session {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
-.compose-session tr td {
+
+.options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2px;
+}
+.options tr td {
     width: 50px;
     height: 50px;
     text-align: center;
@@ -12,12 +20,14 @@
     color: white;
 }
 
-.compose-session tr td:hover {
+.options tr td:hover {
     opacity: .5;
 }
 .session {
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
+
 }
 .session li {
     background: rgb(255, 228, 22);
@@ -29,6 +39,8 @@
     border: 2px solid black;
     background: white;
     border-radius: 5px;
+    width: 20%;
+    margin: 2px;
 }
 .submit-session-button:hover {
     background: black;

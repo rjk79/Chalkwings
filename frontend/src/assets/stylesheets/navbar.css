@@ -14,6 +14,9 @@
 .links1 > * {
     color: white;
 }
+.links1 > *:hover {
+    text-decoration: none;
+}
 
 .links2 {
     width: 100px;
@@ -23,6 +26,9 @@
 
 .links2 > * {
     color: white;
+}
+.links2 > *:hover {
+    text-decoration: none;
 }
 
 .appname {

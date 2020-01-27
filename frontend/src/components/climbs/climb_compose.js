@@ -82,15 +82,15 @@ class ClimbCompose extends React.Component {
             <> <li>V{grade}</li> &nbsp; </>
             )
         return (
-            <>
-            <table className="compose-session">
+            <div className="compose-session">
+            
+            <table className="options">
                 {options}
             </table>
+            <button className="submit-session-button" onClick={this.handleSubmitSession}>Submit Session</button>
             <ul className="session">
                 {session}
             </ul>
-            <button className="submit-session-button" onClick={this.handleSubmitSession}>Submit Session</button>
-
             {/* <div className="compose-boulder-container">
                 <form onSubmit={this.handleSubmit} className="compose-boulder-form">
                     <div className="compose-boulder">
@@ -111,7 +111,7 @@ class ClimbCompose extends React.Component {
                 <br />
                 <ClimbBox name={this.state.newClimb} /> TODO: show all of the sessions climbs 
             </div> */}
-            </>
+            </div>
         )
     }
 }

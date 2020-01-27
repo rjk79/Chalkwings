@@ -6,3 +6,10 @@
     overflow-y: scroll;
     height: 80%;
 }
+
+.draft {
+    word-break: break-word;
+}
+.send-button {
+    border-radius: 5px;
+}
