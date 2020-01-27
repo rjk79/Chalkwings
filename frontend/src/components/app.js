@@ -13,9 +13,9 @@ import SignupFormContainer from './session/signup_form_container';
 
 import FortyTips from './guides/fortyTips'
 import Chat from './chat/chat'
-
+import '../assets/stylesheets/app.css'
 const App = () => (
-    <div>
+    <div className="app">
     
     <NavBarContainer />
 

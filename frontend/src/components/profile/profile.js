@@ -1,8 +1,10 @@
 import React from 'react';
 import ClimbBox from '../climbs/climb_box';
 import {
-    BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+    BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
+
+import '../../assets/stylesheets/profile.css'
 
 class Profile extends React.Component {
     constructor(props) {
@@ -37,26 +39,32 @@ class Profile extends React.Component {
                 data[parseInt(climb.grade)].count ++
             })
             return (
-                <div>
+                <div className="profile">
                     <h2>All of Your Climbs</h2>
                     {this.state.climbs.map(climb => (
                         <ClimbBox key={climb._id} name={climb.name} grade={climb.grade} date={climb.date} />
                     ))}
-                    <BarChart
-                        width={500}
-                        height={300}
-                        data={data}
-                        margin={{
-                            top: 5, right: 30, left: 20, bottom: 5,
-                        }}
-                    >
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="grade" />
-                        <YAxis />
-                        <Tooltip />
-                        <Legend />
-                        <Bar dataKey="count" fill="#8884d8" />
-                    </BarChart>
+                    <div className="boulder-chart">
+
+                    <ResponsiveContainer>
+
+                        <BarChart
+                            width={500}
+                            height={300}
+                            data={data}
+                            margin={{
+                                top: 5, right: 30, left: 20, bottom: 5,
+                            }}
+                        >
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis dataKey="grade" />
+                            <YAxis />
+                            <Tooltip />
+                            <Legend />
+                            <Bar dataKey="count" fill="#8884d8" />
+                        </BarChart>
+                    </ResponsiveContainer>
+                    </div>
                 </div>
             );
         }
