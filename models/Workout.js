@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const SessionSchema = new Schema({
+const WorkoutSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'users'
@@ -16,4 +16,4 @@ const SessionSchema = new Schema({
     }
 });
 
-module.exports = Climb = mongoose.model('climb', ClimbSchema);
+module.exports = Workout = mongoose.model('workout', WorkoutSchema);

@@ -32,7 +32,7 @@ router.get('/:id', (req, res) => {
 });
 // create
 router.post('/',
-    passport.authenticate('jwt', { session: false }),
+    passport.authenticate('jwt', { session: false }), //authenticate request
     (req, res) => {
         const { errors, isValid } = validateClimbInput(req.body);
         
@@ -49,5 +49,13 @@ router.post('/',
         newClimb.save().then(climb => res.json(climb));
     }
 );
+// TODO
+// router.delete('/:id', (req, res) => {
+//     Climb.findById(req.params.id)
+//         .then(climb => res.json(climb))
+//         .catch(err =>
+//             res.status(404).json({ noclimbfound: 'No climb found with that ID' })
+//         );
+// });
 
 module.exports = router;

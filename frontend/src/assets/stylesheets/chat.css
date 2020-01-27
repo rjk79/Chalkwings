@@ -5,10 +5,11 @@
     list-style: none;
     overflow-y: scroll;
     height: 80%;
+    overflow-wrap: break-word;
 }
 
 .draft {
-    word-break: break-word;
+    width: 50%;
 }
 .send-button {
     border-radius: 5px;
