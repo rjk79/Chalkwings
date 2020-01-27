@@ -2,8 +2,16 @@ import React from 'react';
 import io from "socket.io-client";
 import {merge} from 'lodash'
 import '../../assets/stylesheets/chat.css'
+import { connect } from 'react-redux';
 
 const socket = io()
+
+const mapStateToProps = (state) => {
+    return {
+        currentUser: state.session.user,
+    };
+};
+ 
 
 class Chat extends React.Component {
     constructor(props){
@@ -16,12 +24,6 @@ class Chat extends React.Component {
         this.updateMessages = this.updateMessages.bind(this)
     }
     componentDidMount(){
-        // let el;
-
-        // socket.on('time', function (timeString) {
-        //     el = document.getElementById('server-time')
-        //     el.innerHTML = 'Server time: ' + timeString;
-        // });
 
         socket.on('receive', this.updateMessages)
     }
@@ -42,17 +44,16 @@ class Chat extends React.Component {
     }
     handleSubmit(e){
         e.preventDefault()
-        socket.emit('send', this.state.draft)
+        socket.emit('send', {username: this.props.currentUser.username, text: this.state.draft})
         this.setState({draft: ""})
     }
     render() {
         let messages = this.state.messages.map(message => (
-            <li>{message}</li>
+            <li>{message.username}: {message.text}</li>
         ))
         return (
             <div>
-                {/* <div id='server-time'>
-                </div>   */}
+
                 <ul className="messages">
                 {messages} 
                 </ul>
@@ -65,4 +66,4 @@ class Chat extends React.Component {
     }
 }
 
-export default Chat;
+export default connect(mapStateToProps, null)(Chat);
