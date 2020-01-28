@@ -1,17 +1,20 @@
 import { connect } from 'react-redux';
-import { fetchUserClimbs } from '../../actions/climb_actions';
+import { fetchUserBoulders } from '../../actions/boulder_actions';
+import { fetchUserRopes} from '../../actions/rope_actions';
 import Profile from './profile';
 
 const mapStateToProps = (state) => {
     return {
-        climbs: Object.values(state.climbs.user),
+        boulders: Object.values(state.boulders.user),
+        ropes: Object.values(state.ropes.user),
         currentUser: state.session.user
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchUserClimbs: id => dispatch(fetchUserClimbs(id))
+        fetchUserBoulders: id => dispatch(fetchUserBoulders(id)),
+        fetchUserRopes: id => dispatch(fetchUserRopes(id))
     };
 };
 

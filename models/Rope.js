@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const ClimbSchema = new Schema({
+const RopeSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'users'
@@ -11,7 +11,7 @@ const ClimbSchema = new Schema({
         required: true
     },
     grade: {
-        type: Number,
+        type: String,
         required: true
     },
     date: {
@@ -20,4 +20,4 @@ const ClimbSchema = new Schema({
     }
 });
 
-module.exports = Climb = mongoose.model('climb', ClimbSchema);
+module.exports = Rope = mongoose.model('rope', RopeSchema);

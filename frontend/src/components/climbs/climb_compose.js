@@ -1,9 +1,9 @@
 import React from 'react';
-// import ClimbBox from './climb_box';
+// import BoulderBox from './boulder_box';
 import '../../assets/stylesheets/climb_compose.css'
 import {merge} from 'lodash'
 
-class ClimbCompose extends React.Component {
+class BoulderCompose extends React.Component {
     constructor(props) {
         super(props);
 
@@ -11,26 +11,28 @@ class ClimbCompose extends React.Component {
             session: [],
             name: "",
             grade: "",
-            newClimb: ""
+            newBoulder: "",
+            type: "boulder"
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleSubmitSession = this.handleSubmitSession.bind(this)
         this.handleRemove = this.handleRemove.bind(this)
+        this.handleSwitchType = this.handleSwitchType.bind(this)
     }
 
     componentWillReceiveProps(nextProps) {
-        this.setState({ newClimb: nextProps.newClimb.name });
+        this.setState({ newBoulder: nextProps.newBoulder.name });
     }
 
     handleSubmit(e) {   
         e.preventDefault();
-        let climb = {
+        let boulder = {
             name: this.state.name,
             grade: this.state.grade
         };
         
-        this.props.composeClimb(climb);
+        this.props.composeBoulder(boulder);
         this.setState({ name: '', grade: '' })
     }
 
@@ -44,49 +46,80 @@ class ClimbCompose extends React.Component {
             grade: e.currentTarget.value
         });
     }
-    handleClick(grade){
+    handleClickClimb(grade){
         return () => {
             let newState = merge({}, this.state)
             newState.session.push(grade)
             this.setState(newState)
         }
     }
+
     handleRemove(){
         let newState = merge({}, this.state)
         newState.session.pop()
         this.setState(newState)
     }
     handleSubmitSession(){
-        
-        for (let idx in this.state.session){  
-            this.props.composeClimb({name: "Default", grade: `${this.state.session[idx]}`})
+        if (this.state.type === 'boulder') {
+            for (let idx in this.state.session){  
+                this.props.composeBoulder({name: "Default", grade: `${this.state.session[idx]}`})
+            }
+        }
+        else {
+            for (let idx in this.state.session) {
+                this.props.composeRope({ name: "Default", grade: `${this.state.session[idx]}` })
+            }
+        }
+        this.setState({session: []})
+    }
+    handleSwitchType(){
+        if (this.state.type === 'boulder'){
+            this.setState({type: 'rope'})}
+        else {
+            this.setState({type: 'boulder'}) 
         }
         this.setState({session: []})
     }
     render() {
         let options = []
-        for (let i = 0;i < 4;i++){
-            options.push(
-                <tr>
-                    <td onClick={this.handleClick(3*i)}>V{3*i}</td>
-                    <td onClick={this.handleClick(3 * i+1)}>V{3*i + 1}</td>
-                    
-                    {i !== 3 ? <td onClick={this.handleClick(3 * i + 2)}>V{3 * i + 2}</td> :
-                        <td onClick={this.handleRemove}> Del </td>
-                    }
-                    
-                </tr>
-            )
+        if (this.state.type === 'boulder'){
+            const BOULDER_GRADES = ["V0", "V1", "V2", "V3", "V4", "V5", "V6", "V7", "V8", "V9", "V10", "V11"]
+
+            for (let i = 0;i < 4;i++){
+                options.push(
+                    <tr className="boulder-grades">
+                        <td onClick={this.handleClickClimb(BOULDER_GRADES[3 * i])}>{BOULDER_GRADES[3*i]}</td>
+                        <td onClick={this.handleClickClimb(BOULDER_GRADES[3 * i + 1])}>{BOULDER_GRADES[3 * i + 1]}</td>
+                        <td onClick={this.handleClickClimb(BOULDER_GRADES[3 * i + 2])}>{BOULDER_GRADES[3 * i + 2]}</td>
+                    </tr>
+                )
+            }
         }
-        let session = this.state.session.map(grade =>
-            <> <li>V{grade}</li> &nbsp; </>
-            )
+        else {
+            const ROPE_GRADES = ["5.5", "5.6", "5.7", "5.8", 
+                                "5.9", "5.10a", "5.10b", "5.10c", 
+                                "5.10d", "5.11a", "5.11b", "5.11c", 
+                                "5.11d", "5.12a", "5.12b", "5.12c", 
+                                "5.12d", "5.13a"]
+            for (let i = 0;i < 5;i++) {
+                options.push(<tr className="rope-grades">
+                    <td onClick={this.handleClickClimb(ROPE_GRADES[4 * i])}>{ROPE_GRADES[4*i]}</td>
+                    {4 * i + 1 < ROPE_GRADES.length ? <td onClick={this.handleClickClimb(ROPE_GRADES[4 * i + 1])}>{ROPE_GRADES[4 * i + 1]}</td> : null}
+                    {4 * i + 2 < ROPE_GRADES.length ? <td onClick={this.handleClickClimb(ROPE_GRADES[4 * i + 2])}>{ROPE_GRADES[4 * i + 2]}</td> : null}
+                    {4 * i + 3 < ROPE_GRADES.length ? <td onClick={this.handleClickClimb(ROPE_GRADES[4 * i + 3])}>{ROPE_GRADES[4 * i + 3]}</td> : null}
+                </tr>)
+            }
+        }
+        let session = this.state.session.map((grade, idx) => <> <li key={idx}>{grade}</li> &nbsp; </> )
         return (
             <div className="compose-session">
-            
+                <button onClick={this.handleSwitchType}>{this.state.type === 'boulder' ? "Switch to Ropes" : "Switch to Boulders"}</button>
             <table className="options">
-                {options}
+                <tbody>
+                    {options}
+                </tbody>
             </table>
+            <button className="remove-button" onClick={this.handleRemove}> Remove </button>
             <button className="submit-session-button" onClick={this.handleSubmitSession}>Submit Session</button>
             <ul className="session">
                 {session}
@@ -109,11 +142,11 @@ class ClimbCompose extends React.Component {
                     </div>
                 </form>
                 <br />
-                <ClimbBox name={this.state.newClimb} /> TODO: show all of the sessions climbs 
+                <BoulderBox name={this.state.newBoulder} /> TODO: show all of the sessions boulders 
             </div> */}
             </div>
         )
     }
 }
 
-export default ClimbCompose;
+export default BoulderCompose;

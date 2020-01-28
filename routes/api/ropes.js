@@ -1,0 +1,55 @@
+const express = require('express');
+const router = express.Router();
+// const mongoose = require('mongoose');
+const passport = require('passport');
+
+const Rope = require('../../models/Rope');
+// index
+router.get('/', (req, res) => {
+    Rope.find()
+        .sort({ date: -1 })
+        .then(ropes => res.json(ropes))
+        .catch(err => res.status(404).json({ noropesfound: 'No ropes found' }));
+});
+
+// user's ropes
+router.get('/user/:user_id', (req, res) => {
+    Rope.find({ user: req.params.user_id })
+        .then(ropes => res.json(ropes))
+        .catch(err =>
+            res.status(404).json({ noropesfound: 'No ropes found from that user' }
+            )
+        );
+});
+// show
+router.get('/:id', (req, res) => {
+    Rope.findById(req.params.id)
+        .then(rope => res.json(rope))
+        .catch(err =>
+            res.status(404).json({ noropefound: 'No rope found with that ID' })
+        );
+});
+// create
+router.post('/',
+    passport.authenticate('jwt', { session: false }), //authenticate request
+    (req, res) => {
+
+        const newRope = new Rope({
+            name: req.body.name,
+            grade: req.body.grade,
+            user: req.user.id
+        });
+
+        newRope.save().then(rope => res.json(rope));
+    }
+);
+// TODO
+// router.delete('/:id', (req, res) => {
+//     Rope.findById(req.params.id)
+//         .then(rope => res.json(rope))
+//         .catch(err =>
+//             res.status(404).json({ noropefound: 'No rope found with that ID' })
+//         );
+// });
+
+module.exports = router;

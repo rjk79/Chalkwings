@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
-import { fetchClimbs } from '../../actions/climb_actions';
+import { fetchBoulders } from '../../actions/boulder_actions';
 import Climbs from './climbs';
 
 const mapStateToProps = (state) => {
     return {
-        climbs: Object.values(state.climbs.all)
+        boulders: Object.values(state.boulders.all)
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchClimbs: () => dispatch(fetchClimbs())
+        fetchBoulders: () => dispatch(fetchBoulders())
     };
 };
 

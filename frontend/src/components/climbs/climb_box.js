@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ClimbBox extends React.Component {
+class BoulderBox extends React.Component {
     render() {
         const date = `${this.props.date.slice(5, 7)}/${this.props.date.slice(0, 4)}`
         return (
@@ -11,4 +11,4 @@ class ClimbBox extends React.Component {
     }
 }
 
-export default ClimbBox;
+export default BoulderBox;

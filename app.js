@@ -3,7 +3,8 @@ const express = require("express");
 const app = express();
 const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
-const climbs = require("./routes/api/climbs");
+const boulders = require("./routes/api/boulders");
+const ropes = require("./routes/api/ropes");
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const path = require('path');
@@ -23,7 +24,8 @@ mongoose
 
 // routes
 app.use("/api/users", users);
-app.use("/api/climbs", climbs);
+app.use("/api/boulders", boulders);
+app.use("/api/ropes", ropes);
 
 const port = process.env.PORT || 5000;
 

@@ -14,7 +14,7 @@ class FortyTips extends React.Component {
         // ))
         return (
         <>
-        <h1>40 Tips for Rock Climbing</h1>
+        <h1>40 Tips for Rock Bouldering</h1>
         {/* {text} */}
         </>
         )

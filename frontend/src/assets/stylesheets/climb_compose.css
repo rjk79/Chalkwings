@@ -16,8 +16,13 @@
     text-align: center;
     border-radius: 50%;
     cursor: pointer;
-    background: rgb(93, 8, 123);
     color: white;
+}
+.options .boulder-grades td {
+    background: rgb(136,132,216);
+}
+.options .rope-grades td {
+    background: rgb(108, 208, 157);
 }
 
 .options tr td:hover {
@@ -32,7 +37,7 @@
 .session li {
     background: rgb(255, 228, 22);
     border-radius: 25%;
-    width: 30px;
+    width: 37px;
     text-align: center;
 }
 .submit-session-button {
@@ -43,6 +48,19 @@
     margin: 2px;
 }
 .submit-session-button:hover {
+    background: black;
+    color: white;
+}
+.remove-button {
+    border: 2px solid black;
+    background: white;
+    border-radius: 5px;
+    width: 10%;
+    margin: 2px;
+    text-align: center;
+    cursor: pointer;
+}
+.remove-button:hover {
     background: black;
     color: white;
 }

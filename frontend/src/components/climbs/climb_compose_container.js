@@ -1,17 +1,19 @@
 import { connect } from 'react-redux';
-import { composeClimb } from '../../actions/climb_actions';
+import { composeBoulder } from '../../actions/boulder_actions';
+import { composeRope } from '../../actions/rope_actions';
 import ClimbCompose from './climb_compose';
 
 const mapStateToProps = (state) => {
     return {
         currentUser: state.session.user,
-        newClimb: state.climbs.new
+        newBoulder: state.boulders.new
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        composeClimb: data => dispatch(composeClimb(data))
+        composeBoulder: data => dispatch(composeBoulder(data)),
+        composeRope: data => dispatch(composeRope(data))
     };
 };
 

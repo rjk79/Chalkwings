@@ -27,9 +27,9 @@ const App = () => (
         
         <ProtectedRoute exact path="/chat" component={Chat} />
 
-        <ProtectedRoute exact path="/climbs" component={ClimbsContainer} />
+        <ProtectedRoute exact path="/boulders" component={ClimbsContainer} />
         <ProtectedRoute exact path="/profile" component={ProfileContainer} />
-        <ProtectedRoute exact path="/new_climb" component={ClimbComposeContainer} />
+        <ProtectedRoute exact path="/new_boulder" component={ClimbComposeContainer} />
     </Switch>
     </div>
 );
