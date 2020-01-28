@@ -22,6 +22,17 @@ router.get('/user/:user_id', (req, res) => {
             )
         );
 });
+//user's boulders from this month
+router.get('/user/:user_id/month', (req, res) => {
+    var d = new Date();
+    d.setMonth(d.getMonth() - 1); //1 month ago
+    Boulder.find({ $and: [{ date: { $gte: d } }, { user: req.params.user_id }] })
+        .then(boulders => res.json(boulders))
+        .catch(err =>
+            res.status(404).json({ nobouldersfound: 'No boulders found from that user' }
+            )
+        );
+});
 // show
 router.get('/:id', (req, res) => {
     Boulder.findById(req.params.id)

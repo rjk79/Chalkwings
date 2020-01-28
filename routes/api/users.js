@@ -99,4 +99,22 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
     });
 })
 
+router.get('/search/:query', (req, res) => {
+    const query = req.params.query;
+    
+    User.find({ username: { $regex: `.*${query}.*` } })
+        .then(users => res.json(users.map(user => 
+        {
+            return {
+                id: user.id, 
+                username: user.username
+            }}
+        )))
+        .catch(err =>
+            res.status(404).json({ nousersfound: 'No users found' }
+            )
+        );
+    
+})
+
 module.exports = router;

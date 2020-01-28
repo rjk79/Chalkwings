@@ -6,6 +6,7 @@ import NavBarContainer from './nav/navbar_container';
 import ClimbsContainer from './climbs/climbs_container';
 import ProfileContainer from './profile/profile_container';
 import ClimbComposeContainer from './climbs/climb_compose_container';
+import SearchComponent from './search/search'
 
 import MainPage from './main/main_page';
 import LoginFormContainer from './session/login_form_container';
@@ -28,8 +29,9 @@ const App = () => (
         <ProtectedRoute exact path="/chat" component={Chat} />
 
         <ProtectedRoute exact path="/boulders" component={ClimbsContainer} />
-        <ProtectedRoute exact path="/profile" component={ProfileContainer} />
+        <ProtectedRoute exact path={`/profile/:userId`} component={ProfileContainer} />
         <ProtectedRoute exact path="/new_boulder" component={ClimbComposeContainer} />
+        <ProtectedRoute exact path="/search" component={SearchComponent} />
     </Switch>
     </div>
 );

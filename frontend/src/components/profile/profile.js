@@ -1,7 +1,7 @@
 import React from 'react';
 // import BoulderBox from '../boulders/boulder_box';
 import {
-    BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
+    AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 
 import '../../assets/stylesheets/profile.css'
@@ -17,9 +17,15 @@ class Profile extends React.Component {
     }
 
     componentWillMount() {
-        console.log(this.props.currentUser.id)
-        this.props.fetchUserBoulders(this.props.currentUser.id);
-        this.props.fetchUserRopes(this.props.currentUser.id);
+        const userId = this.props.match.params.userId
+        this.props.fetchUserBoulders(userId)
+        this.props.fetchUserRopes(userId)
+    }
+    componentDidUpdate(prevProps){
+        if (this.props.match.params.userId !== prevProps.match.params.userId){
+            const userId = this.props.match.params.userId
+            this.props.fetchUserBoulders(userId)
+            this.props.fetchUserRopes(userId)}
     }
 
     componentWillReceiveProps(newState) {
@@ -42,9 +48,9 @@ class Profile extends React.Component {
         return data
     }
 
-    createBarGraph(data, color){
+    createAreaGraph(data, color){
         return (<ResponsiveContainer>
-            <BarChart
+            <AreaChart
                 width={500}
                 height={300}
                 data={data}
@@ -57,8 +63,8 @@ class Profile extends React.Component {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="count" fill={color} />
-            </BarChart>
+                <Area type="monotone" dataKey="count" fill={color} />
+            </AreaChart>
         </ResponsiveContainer>)
     }
 
@@ -94,22 +100,22 @@ class Profile extends React.Component {
                     <h2>Your Profile</h2>
                     <h3>This Week - Boulders</h3> 
                     <div className="climb-chart">
-                        {this.createBarGraph(boulderMonthlyData, "#8884d8")}
+                        {this.createAreaGraph(boulderMonthlyData, "#8884d8")}
                     </div>
-                    
+
                     <h3>This Week - Ropes</h3> 
                     <div className="climb-chart">
-                        {this.createBarGraph(ropeMonthlyData, "#6CD09D")}
+                        {this.createAreaGraph(ropeMonthlyData, "#6CD09D")}
                     </div>
 
                     <h3>All Boulders</h3>                
                     <div className="climb-chart">
-                        {this.createBarGraph(boulderData, "#8884d8")}
+                        {this.createAreaGraph(boulderData, "#8884d8")}
                     </div>
 
                     <h3>All Ropes</h3>
                     <div className="climb-chart">
-                        {this.createBarGraph(ropeData, "#6CD09D")}
+                        {this.createAreaGraph(ropeData, "#6CD09D")}
                     </div>
 
                     {/* {this.state.boulders.map(boulder => (

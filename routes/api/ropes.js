@@ -21,6 +21,19 @@ router.get('/user/:user_id', (req, res) => {
             )
         );
 });
+//user's ropes from this month
+router.get('/user/:user_id/month', (req, res) => {
+    var d = new Date();
+    d.setMonth(d.getMonth() - 1); //1 month ago
+    Rope.find({ $and: [{ date: { $gte: d } }, { user: req.params.user_id }] })
+        .then(ropes => res.json(ropes))
+        .catch(err =>
+            res.status(404).json({ noropesfound: 'No ropes found from that user' }
+            )
+        );
+});
+
+
 // show
 router.get('/:id', (req, res) => {
     Rope.findById(req.params.id)
