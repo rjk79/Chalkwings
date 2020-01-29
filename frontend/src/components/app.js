@@ -3,10 +3,11 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Route, Switch } from 'react-router-dom';
 import NavBarContainer from './nav/navbar_container';
 
-import ClimbsContainer from './climbs/climbs_container';
+import StandingsContainer from './standings/standings_container';
 import ProfileContainer from './profile/profile_container';
 import ClimbComposeContainer from './climbs/climb_compose_container';
 import SearchComponent from './search/search'
+import TeamsComponent from './teams/create_team'
 
 import MainPage from './main/main_page';
 import LoginFormContainer from './session/login_form_container';
@@ -28,10 +29,11 @@ const App = () => (
         
         <ProtectedRoute exact path="/chat" component={Chat} />
 
-        <ProtectedRoute exact path="/boulders" component={ClimbsContainer} />
+        <ProtectedRoute exact path="/standings" component={StandingsContainer} />
         <ProtectedRoute exact path={`/profile/:userId`} component={ProfileContainer} />
         <ProtectedRoute exact path="/new_boulder" component={ClimbComposeContainer} />
         <ProtectedRoute exact path="/search" component={SearchComponent} />
+        <ProtectedRoute exact path="/teams" component={TeamsComponent} />
     </Switch>
     </div>
 );

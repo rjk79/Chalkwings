@@ -40,6 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // If this is a first time user, start with an empty store
         store = configureStore({});
     }
+    
+    window.getState = store.getState
 
     const root = document.getElementById('root');
 

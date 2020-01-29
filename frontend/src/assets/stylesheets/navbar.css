@@ -17,6 +17,9 @@
 .links1 > *:hover {
     text-decoration: none;
 }
+.links1 > *:focus {
+    text-decoration: none;
+}
 
 .links2 {
     width: 100px;
@@ -28,6 +31,9 @@
     color: white;
 }
 .links2 > *:hover {
+    text-decoration: none;
+}
+.links2 > *:focus {
     text-decoration: none;
 }
 

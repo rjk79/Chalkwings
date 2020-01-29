@@ -19,12 +19,13 @@ class NavBar extends React.Component {
         if (this.props.loggedIn) {
             return (
                 <div className="links1">
-                    <Link to={'/boulders'}>All Boulders</Link>
+                    <Link to={'/standings'}>Recent</Link>
                     <Link to={'/chat'}>Chat</Link>
                     <Link to={`/profile/${this.props.currentUser.id}`}>Profile</Link>
-                    <Link to={'/new_boulder'}>Add Session</Link>
-                    <Link to={'/search'}>Search for User</Link>
-                    <button className="logout-button" onClick={this.logoutUser}>Logout</button>
+                    <Link to={'/new_boulder'}>Session</Link>
+                    <Link to={'/teams'}>Teams</Link>
+                    <Link to={'/search'}><i className="fas fa-search"></i></Link>
+                    <button className="logout-button" onClick={this.logoutUser}><i className="fas fa-sign-out-alt"></i></button>
                 </div>
             );
         } else {

@@ -7,6 +7,7 @@ const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
+
 const router = express.Router();
 
 router.post('/register', (req, res) => {
@@ -102,7 +103,7 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
 router.get('/search/:query', (req, res) => {
     const query = req.params.query;
     
-    User.find({ username: { $regex: `.*${query}.*` } })
+    User.find({ username: { $regex: `${query}.*`, $options: 'i' } })
         .then(users => res.json(users.map(user => 
         {
             return {
@@ -116,5 +117,15 @@ router.get('/search/:query', (req, res) => {
         );
     
 })
+
+router.get('/:id', (req, res)=> {
+    User.findById(req.params.id)
+        .then(user => res.json(user))
+        .catch(err =>
+            res.status(404).json({ nobouldersfound: 'No boulders found from that user' }
+            )
+        );
+})
+
 
 module.exports = router;

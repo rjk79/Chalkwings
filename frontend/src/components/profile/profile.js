@@ -5,17 +5,23 @@ import {
 } from 'recharts';
 
 import '../../assets/stylesheets/profile.css'
+import * as UserAPIUtil from '../../util/user_api_util'
 
 class Profile extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
+            username: "",
             boulders: [],
             ropes: [],
         }
     }
-
+    componentDidMount(){
+        UserAPIUtil.getUser(this.props.match.params.userId)
+            .then(res => this.setState({ username: res.data.username }))
+            .catch(err => console.log(err))
+    }
     componentWillMount() {
         const userId = this.props.match.params.userId
         this.props.fetchUserBoulders(userId)
@@ -97,13 +103,13 @@ class Profile extends React.Component {
 
             return (
                 <div className="profile">
-                    <h2>Your Profile</h2>
-                    <h3>This Week - Boulders</h3> 
+                    <h2>{this.state.username}'s Profile</h2>
+                    <h3>This Month - Boulders</h3> 
                     <div className="climb-chart">
                         {this.createAreaGraph(boulderMonthlyData, "#8884d8")}
                     </div>
 
-                    <h3>This Week - Ropes</h3> 
+                    <h3>This Month - Ropes</h3> 
                     <div className="climb-chart">
                         {this.createAreaGraph(ropeMonthlyData, "#6CD09D")}
                     </div>

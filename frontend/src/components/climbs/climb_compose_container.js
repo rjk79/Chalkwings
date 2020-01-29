@@ -6,7 +6,7 @@ import ClimbCompose from './climb_compose';
 const mapStateToProps = (state) => {
     return {
         currentUser: state.session.user,
-        newBoulder: state.boulders.new
+        newBoulder: state.entities.boulders.new
     };
 };
 

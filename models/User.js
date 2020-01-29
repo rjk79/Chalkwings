@@ -13,7 +13,11 @@ const UserSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
-    }
+    },
+    team: {
+        type: Schema.Types.ObjectId,
+        ref: 'teams'
+    },
 })
 
 module.exports = User = mongoose.model('users', UserSchema);

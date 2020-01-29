@@ -1,14 +1,12 @@
 import { combineReducers } from 'redux';
 import session from './session_reducer';
 import errors from './errors_reducer'
-import boulders from './boulders_reducer'
-import ropes from './ropes_reducer'
+import entities from './entities_reducer'
 
 const RootReducer = combineReducers({
     session,
     errors,
-    boulders,
-    ropes,
+    entities,
 });
 
 export default RootReducer;

@@ -1,0 +1,10 @@
+.teams p {
+    margin: 0;
+}
+.teams p:first-child {
+    font-size: 18px;
+    font-weight: 600;
+}
+.members {
+    list-style: none;
+}

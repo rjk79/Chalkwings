@@ -113,14 +113,16 @@ class BoulderCompose extends React.Component {
         let session = this.state.session.map((grade, idx) => <> <li key={idx}>{grade}</li> &nbsp; </> )
         return (
             <div className="compose-session">
-                <button onClick={this.handleSwitchType}>{this.state.type === 'boulder' ? "Switch to Ropes" : "Switch to Boulders"}</button>
+                {this.state.type === 'boulder' ? <h3>Bouldering</h3>: <h3>Rope Climbing</h3>}
+                <button className="switch-button" onClick={this.handleSwitchType}><i className="fas fa-exchange-alt"></i></button>
             <table className="options">
                 <tbody>
                     {options}
                 </tbody>
             </table>
-            <button className="remove-button" onClick={this.handleRemove}> Remove </button>
+                <button className="remove-button" onClick={this.handleRemove}><i className="fas fa-eraser"></i> </button>
             <button className="submit-session-button" onClick={this.handleSubmitSession}>Submit Session</button>
+            <h4>Session:</h4>
             <ul className="session">
                 {session}
             </ul>

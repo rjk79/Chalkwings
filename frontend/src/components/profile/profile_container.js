@@ -5,9 +5,8 @@ import Profile from './profile';
 
 const mapStateToProps = (state) => {
     return {
-        boulders: Object.values(state.boulders.user),
-        ropes: Object.values(state.ropes.user),
-        currentUser: state.session.user
+        boulders: Object.values(state.entities.boulders.user),
+        ropes: Object.values(state.entities.ropes.user),
     };
 };
 

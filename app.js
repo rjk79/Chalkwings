@@ -5,6 +5,7 @@ const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
 const boulders = require("./routes/api/boulders");
 const ropes = require("./routes/api/ropes");
+const teams = require("./routes/api/teams");
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const path = require('path');
@@ -26,6 +27,7 @@ mongoose
 app.use("/api/users", users);
 app.use("/api/boulders", boulders);
 app.use("/api/ropes", ropes);
+app.use("/api/teams", teams);
 
 const port = process.env.PORT || 5000;
 
