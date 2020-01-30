@@ -8,6 +8,7 @@
     overflow-wrap: break-word;
 }
 
+
 .messages [data-currentUser="true"] {
     color: rgb(136,132,216);
 }

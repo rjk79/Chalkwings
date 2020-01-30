@@ -7,6 +7,7 @@ const boulders = require("./routes/api/boulders");
 const ropes = require("./routes/api/ropes");
 const teams = require("./routes/api/teams");
 const messages = require("./routes/api/messages");
+const challenges = require("./routes/api/challenges");
 
 const bodyParser = require('body-parser');
 const passport = require('passport');
@@ -31,6 +32,7 @@ app.use("/api/boulders", boulders);
 app.use("/api/ropes", ropes);
 app.use("/api/teams", teams);
 app.use("/api/messages", messages);
+app.use("/api/challenges", challenges);
 
 const port = process.env.PORT || 5000;
 

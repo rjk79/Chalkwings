@@ -11,3 +11,8 @@ export const createTeam = data => {
 export const getTeam = id => {
     return axios.get(`/api/teams/${id}`)
 };
+
+export const getChallenges = id => {
+    return axios.get(`/api/teams/${id}/challenges`)
+};
+

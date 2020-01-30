@@ -1,6 +1,6 @@
 import React from 'react';
 import io from "socket.io-client";
-import {merge} from 'lodash'
+// import {merge} from 'lodash'
 import '../../assets/stylesheets/chat.css'
 import { connect } from 'react-redux';
 import * as MessageAPIUtil from '../../util/message_api_util'
@@ -27,8 +27,10 @@ class Chat extends React.Component {
         this.updateMessages = this.updateMessages.bind(this)
     }
     formatTime(date){
+        // convert to EST
         date = new Date(Date.parse(date))
         date = date.toString()
+        // "Thu Jan 30 2020 12:07:43 GMT-0500 (Eastern Standard Time)" 
         let hours = parseInt(date.slice(16, 18))
         let oldHours = hours
         if (hours > 12) hours -= 12
@@ -67,18 +69,26 @@ class Chat extends React.Component {
         socket.on('receive chatter', chatters => this.setState({chatters}))
         
     }
-
-    updateMessages(message){
-        let newState = merge({}, this.state)
-        newState.messages.push(message)
-        const len = newState.messages.length
-        let prevTimestamps = [...this.state.timestamps]
-        if (newState.messages[len - 1].date.slice(16, 18) !== newState.messages[len - 2].date.slice(16, 18)){
-            this.setState({timestamps: prevTimestamps.concat([len-1])})
-        }
-        this.setState(newState)
+    componentDidUpdate(){
+        this.scrollDown()
+    }
+    scrollDown(){
         let messages = document.getElementsByClassName("messages")[0]
         messages.scrollTop = messages.scrollHeight;
+    }
+    updateMessages(message){ //receive new message
+        let newMessages = [...this.state.messages]
+        newMessages.push(message)
+        const len = newMessages.length
+        let newTimestamps = [...this.state.timestamps]
+        // whenever you receive a msg, if the hour is diff than the prev msg's hour, then create timestamp
+        
+        if (newMessages[len - 1].date.slice(11,13) !== newMessages[len - 2].date.slice(11,13)){
+            newTimestamps.push(len-1)
+        }
+        this.setState({messages: newMessages})
+        this.setState({timestamps: newTimestamps})
+        this.scrollDown()
     }
 
     componentWillUnmount(){
@@ -93,14 +103,14 @@ class Chat extends React.Component {
         e.preventDefault()
         const {currentUser} = this.props
         if (this.state.draft.length > 0){
-        socket.emit('send', {username: currentUser.username, text: this.state.draft, date: new Date() + ""})
+        socket.emit('send', {username: currentUser.username, text: this.state.draft, date: new Date() })
         // post to db so later users can load the msg
         MessageAPIUtil.writeMessage({text: this.state.draft, username: currentUser.username})
         this.setState({draft: ""})}
     }
 
     render() {
-        
+        debugger
         const {currentUser} = this.props
         console.log(this.state.messages)
         let messages = this.state.messages.map((message, idx) => (
@@ -117,7 +127,7 @@ class Chat extends React.Component {
         ))
         return (
             <div className="chat">
-                <h2>Discussion </h2>
+                <h2>Channel </h2>
                 <ul className="messages">
                 {messages} 
                 </ul>

@@ -1,21 +1,41 @@
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     background: black;
 }
+.navbar > * {
+    margin: 0 10px;
+}
+
+.fas {
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
 
 .links1 {
-    width: 400px;
+    width: 200px;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    position: absolute;
+    top: 49px;
+    background: black;
+    font-size: 18px;
+    margin: 0;
+    z-index: 1; 
+    /* z index needs to be below position */
 }
 
 .links1 > * {
     color: white;
+    margin: 5px;
 }
 .links1 > *:hover {
     text-decoration: none;
+    background: white;
+    color: black;
 }
 .links1 > *:focus {
     text-decoration: none;
@@ -29,9 +49,13 @@
 
 .links2 > * {
     color: white;
+    margin-left: 10px;
+
 }
 .links2 > *:hover {
     text-decoration: none;
+    color: gold;
+
 }
 .links2 > *:focus {
     text-decoration: none;
@@ -49,4 +73,9 @@
 .logout-button {
     background: black;
     border: none;
+    display: flex;
+    justify-content: flex-start;
 }
+
+
+

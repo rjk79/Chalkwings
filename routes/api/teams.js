@@ -4,9 +4,21 @@ const passport = require('passport');
 
 const Team = require('../../models/Team');
 const User = require('../../models/User');
+const Challenge = require('../../models/Challenge');
 
+router.get('/:id/challenges', (req, res) => {
+    Team.findById(req.params.id)
+        .then(team => {
+            Challenge.find({ $or: [{ team1: team._id }, { team2: team._id }]})
+                .sort({ date: -1 })
+                .then(challenges => res.json(challenges))
+                .catch(err => res.status(404).json({ nochallengesfound: 'No challenges found' }));
 
-
+        })
+        .catch(err =>
+            res.status(404).json({ noteamfound: 'No team found with that ID' })
+        );
+})
 
 // index
 router.get('/', (req, res) => {
