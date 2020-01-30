@@ -29,7 +29,7 @@ class Standings extends React.Component {
 
     render() {
         // const links = <Link to="/fortytips"> Forty Tips for Bouldering </Link>
-
+        
         if (this.state.teams.length === 0) {
             return (<div>
                 {/* {links} <br/>  */}
@@ -53,6 +53,10 @@ class Standings extends React.Component {
             return (
                  
                 <div>
+                    <h3>Changelog:</h3>
+                    <div>Added timestamps to chat</div>
+                    <div>Navbar is now hideable</div>
+                    
                     <h3>Teams:</h3>
                     <ul className="teams">
                         {teams}

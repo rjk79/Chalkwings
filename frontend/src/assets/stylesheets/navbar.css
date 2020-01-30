@@ -8,7 +8,13 @@
     margin: 0 10px;
 }
 
-.fas {
+.fa-search, .fa-sign-out-alt, .fa-bars {
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+[class*="fas fa-home"] {
     color: white;
     font-size: 24px;
     cursor: pointer;
@@ -29,13 +35,12 @@
 }
 
 .links1 > * {
-    color: white;
+    color: white !important; 
     margin: 5px;
 }
 .links1 > *:hover {
     text-decoration: none;
-    background: white;
-    color: black;
+    background: gold;
 }
 .links1 > *:focus {
     text-decoration: none;
@@ -63,6 +68,10 @@
 
 .appname {
     font-size: 24px;
+    color: white;
+}
+.appname:focus, .appname:hover {
+    text-decoration: none;
     color: white;
 }
 

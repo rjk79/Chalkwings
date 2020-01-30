@@ -25,6 +25,7 @@ class Chat extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.updateMessages = this.updateMessages.bind(this)
+        
     }
     formatTime(date){
         // convert to EST
@@ -110,7 +111,7 @@ class Chat extends React.Component {
     }
 
     render() {
-        debugger
+      
         const {currentUser} = this.props
         console.log(this.state.messages)
         let messages = this.state.messages.map((message, idx) => (

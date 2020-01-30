@@ -6,6 +6,8 @@ const keys = require('../../config/keys');
 const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
+const Boulder = require('../../models/Boulder');
+const Rope = require('../../models/Rope');
 
 
 const router = express.Router();
@@ -122,10 +124,47 @@ router.get('/:id', (req, res)=> {
     User.findById(req.params.id)
         .then(user => res.json(user))
         .catch(err =>
-            res.status(404).json({ nobouldersfound: 'No boulders found from that user' }
+            res.status(404).json({ nousersfound: 'No users found' }
             )
         );
 })
+//delete user's boulders
+router.delete('/:id/boulders', (req, res)=> {
+    console.log('hitting route part 2')
+    User.findById(req.params.id)
+        .then(userObj => {
+            
+            Boulder.deleteMany({ user: userObj._id }, function (err, result) {
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.send(result);
+                }
+            })
+        })
+        .catch(err =>
+            res.status(404).json({ nousersfound: 'No users found' }
+            )
+        );
+})
+//delete user's ropes
+router.delete('/:id/ropes', (req, res)=> {
+    User.findById(req.params.id)
+        .then(userObj => {
+            Rope.deleteMany({ user: userObj._id }, function (err, result) { //need cb 
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.send(result);
+                }
+            })
+        
 
+        })
+        .catch(err =>
+            res.status(404).json({ nousersfound: 'No users found from that user' }
+            )
+        );
+})
 
 module.exports = router;

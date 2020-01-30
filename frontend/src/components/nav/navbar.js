@@ -8,15 +8,19 @@ class NavBar extends React.Component {
         this.state = {linksShowing: false}
         this.logoutUser = this.logoutUser.bind(this);
         this.getLinks = this.getLinks.bind(this);
-        this.handleClick = this.handleClick.bind(this)
+        this.handleClickHamburger = this.handleClickHamburger.bind(this)
+        this.handleClickLink = this.handleClickLink.bind(this)
     }
 
     logoutUser(e) {
         e.preventDefault();
         this.props.logout();
     }
-    handleClick(){
+    handleClickHamburger(){
         this.setState({linksShowing: !this.state.linksShowing})
+    }
+    handleClickLink(){
+        this.setState({ linksShowing: false })
     }
     // render links dependent on whether the user is logged in
     getLinks() {
@@ -26,12 +30,12 @@ class NavBar extends React.Component {
                 {this.state.linksShowing ?
                     
                     <div className="links1">
-                        <Link to={'/standings'}>Home</Link>
-                        <Link to={'/chat'}>Channel</Link>
-                        <Link to={`/profile/${this.props.currentUser.id}`}>Profile</Link>
-                        <Link to={'/new_boulder'}>Session</Link>
-                        <Link to={'/teams'}>Teams</Link>
-                        <Link to={'/search'}><i className="fas fa-search"></i></Link>
+                        <Link onClick={this.handleClickLink} to={'/standings'}><i className="fas fa-home"></i></Link>
+                        <Link onClick={this.handleClickLink} to={'/chat'}>Channel</Link>
+                        <Link onClick={this.handleClickLink} to={`/profile/${this.props.currentUser.id}`}>Profile</Link>
+                        <Link onClick={this.handleClickLink} to={'/new_boulder'}>Session</Link>
+                        <Link onClick={this.handleClickLink} to={'/teams'}>Teams</Link>
+                        <Link onClick={this.handleClickLink} to={'/search'}><i className="fas fa-search"></i></Link>
                         <button className="logout-button" onClick={this.logoutUser}><i className="fas fa-sign-out-alt"></i></button>
                     </div>
                 : null}
@@ -50,7 +54,7 @@ class NavBar extends React.Component {
     render() {
         return (
             <div className="navbar">
-                {this.props.loggedIn ? <i className="fas fa-bars" onClick={this.handleClick}></i> : null}
+                {this.props.loggedIn ? <i className="fas fa-bars" onClick={this.handleClickHamburger}></i> : null}
 
                 <Link className="appname" to="/"> Chalkwings </Link>
                 {this.getLinks()}

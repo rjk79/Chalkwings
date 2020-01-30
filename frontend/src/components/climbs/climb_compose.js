@@ -15,7 +15,7 @@ class BoulderCompose extends React.Component {
             type: "boulder"
         }
 
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
         this.handleSubmitSession = this.handleSubmitSession.bind(this)
         this.handleRemove = this.handleRemove.bind(this)
         this.handleSwitchType = this.handleSwitchType.bind(this)
@@ -25,16 +25,16 @@ class BoulderCompose extends React.Component {
         this.setState({ newBoulder: nextProps.newBoulder.name });
     }
 
-    handleSubmit(e) {   
-        e.preventDefault();
-        let boulder = {
-            name: this.state.name,
-            grade: this.state.grade
-        };
+    // handleSubmit(e) {   
+    //     e.preventDefault();
+    //     let boulder = {
+    //         name: this.state.name,
+    //         grade: this.state.grade
+    //     };
         
-        this.props.composeBoulder(boulder);
-        this.setState({ name: '', grade: '' })
-    }
+    //     this.props.composeBoulder(boulder);
+    //     this.setState({ name: '', grade: '' })
+    // }
 
     updateName() {
         return e => this.setState({
@@ -71,6 +71,8 @@ class BoulderCompose extends React.Component {
             }
         }
         this.setState({session: []})
+        this.props.history.push(`/profile/${this.props.currentUser.id}`)
+
     }
     handleSwitchType(){
         if (this.state.type === 'boulder'){

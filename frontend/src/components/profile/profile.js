@@ -16,6 +16,7 @@ class Profile extends React.Component {
             boulders: [],
             ropes: [],
         }
+        this.deleteAll = this.deleteAll.bind(this)
     }
     componentDidMount(){
         UserAPIUtil.getUser(this.props.match.params.userId)
@@ -73,7 +74,11 @@ class Profile extends React.Component {
             </AreaChart>
         </ResponsiveContainer>)
     }
-
+    deleteAll(){
+        UserAPIUtil.deleteUserBoulders(this.props.match.params.userId)
+        UserAPIUtil.deleteUserRopes(this.props.match.params.userId)
+    }
+    
     render() {
             
         const BOULDER_GRADES = ["V0", "V1", "V2", 
@@ -103,23 +108,31 @@ class Profile extends React.Component {
 
             return (
                 <div className="profile">
-                    <h2>{this.state.username}'s Profile</h2>
-                    <h3>This Month - Boulders</h3> 
+                    <h1>{this.state.username}'s Profile</h1>
+                    <h2>Monthly Data</h2>
+                    <div>
+                        # of boulders: {boulderMonthlyData.length}<br/>
+                        # of rope climbs: {ropeMonthlyData.length}<br/>
+                        Distance bouldered: approx.&nbsp;{boulderMonthlyData.length * 15}&nbsp; feet<br/>
+                        Distance rope-climbed: approx.&nbsp;{ropeMonthlyData.length * 40}&nbsp; feet
+                    </div>
+                    <h3>Boulders</h3> 
                     <div className="climb-chart">
                         {this.createAreaGraph(boulderMonthlyData, "#8884d8")}
                     </div>
 
-                    <h3>This Month - Ropes</h3> 
+                    <h3>Ropes</h3> 
                     <div className="climb-chart">
                         {this.createAreaGraph(ropeMonthlyData, "#6CD09D")}
                     </div>
 
-                    <h3>All Boulders</h3>                
+                    <h2>Lifetime Data</h2>
+                    <h3>Boulders</h3>                
                     <div className="climb-chart">
                         {this.createAreaGraph(boulderData, "#8884d8")}
                     </div>
 
-                    <h3>All Ropes</h3>
+                    <h3>Ropes</h3>
                     <div className="climb-chart">
                         {this.createAreaGraph(ropeData, "#6CD09D")}
                     </div>
@@ -127,10 +140,11 @@ class Profile extends React.Component {
                     {/* {this.state.boulders.map(boulder => (
                         <BoulderBox key={boulder._id} name={boulder.name} grade={boulder.grade} date={boulder.date} />
                     ))} */}
+                    <button onClick={this.deleteAll}>Delete all</button>
                 </div>
             );
         
     }
 }
 
-export default Profile;
+export default Profile

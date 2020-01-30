@@ -92,6 +92,8 @@ class CreateTeam extends React.Component {
             symbol,
             color,
             members: teammates.map(teammate => teammate.id)
+        }).then(res => {
+            this.props.history.push('/standings')
         })
     }
     handleBlur(){
