@@ -100,7 +100,9 @@ class CreateTeam extends React.Component {
         // this.setState({results: []})
     }
     render(){
-        let symbols = ["cat", "crow", "dog", "dove", "dragon", "fish", "frog", "hippo", "horse", "kiwi-bird", "otter", "spider"]
+        let symbols = ["cat", "crow", "dog", "dove", "dragon", "fish", "frog", "hippo", "horse", "kiwi-bird", "otter", "spider", 
+                    "ice-cream", "hotdog", "drumstick-bite", "bacon", "cheese", "pepper-hot", "pizza-slice", "hamburger",
+                    "ghost", "heart", "sun", "baby-carriage", "beer", "carrot"]
         symbols = symbols.map((symbol, idx) => (
             <li key={idx} onClick={this.handleClick("symbol", symbol)} ><i className={`fas fa-${symbol}`}></i></li>)
         )
