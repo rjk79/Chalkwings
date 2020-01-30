@@ -59,6 +59,9 @@
     margin: 2px;
     text-align: center;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+
 }
 .remove-button:hover {
     background: black;

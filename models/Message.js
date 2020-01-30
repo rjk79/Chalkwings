@@ -6,13 +6,18 @@ const MessageSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'users'
     },
+    username: { //denormalize to save db queries. doesn't matter if user changes name since msgs have short ttl
+        type: String,
+        required: true
+    },
     text: {
         type: String,
         required: true
     },
     date: {
         type: Date,
-        default: Date.now
+        default: Date.now,
+        expires: 172800, //store for 2 days
     }
 });
 

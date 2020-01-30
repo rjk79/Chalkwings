@@ -25,6 +25,7 @@ class CreateTeam extends React.Component {
         }
         console.log(id, username)
         this.handleSubmit = this.handleSubmit.bind(this)
+        // this.handleBlur = this.handleBlur.bind(this)
     }
     componentDidMount(){
 
@@ -56,6 +57,13 @@ class CreateTeam extends React.Component {
     handleClick(type, value){
         return e => this.setState({
             [type]: value //literal syntax for key
+        // }, () => {
+        //     if (type === 'symbol') {
+        //         document.getElementsByClassName('dropdown-content')[0].style.display = "none"
+        //     }
+        //     else if (type === 'color') {
+        //         document.getElementsByClassName('dropdown2-content')[0].style.display = "none"
+        //     }
         })
         
     }
@@ -85,6 +93,9 @@ class CreateTeam extends React.Component {
             color,
             members: teammates.map(teammate => teammate.id)
         })
+    }
+    handleBlur(){
+        // this.setState({results: []})
     }
     render(){
         let symbols = ["cat", "crow", "dog", "dove", "dragon", "fish", "frog", "hippo", "horse", "kiwi-bird", "otter", "spider"]
@@ -124,9 +135,10 @@ class CreateTeam extends React.Component {
                             {colors}
                         </ul>
                     </div>
+                    {this.state.symbol !== "" && this.state.color !== "" ? <i style={{ color: this.state.color }} className={`fas fa-${this.state.symbol} preview`}></i> : null}
 
                     <p>Members: (limit 5)</p>
-                    <ul>{teammates}</ul><input onChange={this.handleChangeQuery()} className="debounce" value={this.state.query} placeholder="Start typing..." />
+                    <ul>{teammates}</ul><input onBlur={this.handleBlur} onChange={this.handleChangeQuery()} className="debounce" value={this.state.query} placeholder="Start typing..." />
                     {this.state.results.length > 0 ? 
                     <div>
                         <ul className="results">{results}</ul>
@@ -134,7 +146,6 @@ class CreateTeam extends React.Component {
                     <input type="submit" value="Submit" />
                 </form>
 
-                {this.state.symbol !== "" && this.state.color !== "" ? <i style={{color: this.state.color}} className={`fas fa-${this.state.symbol} preview`}></i> : null}
             </div>
         )
     }

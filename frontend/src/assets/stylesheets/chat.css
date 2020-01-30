@@ -8,9 +8,29 @@
     overflow-wrap: break-word;
 }
 
+.messages [data-currentUser="true"] {
+    color: rgb(136,132,216);
+}
+.messages [data-currentUser="false"] {
+    color: rgb(108, 208, 157);
+}
+
 .draft {
     width: 50%;
 }
 .send-button {
     border-radius: 5px;
+}
+.timestamp {
+    display: flex;
+    justify-content: center;
+    font-weight: 200;
+    font-size: 12px;
+}
+span {
+    display: inline-block;
+    width: 10px;
+}
+.sender {
+    font-size: 16px;
 }

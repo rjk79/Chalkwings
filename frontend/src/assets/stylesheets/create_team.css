@@ -109,7 +109,8 @@
     list-style: none;
     padding: 5px;
     border: 1px solid black;
-    min-width: 100px;
+    min-width: 155px;
+    margin-top: -7px;
 }
 
 .results > *:hover {

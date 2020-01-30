@@ -19,7 +19,7 @@ class NavBar extends React.Component {
         if (this.props.loggedIn) {
             return (
                 <div className="links1">
-                    <Link to={'/standings'}>Recent</Link>
+                    <Link to={'/standings'}>Home</Link>
                     <Link to={'/chat'}>Chat</Link>
                     <Link to={`/profile/${this.props.currentUser.id}`}>Profile</Link>
                     <Link to={'/new_boulder'}>Session</Link>
