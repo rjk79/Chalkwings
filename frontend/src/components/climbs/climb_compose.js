@@ -71,7 +71,7 @@ class BoulderCompose extends React.Component {
             }
         }
         this.setState({session: []})
-        this.props.history.push(`/profile/${this.props.currentUser.id}`)
+        // this.props.history.push(`/profile/${this.props.currentUser.id}`)
 
     }
     handleSwitchType(){

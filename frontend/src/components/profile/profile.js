@@ -23,6 +23,7 @@ class Profile extends React.Component {
             .then(res => this.setState({ username: res.data.username }))
             .catch(err => console.log(err))
     }
+
     componentWillMount() {
         const userId = this.props.match.params.userId
         this.props.fetchUserBoulders(userId)
@@ -140,7 +141,7 @@ class Profile extends React.Component {
                     {/* {this.state.boulders.map(boulder => (
                         <BoulderBox key={boulder._id} name={boulder.name} grade={boulder.grade} date={boulder.date} />
                     ))} */}
-                    <button onClick={this.deleteAll}>Delete all</button>
+                    {this.props.match.params.userId === this.props.currentUser.id ? <button onClick={this.deleteAll}>Delete all</button> : null}
                 </div>
             );
         

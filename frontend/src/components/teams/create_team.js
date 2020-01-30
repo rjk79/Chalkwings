@@ -93,7 +93,7 @@ class CreateTeam extends React.Component {
             color,
             members: teammates.map(teammate => teammate.id)
         }).then(res => {
-            this.props.history.push('/standings')
+            // this.props.history.push('/standings')
         })
     }
     handleBlur(){

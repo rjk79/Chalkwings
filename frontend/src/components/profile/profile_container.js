@@ -7,6 +7,7 @@ const mapStateToProps = (state) => {
     return {
         boulders: Object.values(state.entities.boulders.user),
         ropes: Object.values(state.entities.ropes.user),
+        currentUser: state.session.user
     };
 };
 

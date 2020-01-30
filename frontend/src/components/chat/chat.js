@@ -113,7 +113,6 @@ class Chat extends React.Component {
     render() {
       
         const {currentUser} = this.props
-        console.log(this.state.messages)
         let messages = this.state.messages.map((message, idx) => (
             <>
                 <li key={idx}>
