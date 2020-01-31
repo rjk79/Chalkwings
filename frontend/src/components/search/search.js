@@ -38,6 +38,8 @@ class Search extends React.Component {
                 <ul>
                     {users}
                 </ul>
+                <img src={require("../../assets/images/mascotfly.png")} alt="mascotstand" />
+
             </div>
         )
     }

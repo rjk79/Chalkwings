@@ -6,3 +6,11 @@
     align-items: center;
 }
 
+.welcome-box {
+    border-radius: 10px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+

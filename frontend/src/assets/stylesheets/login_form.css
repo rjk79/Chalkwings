@@ -1,8 +1,20 @@
 .login-form-container{
     display: flex;
     justify-content: center;
-
+    height: 100%;
+    align-items: center;
+    flex-direction: column;
 }
+
+.login-form-container img {
+    height: 85px;
+}
+.login-form-container .title {
+    font-weight: 800;
+    font-size: 36px;
+}
+
+
 
 .login-form {
     display: flex;

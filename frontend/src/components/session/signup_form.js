@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import '../../assets/stylesheets/signup_form.css'
 
 class SignupForm extends React.Component {
@@ -56,6 +56,9 @@ class SignupForm extends React.Component {
     render() {
         return (
             <div className="signup-form-container">
+                <div className="title">CHALKWINGS</div>
+                <img src={require("../../assets/images/mascotlie.png")} alt="mascotstand" />
+
                 <form onSubmit={this.handleSubmit}>
                     <div className="signup-form">
                         <br />
@@ -82,6 +85,8 @@ class SignupForm extends React.Component {
                         {this.renderErrors()}
                     </div>
                 </form>
+                <Link className="" to="/login"> Already registered? </Link>
+
             </div>
         );
     }

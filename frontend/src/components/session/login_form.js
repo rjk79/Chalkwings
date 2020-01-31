@@ -61,6 +61,9 @@ class LoginForm extends React.Component {
     render() {
         return (
             <div className="login-form-container">
+                <div className="title">CHALKWINGS</div>
+                <img src={require("../../assets/images/mascotlie.png")} alt="mascotstand" />
+
                 <form onSubmit={this.handleSubmit}>
                     <div className="login-form">
                         <input type="text"
