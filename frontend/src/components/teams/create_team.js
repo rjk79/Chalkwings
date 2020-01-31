@@ -51,7 +51,7 @@ class CreateTeam extends React.Component {
                 .catch(err => console.log(err))
             
             
-            }, 1500)
+            }, 1000)
         ); 
     }
     handleClick(type, value){

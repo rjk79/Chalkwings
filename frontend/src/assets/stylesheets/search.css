@@ -23,6 +23,8 @@
     width: 50%;
     caret-color: rgb(136,132,216);
     height: 36px;
+    border-radius: 5px;
+    font-size: 24px;
 }
 .search form [type='submit']{
     margin: 5px;
@@ -33,6 +35,7 @@
     font-weight: 200;
     text-transform: uppercase;
     border-radius: 10px;
+    border: none;
 }
 .search form [type='submit']:hover {
     opacity: .5;

@@ -71,6 +71,11 @@ class BoulderCompose extends React.Component {
             }
         }
         this.setState({session: []})
+        const button = document.getElementsByClassName("submit-session-button")[0]
+        button.innerText = "Submitted!"
+        setTimeout(()=>{
+            button.innerText = "Submit Session"
+        }, 1000)
         // this.props.history.push(`/profile/${this.props.currentUser.id}`)
 
     }

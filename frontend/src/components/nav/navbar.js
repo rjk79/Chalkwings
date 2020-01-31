@@ -14,7 +14,8 @@ class NavBar extends React.Component {
 
     logoutUser(e) {
         e.preventDefault();
-        this.props.logout();
+        this.setState({ linksShowing: false }, this.props.logout)
+        
     }
     handleClickHamburger(){
         this.setState({linksShowing: !this.state.linksShowing})
@@ -31,12 +32,12 @@ class NavBar extends React.Component {
                     
                     <div className="links1">
                         <Link onClick={this.handleClickLink} to={'/standings'}><i className="fas fa-home"></i></Link>
-                        <Link onClick={this.handleClickLink} to={'/chat'}>Channel</Link>
-                        <Link onClick={this.handleClickLink} to={`/profile/${this.props.currentUser.id}`}>Profile</Link>
+                        <Link onClick={this.handleClickLink} to={'/chat'}><i className="fas fa-comment"></i>&nbsp;Messages</Link>
+                            <Link onClick={this.handleClickLink} to={`/profile/${this.props.currentUser.id}`}><i className="fas fa-user"></i>&nbsp;Profile</Link>
                         <Link onClick={this.handleClickLink} to={'/new_boulder'}>Session</Link>
                         <Link onClick={this.handleClickLink} to={'/teams'}>Create Team</Link>
                         {/* <Link onClick={this.handleClickLink} to={'/dashboard'}>Dashboard</Link> */}
-                        <Link onClick={this.handleClickLink} to={'/search'}><i className="fas fa-search"></i></Link>
+                            <Link onClick={this.handleClickLink} to={'/search'}><i className="fas fa-search"></i>&nbsp;Find User</Link>
                         <button className="logout-button" onClick={this.logoutUser}><i className="fas fa-sign-out-alt"></i></button>
                     </div>
                 : null}

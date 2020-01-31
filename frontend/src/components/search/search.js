@@ -33,7 +33,7 @@ class Search extends React.Component {
                 <h1>Search</h1>
                 <form onSubmit={this.handleSubmit}>
                     <input autoFocus onChange={this.handleChange()} value={this.state.query} placeholder="Enter username" />
-                    <input type="submit" value="Find User"/>
+                    <input type="submit" value="Search"/>
                 </form>
                 {this.state.results.length !== 0 ? <h3>Search Results:</h3> : null}
                 <ul>
