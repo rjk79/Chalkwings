@@ -7,10 +7,22 @@
 }
 
 .welcome-box {
+    margin-top: 30px;
     border-radius: 10px;
-    border: 2px solid black;
+    border: 1px solid black;
     display: flex;
     flex-direction: column;
+    align-items: center;
     text-align: center;
+    animation: rad 5s infinite;
+}
+
+@keyframes rad {
+    0%, 100% {border-radius: 50%; border: 1px dashed rgb(108, 208, 157);}
+    50% {border-radius: 40%; border: 1px dashed rgb(136,132,216);}
+}
+
+.get-started {
+    width: 50%;
 }
 
