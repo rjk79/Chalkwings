@@ -39,7 +39,9 @@ class Standings extends React.Component {
             let teams = this.state.teams.map((team, idx) => (
                 <li key={idx}>
                 <p>{team.name} &nbsp;
+                    <div>
                     <i className={`fas fa-${team.symbol}`} style={{ color: `${team.color}` }}></i>
+                    </div>
                 </p>
                 Captain: {users[team.captain] ? users[team.captain].username : null}
                 <p>Members:</p>
@@ -52,18 +54,19 @@ class Standings extends React.Component {
             ))
             return (
                  
-                <div>
-                    <h3>Changelog:</h3>
-                    <div>Added timestamps to chat</div>
-                    <div>Navbar is now hideable</div>
+                <div className="standings">
                     
-                    <h3>Teams:</h3>
+                    
+                    <div className="standings-title">Teams:</div>
                     <ul className="teams">
                         {teams}
                     </ul>
                     {/* {this.state.boulders.map(boulder => (
                         <BoulderBox key={boulder._id} name={boulder.name} grade={boulder.grade} date={boulder.date} />
                     ))} */}
+                    <h3>Changelog:</h3>
+                    <div>Added timestamps to chat</div>
+                    <div>Navbar is now hideable</div>
                 </div>
             );
         }

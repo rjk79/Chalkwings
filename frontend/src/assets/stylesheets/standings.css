@@ -1,5 +1,20 @@
+.standings {
+    background: #f2f2fd;
+}
+.teams {
+    list-style: none;
+}
 .teams p {
     margin: 0;
+}
+.standings-title {
+    font-size: 24px;
+    font-weight: 600;
+}
+.teams li {
+    background: white;
+    border-radius: 10px;
+    margin: 5px 0;
 }
 .teams p:first-child {
     font-size: 18px;
@@ -7,4 +22,9 @@
 }
 .members {
     list-style: none;
+}
+.teams i {
+    position: absolute;
+    opacity: .3;
+    font-size: 70px;
 }

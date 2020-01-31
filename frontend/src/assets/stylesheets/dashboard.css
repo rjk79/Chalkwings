@@ -1,0 +1,12 @@
+.dashboard form {
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard input {
+    width: 50%;
+}
+
+.dashboard button {
+    width: 50%;
+}

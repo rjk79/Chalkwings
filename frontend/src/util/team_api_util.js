@@ -16,3 +16,9 @@ export const getChallenges = id => {
     return axios.get(`/api/teams/${id}/challenges`)
 };
 
+
+export const searchTeams = query => {
+    
+    return axios.get(`/api/teams/search/${query}`)
+};
+

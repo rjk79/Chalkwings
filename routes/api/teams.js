@@ -65,4 +65,17 @@ router.post('/',
     }
 );
 
+
+router.get('/search/:query', (req, res) => {
+    const query = req.params.query;
+
+    Team.find({ name: { $regex: `${query}.*`, $options: 'i' } })
+        .then(teams => res.json(teams))
+        .catch(err =>
+            res.status(404).json({ nousersfound: 'No teams found' }
+            )
+        );
+
+})
+
 module.exports = router;

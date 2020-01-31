@@ -1,11 +1,18 @@
 .chat {
-    height: 80%;
+    height: 100%;
+    background: #f2f2fd;
+}
+.channel-title {
+    font-size: 24px;
+    font-weight: 600;
 }
 .messages {
     list-style: none;
     overflow-y: scroll;
     height: 80%;
     overflow-wrap: break-word;
+    background: white;
+    border-radius: 5px;
 }
 
 

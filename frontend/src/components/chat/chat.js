@@ -127,7 +127,7 @@ class Chat extends React.Component {
         ))
         return (
             <div className="chat">
-                <h2>Channel </h2>
+                <div className="channel-title">Channel </div>
                 <ul className="messages">
                 {messages} 
                 </ul>

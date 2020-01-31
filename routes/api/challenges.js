@@ -13,7 +13,7 @@ router.post('/',
             challenged: req.body.challenged,
             discipline: req.body.discipline,
             duration: req.body.duration,
-            ante: req.body.ante,
+            wager: req.body.wager,
         });
 
         newChallenge.save().then(challenge => res.json(challenge));

@@ -22,7 +22,7 @@ const ChallengeSchema = new Schema({
         type: Number,
         required: true
     },
-    ante: {
+    wager: {
         type: Number,
         required: true
     }, 
