@@ -72,7 +72,7 @@ router.get('/search/:query', (req, res) => {
     Team.find({ name: { $regex: `${query}.*`, $options: 'i' } })
         .then(teams => res.json(teams))
         .catch(err =>
-            res.status(404).json({ nousersfound: 'No teams found' }
+            res.status(404).json({ noteamfound: 'No team found' }
             )
         );
 
@@ -81,14 +81,38 @@ router.get('/search/:query', (req, res) => {
 router.get('/:id/weekropes', (req, res) => {
     Team.findById(req.params.id)
         .then(team => 
-            Rope.find({
-                $and: [
+            Rope.find({ //recent and belongs to team member
+                $and: [ 
                     {date: {
-                            $gte: new Date(new Date() - (7 * 24 * 60 * 60 * 1000)) //7 days
+                            $gte: new Date(new Date() - (14 * 24 * 60 * 60 * 1000)) //7 days
                         }}, 
-                    {_id: {$in: team.members}}
+                    {user: {$in: team.members}}
                 ]
             })
+            .then(ropes => res.json(ropes))
+            .catch(err =>
+                res.status(404).json({ noropesfound: 'No ropes found' }
+                )
+            )
+        )
+})
+
+router.get('/:id/weekboulders', (req, res) => {
+    Team.findById(req.params.id)
+        .then(team => 
+            Boulder.find({ //recent and belongs to team member
+                $and: [ 
+                    {date: {
+                            $gte: new Date(new Date() - (14 * 24 * 60 * 60 * 1000)) //7 days
+                        }}, 
+                    {user: {$in: team.members}}
+                ]
+            })
+            .then(boulders => res.json(boulders))
+            .catch(err =>
+                res.status(404).json({ nobouldersfound: 'No boulders found' }
+                )
+            )
         )
 })
 

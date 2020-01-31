@@ -18,7 +18,13 @@ export const getChallenges = id => {
 
 
 export const searchTeams = query => {
-    
     return axios.get(`/api/teams/search/${query}`)
 };
+
+export const getWeekBoulders = id => {
+    return axios.get(`/api/teams/${id}/weekboulders`)
+}
+export const getWeekRopes = id => {
+    return axios.get(`/api/teams/${id}/weekropes`)
+}
 

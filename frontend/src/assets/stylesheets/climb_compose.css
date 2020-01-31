@@ -9,6 +9,20 @@
 .compose-session > h3 {
     color: white;
 }
+.compose-session .type {
+    display: flex;
+    color: white;
+    align-items: center;
+    width: 50%;
+    justify-content: center;
+}
+.compose-session .type button {
+    color: black;
+    height: 40px;
+    width: 40px;
+}
+
+
 
 .options {
     display: flex;

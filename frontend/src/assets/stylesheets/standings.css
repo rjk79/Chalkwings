@@ -25,9 +25,27 @@
 }
 .members {
     list-style: none;
+    display: flex;
+    flex-direction: row;
 }
 .teams i {
     position: absolute;
     opacity: .3;
     font-size: 57px;
+    top: -29px;
+}
+.icon-holder {
+    position: relative;
+}
+
+.highest {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    align-items: center;
+}
+
+.highest li {
+    margin: 2px 0;
 }

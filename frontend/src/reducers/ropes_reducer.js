@@ -1,5 +1,7 @@
 import { RECEIVE_ROPES, RECEIVE_USER_ROPES, RECEIVE_NEW_ROPE } from '../actions/rope_actions';
 
+
+
 const RopesReducer = (state = { all: {}, user: {}, new: undefined }, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
