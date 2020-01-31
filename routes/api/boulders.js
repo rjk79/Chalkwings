@@ -59,13 +59,6 @@ router.post('/',
         newBoulder.save().then(boulder => res.json(boulder));
     }
 );
-// TODO
-// router.delete('/:id', (req, res) => {
-//     Boulder.findById(req.params.id)
-//         .then(boulder => res.json(boulder))
-//         .catch(err =>
-//             res.status(404).json({ noboulderfound: 'No boulder found with that ID' })
-//         );
-// });
+
 
 module.exports = router;

@@ -94,6 +94,7 @@ class Chat extends React.Component {
 
     componentWillUnmount(){
         socket.off('receive')
+        socket.off('receive chatter')
     }
     handleChange(){
         return e => this.setState({
@@ -119,7 +120,7 @@ class Chat extends React.Component {
                 {this.state.timestamps.includes(idx) ? this.formatTime(message.date) : null}
 
                 <strong className="sender" data-currentUser={currentUser.username === message.username}>
-                        {idx > 0 && message.username === this.state.messages[idx - 1].username ? <>&nbsp;&nbsp;&nbsp;&nbsp;</>: message.username + ": " }
+                        {idx > 0 && message.username === this.state.messages[idx - 1].username ? null : <><hr/> {message.username + ": "}<br/> </>}
                 </strong> 
                     {message.text}
                 </li>
@@ -127,7 +128,7 @@ class Chat extends React.Component {
         ))
         return (
             <div className="chat">
-                <div className="channel-title">Channel </div>
+                <div className="channel-title">Messages </div>
                 <ul className="messages">
                 {messages} 
                 </ul>

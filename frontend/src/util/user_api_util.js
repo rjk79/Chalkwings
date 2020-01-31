@@ -26,3 +26,10 @@ export const deleteUserRopes = id => {
                 console.log(error);
         });
 }
+
+export const getWeekBoulders = id => {
+    return axios.get(`/api/users/${id}/weekboulders`)
+}
+export const getWeekRopes = id => {
+    return axios.get(`/api/users/${id}/weekropes`)
+}

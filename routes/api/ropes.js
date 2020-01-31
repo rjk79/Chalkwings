@@ -56,13 +56,6 @@ router.post('/',
         newRope.save().then(rope => res.json(rope));
     }
 );
-// TODO
-// router.delete('/:id', (req, res) => {
-//     Rope.findById(req.params.id)
-//         .then(rope => res.json(rope))
-//         .catch(err =>
-//             res.status(404).json({ noropefound: 'No rope found with that ID' })
-//         );
-// });
+
 
 module.exports = router;

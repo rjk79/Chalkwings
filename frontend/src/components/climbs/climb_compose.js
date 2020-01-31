@@ -59,7 +59,7 @@ class BoulderCompose extends React.Component {
         newState.session.pop()
         this.setState(newState)
     }
-    handleSubmitSession(){
+    handleSubmitSession(){ //TODO: refactor using insertMany([])
         if (this.state.type === 'boulder') {
             for (let idx in this.state.session){  
                 this.props.composeBoulder({name: "Default", grade: `${this.state.session[idx]}`})

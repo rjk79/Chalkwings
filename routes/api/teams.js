@@ -33,14 +33,14 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     Team.findById(req.params.id)
         .then(team => {
-            User.find({ "_id": { '$in': team.members } })
+            User.find({ "_id": { '$in': team.members } }) //find team members
                 .then(members => {
-                            members = members.map(member => {return {username: member.username, id: member.id}}) 
-                            newMembers = {}
-                            for (let i = 0; i < members.length;i++){
-                                newMembers[members[i].id] = members[i]
-                            }
-                            return res.json({team, members: newMembers})}
+                    members = members.map(member => {return {username: member.username, id: member.id}}) 
+                    newMembers = {}
+                    for (let i = 0; i < members.length;i++){
+                        newMembers[members[i].id] = members[i]
+                    }
+                    return res.json({team, members: newMembers})}
                 )
                 .catch(err => res.status(404).json({ nomembersfound: 'No members found' }));
         })
@@ -77,5 +77,20 @@ router.get('/search/:query', (req, res) => {
         );
 
 })
+
+router.get('/:id/weekropes', (req, res) => {
+    Team.findById(req.params.id)
+        .then(team => 
+            Rope.find({
+                $and: [
+                    {date: {
+                            $gte: new Date(new Date() - (7 * 24 * 60 * 60 * 1000)) //7 days
+                        }}, 
+                    {_id: {$in: team.members}}
+                ]
+            })
+        )
+})
+
 
 module.exports = router;

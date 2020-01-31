@@ -1,5 +1,6 @@
 .standings {
     background: #f2f2fd;
+    height: 90%;
 }
 .teams {
     list-style: none;
@@ -12,9 +13,11 @@
     font-weight: 600;
 }
 .teams li {
-    background: white;
+    background: rgb(55,55,55);
     border-radius: 10px;
     margin: 5px 0;
+    padding: 0 10px;
+    color: white;
 }
 .teams p:first-child {
     font-size: 18px;
@@ -26,5 +29,5 @@
 .teams i {
     position: absolute;
     opacity: .3;
-    font-size: 70px;
+    font-size: 57px;
 }

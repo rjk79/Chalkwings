@@ -130,39 +130,55 @@ router.get('/:id', (req, res)=> {
 })
 //delete user's boulders
 router.delete('/:id/boulders', (req, res)=> {
-    console.log('hitting route part 2')
-    User.findById(req.params.id)
-        .then(userObj => {
             
-            Boulder.deleteMany({ user: userObj._id }, function (err, result) {
-                if (err) {
-                    res.send(err);
-                } else {
-                    res.send(result);
-                }
-            })
-        })
-        .catch(err =>
-            res.status(404).json({ nousersfound: 'No users found' }
-            )
-        );
+    Boulder.deleteMany({ user: userObj._id }, function (err, result) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(result);
+        }
+    })
 })
 //delete user's ropes
 router.delete('/:id/ropes', (req, res)=> {
-    User.findById(req.params.id)
-        .then(userObj => {
-            Rope.deleteMany({ user: userObj._id }, function (err, result) { //need cb 
-                if (err) {
-                    res.send(err);
-                } else {
-                    res.send(result);
-                }
-            })
-        
 
-        })
+    Rope.deleteMany({ user: userObj._id }, function (err, result) { //need cb 
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(result);
+        }
+    })
+        
+})
+
+router.get('/:id/weekboulders', (req, res) => {
+    
+    Boulder.find({$and: [
+        {date: {
+            $gte: new Date(new Date() - (7 * 24 * 60 * 60 * 1000)) //7 days
+        }}, 
+        {user: req.params.id}
+        ]})
+        .then(boulders => res.json(boulders))
+    
+    .catch(err =>
+        res.status(404).json({ nouserfound: 'No user found' }
+        )
+    );
+})
+
+router.get('/:id/weekropes', (req, res) => {
+    
+    Rope.find({$and: [
+        {date: {
+            $gte: new Date(new Date() - (7 * 24 * 60 * 60 * 1000)) //7 days
+        }}, 
+        {user: req.params.id}
+        ]})
+        .then(ropes => res.json(ropes))
         .catch(err =>
-            res.status(404).json({ nousersfound: 'No users found from that user' }
+            res.status(404).json({ nouserfound: 'No user found' }
             )
         );
 })

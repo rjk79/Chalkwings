@@ -30,6 +30,7 @@ class Search extends React.Component {
         ))
         return (
             <div className="search">
+                <h1>Search</h1>
                 <form onSubmit={this.handleSubmit}>
                     <input autoFocus onChange={this.handleChange()} value={this.state.query} placeholder="Enter username" />
                     <input type="submit" value="Find User"/>
@@ -38,7 +39,7 @@ class Search extends React.Component {
                 <ul>
                     {users}
                 </ul>
-                <img src={require("../../assets/images/mascotfly.png")} alt="mascotstand" />
+                {/* <img src={require("../../assets/images/mascotfly.png")} alt="mascotstand" /> */}
 
             </div>
         )

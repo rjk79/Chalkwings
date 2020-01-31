@@ -9,7 +9,7 @@ class MainPage extends React.Component {
             <div className="main-page">
                 <div className="welcome-box">
                 <img src={require("../../assets/images/mascotstand.png")} alt="mascotstand"/>
-                <div>Climb socially and watch your progress</div>
+                <div>Climb socially + watch your progress</div>
                 <Link className="get-started btn btn-primary" to="/login">Get Started</Link>
                 </div>
                 <footer>

@@ -1,6 +1,7 @@
 .chat {
-    height: 100%;
-    background: #f2f2fd;
+    height: 90%;
+    background: rgb(100, 100, 100);
+    color: white;
 }
 .channel-title {
     font-size: 24px;
@@ -9,10 +10,14 @@
 .messages {
     list-style: none;
     overflow-y: scroll;
-    height: 80%;
+    height: 86%;
     overflow-wrap: break-word;
-    background: white;
+    background: rgb(55, 55, 55);
     border-radius: 5px;
+    color: white;
+}
+.messages li {
+    margin: 5px 0;
 }
 
 
@@ -25,9 +30,16 @@
 
 .draft {
     width: 50%;
+    background: rgb(55,55,55);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    height: 38px;
+    margin-left: 31px;
 }
 .send-button {
     border-radius: 5px;
+    border: none;
 }
 .timestamp {
     display: flex;
@@ -41,4 +53,8 @@ span {
 }
 .sender {
     font-size: 16px;
+}
+hr {
+    margin: 0;
+    border: 0.5px solid rgb(100,100,100);
 }

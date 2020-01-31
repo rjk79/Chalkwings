@@ -10,9 +10,9 @@
     height: 85px;
 }
 .login-form-container .title {
-    font-weight: 800;
-    font-size: 36px;
-    letter-spacing: -3px;
+    letter-spacing: 6px;
+    font-weight: 100;
+    font-size: 24px;    
 }
 
 
@@ -20,4 +20,8 @@
 .login-form {
     display: flex;
     flex-direction: column;
+}
+
+.login-form .btn {
+    border: none;
 }

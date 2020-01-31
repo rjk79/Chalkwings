@@ -31,7 +31,7 @@
     position: absolute;
     background: white;
     z-index: 1;
-    min-width: 100px;
+    min-width: 200px;
     list-style: none;
     padding: 0;
     border: 1px solid black;

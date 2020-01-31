@@ -19,7 +19,7 @@
 
 @keyframes rad {
     0%, 100% {border-radius: 50%; border: 1px dashed rgb(108, 208, 157);}
-    50% {border-radius: 40%; border: 1px dashed rgb(136,132,216);}
+    50% {border-radius: 40%; border: 1px dashed rgba(136,132,216, .5);}
 }
 
 .get-started {

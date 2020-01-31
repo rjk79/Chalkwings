@@ -102,11 +102,11 @@ class CreateTeam extends React.Component {
     render(){
         let symbols = ["cat", "crow", "dog", "dove", "dragon", "fish", "frog", "hippo", "horse", "kiwi-bird", "otter", "spider", 
                     "ice-cream", "hotdog", "drumstick-bite", "bacon", "cheese", "pepper-hot", "pizza-slice", "hamburger",
-                    "ghost", "heart", "sun", "baby-carriage", "beer", "carrot"]
+            "ghost", "heart", "sun", "baby-carriage", "beer", "carrot", "hiking", "bug", "mountain", "rocket"]
         symbols = symbols.map((symbol, idx) => (
             <li key={idx} onClick={this.handleClick("symbol", symbol)} ><i className={`fas fa-${symbol}`}></i></li>)
         )
-        let colors = ["red", "orange", "yellow", "green", "blue", "purple", "pink", "brown", "black"]
+        let colors = ["red", "orange", "gold", "green", "blue", "purple", "pink", "brown", "black"]
         colors = colors.map((color, idx) => (
             <li key={idx} onClick={this.handleClick("color", color)} className="color" style={{background: color}}> </li>)
         )

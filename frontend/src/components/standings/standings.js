@@ -33,7 +33,7 @@ class Standings extends React.Component {
         if (this.state.teams.length === 0) {
             return (<div>
                 {/* {links} <br/>  */}
-                There is no recent activity.</div>)
+                Current teams unavailable.</div>)
         } else {
             const {users} = this.props
             let teams = this.state.teams.map((team, idx) => (
@@ -57,16 +57,14 @@ class Standings extends React.Component {
                 <div className="standings">
                     
                     
-                    <div className="standings-title">Teams:</div>
+                    <div className="standings-title">Standings:</div>
                     <ul className="teams">
                         {teams}
                     </ul>
                     {/* {this.state.boulders.map(boulder => (
                         <BoulderBox key={boulder._id} name={boulder.name} grade={boulder.grade} date={boulder.date} />
                     ))} */}
-                    <h3>Changelog:</h3>
-                    <div>Added timestamps to chat</div>
-                    <div>Navbar is now hideable</div>
+                    
                 </div>
             );
         }

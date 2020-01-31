@@ -1,9 +1,13 @@
 .search {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    justify-content: center;
+    height: 90%;
+    background: rgb(55,55,55);
+    color: white;
 }
+
+
+
 .search img {
     height: auto;
     width: 50%;
@@ -13,6 +17,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: black;
 }
 .search form input {
     width: 50%;
