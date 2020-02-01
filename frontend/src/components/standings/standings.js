@@ -30,9 +30,10 @@ class Standings extends React.Component {
                     teamId = res.data[i]._id
                     fetchTeam(teamId) //get members
                     // dont fetch if data in state (cache)
-                    if (!(teams[teamId] && teams[teamId].boulders)){debugger
+                    if (!(teams[teamId] && teams[teamId].boulders)){console.log("fetching")
                         fetchTeamBoulders(teamId)}
-                    if(!(teams[teamId] && teams[teamId].ropes)){debugger
+                    if (!(teams[teamId] && teams[teamId].ropes)) {
+                        console.log("fetching")
                         fetchTeamRopes(teamId)}
                     
                     
@@ -55,7 +56,7 @@ class Standings extends React.Component {
         } else {
             const {users} = this.props
             let teams = Object.values(this.state.teams).map((team, idx) => {
-                debugger
+                
                 return (
                 <li key={idx}>
                     <p>{team.name}</p>
@@ -80,7 +81,7 @@ class Standings extends React.Component {
                 <div className="standings">
                     
                     
-                    <div className="standings-title">Standings:</div>
+                    <div className="standings-title">Team Standings:</div>
                     <ul className="teams">
                         {teams}
                     </ul>

@@ -16,12 +16,18 @@
     width: 50%;
     justify-content: center;
 }
+.compose-session .type h3 {
+    margin: 0;
+}
 .compose-session .type button {
     color: black;
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
 }
-
+.compose-session .type button:hover {
+    color: white;
+    background: black;
+}
 
 
 .options {
