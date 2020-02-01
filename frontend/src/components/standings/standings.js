@@ -5,6 +5,17 @@ import * as TeamAPIUtil from '../../util/team_api_util'
 import '../../assets/stylesheets/standings.css'
 // import BoulderBox from './boulder_box';
 
+
+const BOULDER_GRADES = ["V0", "V1", "V2",
+    "V3", "V4", "V5",
+    "V6", "V7", "V8",
+    "V9", "V10", "V11"]
+const ROPE_GRADES = ["5.5", "5.6", "5.7", "5.8",
+    "5.9", "5.10a", "5.10b", "5.10c",
+    "5.10d", "5.11a", "5.11b", "5.11c",
+    "5.11d", "5.12a", "5.12b", "5.12c",
+    "5.12d", "5.13a"]
+
 class Standings extends React.Component {
     constructor(props) {
         super(props);
@@ -64,8 +75,12 @@ class Standings extends React.Component {
                     <i className={`fas fa-${team.symbol}`} style={{ color: `${team.color}` }}></i>
                     </div>
                     
-                    <ul className="highest">Best Boulders: {propTeams[team._id] && propTeams[team._id].boulders ? propTeams[team._id].boulders.map(grade => (<li> {grade} </li>)):null} </ul> 
-                    <ul className="highest">Best Ropes: { propTeams[team._id] && propTeams[team._id].ropes ? propTeams[team._id].ropes.map(grade => (<li> {grade} </li>)) : null } </ul > 
+                    <ul className="highest">
+                        Best Boulders: 
+                        {propTeams[team._id] && propTeams[team._id].boulders ? propTeams[team._id].boulders.map((grade, idx) => (<li key={idx} > {grade} </li>)):null} </ul> 
+                    <ul className="highest">
+                        Best Ropes: 
+                        { propTeams[team._id] && propTeams[team._id].ropes ? propTeams[team._id].ropes.map((grade, idx) => (<li key={idx}> {grade} </li>)) : null } </ul > 
                     
                 Captain: {users[team.captain] ? users[team.captain].username : null}
                 <p>Members:</p>

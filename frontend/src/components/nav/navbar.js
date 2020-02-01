@@ -11,7 +11,20 @@ class NavBar extends React.Component {
         this.handleClickHamburger = this.handleClickHamburger.bind(this)
         this.handleClickLink = this.handleClickLink.bind(this)
     }
-
+    componentDidMount(){
+        const topbun = document.getElementsByClassName("topbun")[0]
+        const patty = document.getElementsByClassName("patty")[0]
+        const botbun = document.getElementsByClassName("botbun")[0]
+        const hamburger = document.getElementsByClassName("hamburger")[0]
+        hamburger.addEventListener('click', () => {
+            topbun.classList.toggle("clock")
+            patty.classList.toggle("hidden")
+            botbun.classList.toggle("counterclock")
+        })
+    }
+    componentWillUnmount(){
+        
+    }
     logoutUser(e) {
         e.preventDefault();
         this.setState({ linksShowing: false }, this.props.logout)
@@ -52,12 +65,16 @@ class NavBar extends React.Component {
             );
         }
     }
-
     render() {
+        const hamburger = <div onClick={this.handleClickHamburger} className="hamburger">
+                <div className="topbun"></div>
+                <div className="patty"></div>
+                <div className="botbun"></div>
+            </div>
         return (
             <div className="navbar">
-                {this.props.loggedIn ? <i className="fas fa-bars" onClick={this.handleClickHamburger}></i> : null}
-
+                {this.props.loggedIn ? hamburger : null}
+                
                 <Link className="appname" to="/"> Chalkwings </Link>
                 {this.getLinks()}
             </div>

@@ -9,6 +9,49 @@
 .navbar > * {
     margin: 0 10px;
 }
+.fa-bars {
+    display: none; 
+}
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    height: 24px;
+    justify-content: space-evenly;
+}
+.topbun {
+    background: white;
+    height: 2px;
+    width: 24px;
+    transition: transform 1s;
+
+}
+.patty {
+    background: white;
+    height: 2px;
+    width: 24px;
+    transition: transform 1s;
+
+}
+.botbun {
+    background: white;
+    height: 2px;
+    width: 24px;
+    transition: transform 1s;
+
+}
+.hidden {
+    width: 0;
+    transition: width 1s;
+}
+.counterclock {
+    transform: rotateZ(-45deg) translate(3px,-3px);
+    transition: transform 1s;
+}
+.clock {
+    transform: rotateZ(45deg) translate(3px,3px);
+    transition: transform 1s;
+}
 
 .fa-search, .fa-sign-out-alt, .fa-bars {
     color: white;
