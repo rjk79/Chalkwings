@@ -11,20 +11,12 @@ class NavBar extends React.Component {
         this.handleClickHamburger = this.handleClickHamburger.bind(this)
         this.handleClickLink = this.handleClickLink.bind(this)
     }
-    componentDidMount(){
-        const topbun = document.getElementsByClassName("topbun")[0]
-        const patty = document.getElementsByClassName("patty")[0]
-        const botbun = document.getElementsByClassName("botbun")[0]
-        const hamburger = document.getElementsByClassName("hamburger")[0]
-        hamburger.addEventListener('click', () => {
-            topbun.classList.toggle("clock")
-            patty.classList.toggle("hidden")
-            botbun.classList.toggle("counterclock")
-        })
-    }
-    componentWillUnmount(){
+    // componentDidMount(){
         
-    }
+    // }
+    // componentWillUnmount(){
+        
+    // }
     logoutUser(e) {
         e.preventDefault();
         this.setState({ linksShowing: false }, this.props.logout)
@@ -66,10 +58,13 @@ class NavBar extends React.Component {
         }
     }
     render() {
+        const topbunClass = this.state.linksShowing ? " clock" : ""
+        const pattyClass = this.state.linksShowing ? " hidden" : ""
+        const botbunClass = this.state.linksShowing ? " counterclock" : ""
         const hamburger = <div onClick={this.handleClickHamburger} className="hamburger">
-                <div className="topbun"></div>
-                <div className="patty"></div>
-                <div className="botbun"></div>
+            <div className={'topbun' + topbunClass}></div>
+            <div className={'patty' + pattyClass}></div>
+            <div className={'botbun' + botbunClass}></div>
             </div>
         return (
             <div className="navbar">
