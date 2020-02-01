@@ -81,9 +81,15 @@ class Standings extends React.Component {
                 <div className="standings">
                     
                     
-                    <div className="standings-title">Team Standings:</div>
+                    <div className="standings-title">Team Standings: (last 2 weeks)</div>
                     <ul className="teams">
                         {teams}
+                    </ul>
+                    <ul className="features">
+                        <li><h2>Website Features:</h2></li>
+                    <li>"Session" queues up climbs to add to your profile </li>
+                    <li>real-time "chat" for finding climbing partners</li>
+                    <li>"team" system that tracks your highest collective climbs</li>
                     </ul>
                     {/* {this.state.boulders.map(boulder => (
                         <BoulderBox key={boulder._id} name={boulder.name} grade={boulder.grade} date={boulder.date} />
