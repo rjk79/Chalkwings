@@ -36,6 +36,7 @@
     text-transform: uppercase;
     border-radius: 10px;
     border: none;
+    font-size: 1em;
 }
 .search form [type='submit']:hover {
     opacity: .5;

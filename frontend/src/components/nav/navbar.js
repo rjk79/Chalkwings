@@ -17,6 +17,10 @@ class NavBar extends React.Component {
     // componentWillUnmount(){
         
     // }
+    handleBlur(){
+        
+        this.setState({ linksShowing: false })
+    }
     logoutUser(e) {
         e.preventDefault();
         this.setState({ linksShowing: false }, this.props.logout)
@@ -35,7 +39,7 @@ class NavBar extends React.Component {
                 <>
                 {this.state.linksShowing ?
                     
-                    <div className="links1">
+                    <div className="links1" >
                             <Link onClick={this.handleClickLink} to={'/standings'}><i className="fas fa-home"></i>&nbsp;Home</Link>
                         <Link onClick={this.handleClickLink} to={'/chat'}><i className="fas fa-comment"></i>&nbsp;Messages</Link>
                             <Link onClick={this.handleClickLink} to={`/profile/${this.props.currentUser.id}`}><i className="fas fa-user"></i>&nbsp;Profile</Link>

@@ -76,7 +76,7 @@ class Standings extends React.Component {
                     </div>
                     
                     <ul className="highest">
-                        Best Boulders: 
+                            Best Boulders: 
                         {propTeams[team._id] && propTeams[team._id].boulders ? propTeams[team._id].boulders.map((grade, idx) => (<li key={idx} > {grade} </li>)):null} </ul> 
                     <ul className="highest">
                         Best Ropes: 
@@ -100,12 +100,7 @@ class Standings extends React.Component {
                     <ul className="teams">
                         {teams}
                     </ul>
-                    <ul className="features">
-                        <li><h2>Website Features:</h2></li>
-                    <li>"Session" queues up climbs to add to your profile </li>
-                    <li>real-time "chat" for finding climbing partners</li>
-                    <li>"team" system that tracks your highest collective climbs</li>
-                    </ul>
+                    
                     {/* {this.state.boulders.map(boulder => (
                         <BoulderBox key={boulder._id} name={boulder.name} grade={boulder.grade} date={boulder.date} />
                     ))} */}

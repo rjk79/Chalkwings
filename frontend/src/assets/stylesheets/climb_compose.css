@@ -23,6 +23,9 @@
     color: black;
     height: 30px;
     width: 30px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
 .compose-session .type button:hover {
     color: white;

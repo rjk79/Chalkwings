@@ -28,6 +28,9 @@
     display: flex;
     flex-direction: row;
 }
+.members li {
+    color: rgb(108, 208, 157)
+}
 .teams i {
     position: absolute;
     opacity: .3;
@@ -48,6 +51,7 @@
 
 .highest li {
     margin: 2px 0;
+    color: rgb(108, 208, 157)
 }
 
 .features {
