@@ -49,6 +49,15 @@
     background: goldenrod;
     color: black;
 }
+.teams>li:nth-child(1)::before {
+    content: "-1-"
+}
+.teams>li:nth-child(2)::before {
+    content: "-2-"
+}
+.teams>li:nth-child(3)::before {
+    content: "-3-"
+}
 .icon-holder {
     position: relative;
 }
