@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { fetchBoulders } from '../../actions/boulder_actions';
 import Standings from './standings';
 import {fetchTeam} from '../../actions/team_actions'
-import { fetchTeamBoulders, fetchTeamRopes } from '../../actions/team_actions'
+import { fetchTeams, fetchTeamBoulders, fetchTeamRopes } from '../../actions/team_actions'
 
 const mapStateToProps = (state) => {
     
@@ -18,7 +18,8 @@ const mapDispatchToProps = dispatch => {
         fetchBoulders: () => dispatch(fetchBoulders()),
         fetchTeam: id => dispatch(fetchTeam(id)),
         fetchTeamBoulders: id => dispatch(fetchTeamBoulders(id)),
-        fetchTeamRopes: id => dispatch(fetchTeamRopes(id))
+        fetchTeamRopes: id => dispatch(fetchTeamRopes(id)),
+        fetchTeams: () => dispatch(fetchTeams())
     };
 };
 

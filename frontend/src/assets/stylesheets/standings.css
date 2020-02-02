@@ -37,6 +37,18 @@
     font-size: 57px;
     top: -29px;
 }
+.teams>li:nth-child(1) {
+    background: gold;
+    color: black;
+}
+.teams>li:nth-child(2) {
+    background: gray;
+    color: black;
+}
+.teams>li:nth-child(3) {
+    background: goldenrod;
+    color: black;
+}
 .icon-holder {
     position: relative;
 }

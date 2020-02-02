@@ -1,6 +1,7 @@
-import {RECEIVE_TEAM_BOULDERS, RECEIVE_TEAM_ROPES} from '../actions/team_actions'
+import {RECEIVE_TEAMS, RECEIVE_TEAM_BOULDERS, RECEIVE_TEAM_ROPES} from '../actions/team_actions'
 
 import {merge} from 'lodash'
+
 const BOULDER_GRADES = ["V0", "V1", "V2",
     "V3", "V4", "V5",
     "V6", "V7", "V8",
@@ -15,9 +16,13 @@ const TeamsReducer = (state = {}, action) => {
     Object.freeze(state)
     let newState = Object.assign({}, state)
     switch (action.type){
-        // case RECEIVE_TEAM:
+        case RECEIVE_TEAMS:
+            for (let i = 0; i < action.teams.length; i ++){
+                let currTeam = action.teams[i]
+                newState[currTeam._id] = currTeam
+            }
+            return merge({}, state, newState)
         case RECEIVE_TEAM_BOULDERS:
-
             action.boulders.sort((x,y) => {
                 const xIdx = BOULDER_GRADES.indexOf(x.grade)
                 const yIdx = BOULDER_GRADES.indexOf(y.grade)
@@ -33,7 +38,9 @@ const TeamsReducer = (state = {}, action) => {
                     return 0
                 }})
             if (!(action.id in newState)) newState[action.id] = {}
-            newState[action.id].boulders = action.boulders.map(boulder => boulder.grade).slice(0, 5)
+            const bestBoulders = action.boulders.map(boulder => boulder.grade).slice(0, 5)
+            newState[action.id].boulders = bestBoulders
+            newState[action.id].boulderScore = bestBoulders.reduce((a, b) => BOULDER_GRADES.indexOf(a) + BOULDER_GRADES.indexOf(b), 0)
             return merge({}, state, newState)
            
         case RECEIVE_TEAM_ROPES:
@@ -55,7 +62,9 @@ const TeamsReducer = (state = {}, action) => {
             })
             action.ropes.slice(0, 5)
             if (!(action.id in newState)) newState[action.id] = {}
-            newState[action.id].ropes = action.ropes.map(rope => rope.grade).slice(0, 5)
+            const bestRopes = action.ropes.map(rope => rope.grade).slice(0, 5)
+            newState[action.id].ropes = bestRopes
+            newState[action.id].ropeScore = bestRopes.reduce((a, b) => ROPE_GRADES.indexOf(a) + ROPE_GRADES.indexOf(b), 0)
             return merge({}, state, newState)
         default:
             return state

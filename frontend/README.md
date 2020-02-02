@@ -7,7 +7,7 @@
 - search for users
 - create teams of users
 
-## Timeline
+## Implementation Timeline
 - Day 1: User auth
 - Day 2: Create and delete climbs
 - Day 3: Messaging

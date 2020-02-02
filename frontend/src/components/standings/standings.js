@@ -1,7 +1,5 @@
 import React from 'react';
-import {merge} from 'lodash'
 import { withRouter } from 'react-router-dom';
-import * as TeamAPIUtil from '../../util/team_api_util'
 import '../../assets/stylesheets/standings.css'
 // import BoulderBox from './boulder_box';
 
@@ -25,48 +23,62 @@ class Standings extends React.Component {
         }
     }
     componentDidMount(){
-        const {teams} = this.props
-        const {fetchTeam, fetchTeamBoulders, fetchTeamRopes} = this.props
-        let newState = merge({}, this.state)
+        const {fetchTeams, fetchTeam, fetchTeamBoulders, fetchTeamRopes} = this.props
 
-        TeamAPIUtil.getTeams()
-            .then(res => {
-                // res.data = [{}]
-                for(let i = 0;i < res.data.length;i++) {
-                    newState.teams[res.data[i]._id] = res.data[i]
-                }
+        fetchTeams().then(() => {
+            const { teams } = this.props
+
+            let teamId;
+            
+            for (let i = 0; i < Object.keys(teams).length; i++) {
+
+                teamId = Object.keys(teams)[i]
                 
-                let teamId;  
-                for(let i=0;i<res.data.length;i++){
-                    teamId = res.data[i]._id
-                    fetchTeam(teamId) //get members
-                    // dont fetch if data in state (cache)
-                    if (!(teams[teamId] && teams[teamId].boulders)){console.log("fetching")
-                        fetchTeamBoulders(teamId)}
-                    if (!(teams[teamId] && teams[teamId].ropes)) {
-                        console.log("fetching")
-                        fetchTeamRopes(teamId)}
-                    
-                    
+                fetchTeam(teamId) //get members
+                // dont fetch if data in state (cache)
+                if (!(teams[teamId] && teams[teamId].boulders)) {
+                    console.log("fetching")
+                    fetchTeamBoulders(teamId)
                 }
-            })
-            .then(res => {
+                if (!(teams[teamId] && teams[teamId].ropes)) {
+                    console.log("fetching")
+
+                    fetchTeamRopes(teamId)
+                }
+
+            }
+        })
                 
-                this.setState({teams: newState.teams})
-            })
-            .catch(err => console.log(err))
+ 
     }
 
     render() {
         // const links = <Link to="/fortytips"> Forty Tips for Bouldering </Link>
-        const propTeams = this.props.teams
+        const {teams} = this.props
+        const sortedTeamIds = Object.keys(teams).sort((x, y) => {
+            // + => y comes first
+            const teamX = teams[x]
+            const teamY = teams[y]
+            const xAgg = teamX.ropeScore + teamX.boulderScore
+            const yAgg = teamY.ropeScore + teamY.boulderScore
+            if (xAgg > yAgg) {
+                return -1
+            }
+            if (xAgg < yAgg) {
+                return 1
+            }
+            else {
+                return 0
+            }
+        })
+        debugger
         if (this.state.teams.length === 0) {
             return (<div>
                 {/* {links} <br/>  */}
                 Current teams unavailable.</div>)
         } else {
             const {users} = this.props
-            let teams = Object.values(this.state.teams).map((team, idx) => {
+            let teamLis = sortedTeamIds.map(id => teams[id]).map((team, idx) => {
                 
                 return (
                 <li key={idx}>
@@ -76,19 +88,19 @@ class Standings extends React.Component {
                     </div>
                     
                     <ul className="highest">
-                            Best Boulders: 
-                        {propTeams[team._id] && propTeams[team._id].boulders ? propTeams[team._id].boulders.map((grade, idx) => (<li key={idx} > {grade} </li>)):null} </ul> 
+                        Best Boulders: 
+                        {teams[team._id] && teams[team._id].boulders ? teams[team._id].boulders.map((grade, idx) => (<li key={idx} > {grade} </li>)): null} </ul> 
                     <ul className="highest">
                         Best Ropes: 
-                        { propTeams[team._id] && propTeams[team._id].ropes ? propTeams[team._id].ropes.map((grade, idx) => (<li key={idx}> {grade} </li>)) : null } </ul > 
+                        { teams[team._id] && teams[team._id].ropes ? teams[team._id].ropes.map((grade, idx) => (<li key={idx}> {grade} </li>)) : null } </ul > 
                     
-                Captain: {users[team.captain] ? users[team.captain].username : null}
-                <p>Members:</p>
-                <ul className="members">
-                    {team.members.map((memberId, idx) => {
+                        Captain: {users[team.captain] ? users[team.captain].username : null}
+                    <p>Members:</p>
+                    <ul className="members">
+                        {team.members.map((memberId, idx) => {
                         return users[memberId] ? <li key={idx}>{users[memberId].username}</li> : null
-                    })}
-                </ul>
+                        })}
+                    </ul>
                 </li>
             )})
             return (
@@ -98,7 +110,7 @@ class Standings extends React.Component {
                     
                     <div className="standings-title">Team Standings: (last 2 weeks)</div>
                     <ul className="teams">
-                        {teams}
+                        {teamLis}
                     </ul>
                     
                     {/* {this.state.boulders.map(boulder => (
