@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import '../../assets/stylesheets/standings.css'
 // import BoulderBox from './boulder_box';
 
@@ -98,7 +98,7 @@ class Standings extends React.Component {
                     <p>Members:</p>
                     <ul className="members">
                         {team.members.map((memberId, idx) => {
-                        return users[memberId] ? <li key={idx}>{users[memberId].username}</li> : null
+                            return users[memberId] ? <li key={idx}><Link to={`/profile/${memberId}`}>{users[memberId].username}</Link></li> : null
                         })}
                     </ul>
                 </li>

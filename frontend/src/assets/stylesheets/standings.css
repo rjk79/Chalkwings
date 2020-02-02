@@ -37,16 +37,16 @@
     font-size: 57px;
     top: -29px;
 }
-.teams>li:nth-child(1) {
-    background: gold;
+.teams>li:nth-child(1) {      
+    background: repeating-linear-gradient(45deg, gold, transparent 400px);
     color: black;
 }
 .teams>li:nth-child(2) {
-    background: gray;
+    background: repeating-linear-gradient(45deg, gray, transparent 400px);
     color: black;
 }
 .teams>li:nth-child(3) {
-    background: goldenrod;
+    background: repeating-linear-gradient(45deg, goldenrod, transparent 400px);
     color: black;
 }
 .teams>li:nth-child(1)::before {
