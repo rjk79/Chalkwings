@@ -57,7 +57,8 @@ class Profile extends React.Component {
     }
 
     createAreaGraph(data, color){
-        return (<ResponsiveContainer>
+        return (
+        // <ResponsiveContainer>
             <AreaChart
                 width={500}
                 height={300}
@@ -73,7 +74,8 @@ class Profile extends React.Component {
                 <Legend />
                 <Area type="monotone" dataKey="count" fill={color} />
             </AreaChart>
-        </ResponsiveContainer>)
+        // </ResponsiveContainer>
+        )
     }
     deleteAll(){
         UserAPIUtil.deleteUserBoulders(this.props.match.params.userId)

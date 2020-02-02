@@ -108,7 +108,7 @@ class Standings extends React.Component {
                 <div className="standings">
                     
                     
-                    <div className="standings-title">Team Standings: (last 2 weeks)</div>
+                    <div className="standings-title">Team Rankings: (last 2 weeks)</div>
                     <ul className="teams">
                         {teamLis}
                     </ul>

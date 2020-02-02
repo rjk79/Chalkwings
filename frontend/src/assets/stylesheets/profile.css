@@ -9,3 +9,9 @@ h2 {
     background: aliceblue;
 }
 
+.recharts-default-tooltip *{
+    width: 30px;
+    display: flex;
+    flex-direction: row;
+}
+
