@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import '../../assets/stylesheets/standings.css'
 // import BoulderBox from './boulder_box';
 
-
+ 
 const BOULDER_GRADES = ["V0", "V1", "V2",
     "V3", "V4", "V5",
     "V6", "V7", "V8",
