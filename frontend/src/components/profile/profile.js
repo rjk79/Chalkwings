@@ -58,7 +58,7 @@ class Profile extends React.Component {
 
     createAreaGraph(data, color){
         if (color === "#6CD09D") {
-            data = data.map(({grade, count})=>{return {grade:grade.slice(2), count}}) //remove "5."
+            data = data.map(({grade, count})=>{return {grade:grade.slice(1), count}}) //remove "5."
         }
         return (
         <ResponsiveContainer>
