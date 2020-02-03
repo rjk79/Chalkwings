@@ -35,7 +35,8 @@
     position: absolute;
     opacity: .3;
     font-size: 57px;
-    top: -29px;
+    top: -48px;
+    left: 148px;
 }
 .teams>li:nth-child(1) {      
     background: repeating-linear-gradient(45deg, gold, transparent 400px);
@@ -72,7 +73,8 @@
 
 .highest li {
     margin: 2px 0;
-    color: rgb(108, 208, 157)
+    background: transparent;
+    color: black;
 }
 
 .features {

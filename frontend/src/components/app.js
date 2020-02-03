@@ -8,6 +8,7 @@ import ProfileContainer from './profile/profile_container';
 import ClimbComposeContainer from './climbs/climb_compose_container';
 import SearchComponent from './search/search'
 import TeamsComponent from './teams/create_team'
+import TeamComponent from './teams/team_container'
 import DashboardComponent from './dashboard/dashboard'
 
 import MainPage from './main/main_page';
@@ -35,6 +36,7 @@ const App = () => (
         <ProtectedRoute exact path="/new_boulder" component={ClimbComposeContainer} />
         <ProtectedRoute exact path="/search" component={SearchComponent} />
         <ProtectedRoute exact path="/teams" component={TeamsComponent} />
+        <ProtectedRoute exact path="/teams/:teamId" component={TeamComponent} />
         <ProtectedRoute exact path="/dashboard" component={DashboardComponent} />
     </Switch>
     </div>

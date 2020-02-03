@@ -116,5 +116,25 @@ router.get('/:id/weekboulders', (req, res) => {
         )
 })
 
+router.delete('/:id', (req, res) => {
+    Team.findByIdAndDelete(req.params.id)
+    .then(team => res.json(team))
+    .catch(err =>
+        res.status(404).json({ noteamsfound: 'No teams found' }
+        )
+    )
+})
+
+router.patch('/:id', (req, res) => {
+    //{name: "happy"}
+
+    Team.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        .then(team => res.json(team))
+        .catch(err =>
+            res.status(404).json({ noteamsfound: 'No teams found' }
+            )
+        )
+})
+
 
 module.exports = router;

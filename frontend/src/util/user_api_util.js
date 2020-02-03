@@ -9,11 +9,14 @@ export const getUser = id => {
 };
 
 export const deleteUserBoulders = id => {
+    
     return axios.delete(`/api/users/${id}/boulders`)
         .then(response => {
+            
             console.log(response);
         })
             .catch(error => {
+                
                 console.log(error);
         });
 }

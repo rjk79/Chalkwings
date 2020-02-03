@@ -28,3 +28,12 @@ export const getWeekRopes = id => {
     return axios.get(`/api/teams/${id}/weekropes`)
 }
 
+export const deleteTeam = id => {
+    return axios.delete(`/api/teams/${id}`)
+}
+
+export const updateTeam = data => {
+    debugger
+    return axios.patch(`/api/teams/${data._id}`, data)
+}
+

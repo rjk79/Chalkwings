@@ -4,15 +4,15 @@ import '../../assets/stylesheets/standings.css'
 // import BoulderBox from './boulder_box';
 
  
-const BOULDER_GRADES = ["V0", "V1", "V2",
-    "V3", "V4", "V5",
-    "V6", "V7", "V8",
-    "V9", "V10", "V11"]
-const ROPE_GRADES = ["5.5", "5.6", "5.7", "5.8",
-    "5.9", "5.10a", "5.10b", "5.10c",
-    "5.10d", "5.11a", "5.11b", "5.11c",
-    "5.11d", "5.12a", "5.12b", "5.12c",
-    "5.12d", "5.13a"]
+// const BOULDER_GRADES = ["V0", "V1", "V2",
+//     "V3", "V4", "V5",
+//     "V6", "V7", "V8",
+//     "V9", "V10", "V11"]
+// const ROPE_GRADES = ["5.5", "5.6", "5.7", "5.8",
+//     "5.9", "5.10a", "5.10b", "5.10c",
+//     "5.10d", "5.11a", "5.11b", "5.11c",
+//     "5.11d", "5.12a", "5.12b", "5.12c",
+//     "5.12d", "5.13a"]
 
 class Standings extends React.Component {
     constructor(props) {
@@ -71,18 +71,18 @@ class Standings extends React.Component {
                 return 0
             }
         })
-        debugger
+        
         if (this.state.teams.length === 0) {
             return (<div>
                 {/* {links} <br/>  */}
                 Current teams unavailable.</div>)
         } else {
-            const {users} = this.props
+            const {users, currentUser} = this.props
             let teamLis = sortedTeamIds.map(id => teams[id]).map((team, idx) => {
                 
                 return (
                 <li key={idx}>
-                    <p>{team.name}</p>
+                    <p>{team.name}</p> {currentUser.id === team.captain ? <Link to={`/teams/${team._id}`}>Edit your team</Link> : null}
                     <div className="icon-holder">
                     <i className={`fas fa-${team.symbol}`} style={{ color: `${team.color}` }}></i>
                     </div>

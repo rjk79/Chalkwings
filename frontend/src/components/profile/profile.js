@@ -76,8 +76,9 @@ class Profile extends React.Component {
             </AreaChart>
         </ResponsiveContainer>
         )
-    }
+    } 
     deleteAll(){
+        
         UserAPIUtil.deleteUserBoulders(this.props.match.params.userId)
         UserAPIUtil.deleteUserRopes(this.props.match.params.userId)
     }

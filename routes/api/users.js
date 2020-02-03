@@ -131,7 +131,7 @@ router.get('/:id', (req, res)=> {
 //delete user's boulders
 router.delete('/:id/boulders', (req, res)=> {
             
-    Boulder.deleteMany({ user: userObj._id }, function (err, result) {
+    Boulder.deleteMany({ user: req.params.id }, function (err, result) {
         if (err) {
             res.send(err);
         } else {
@@ -142,7 +142,7 @@ router.delete('/:id/boulders', (req, res)=> {
 //delete user's ropes
 router.delete('/:id/ropes', (req, res)=> {
 
-    Rope.deleteMany({ user: userObj._id }, function (err, result) { //need cb 
+    Rope.deleteMany({ user: req.params.id }, function (err, result) { //need cb 
         if (err) {
             res.send(err);
         } else {

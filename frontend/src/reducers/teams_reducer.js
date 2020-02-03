@@ -1,4 +1,4 @@
-import {RECEIVE_TEAMS, RECEIVE_TEAM_BOULDERS, RECEIVE_TEAM_ROPES} from '../actions/team_actions'
+import {REMOVE_TEAM, RECEIVE_TEAM, RECEIVE_TEAMS, RECEIVE_TEAM_BOULDERS, RECEIVE_TEAM_ROPES} from '../actions/team_actions'
 
 import {merge} from 'lodash'
 
@@ -16,12 +16,20 @@ const TeamsReducer = (state = {}, action) => {
     Object.freeze(state)
     let newState = Object.assign({}, state)
     switch (action.type){
+        case REMOVE_TEAM:
+            delete newState[action.id]
+            
+            
+            return newState
         case RECEIVE_TEAMS:
             for (let i = 0; i < action.teams.length; i ++){
                 let currTeam = action.teams[i]
                 newState[currTeam._id] = currTeam
             }
             return merge({}, state, newState)
+        case RECEIVE_TEAM:
+            
+            return merge({}, state, {[action.team._id]: action.team})
         case RECEIVE_TEAM_BOULDERS:
             action.boulders.sort((x,y) => {
                 const xIdx = BOULDER_GRADES.indexOf(x.grade)
