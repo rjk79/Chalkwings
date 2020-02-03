@@ -28,7 +28,7 @@
     height: 2px;
     width: 24px;
     transition: transform 1s;
-
+    /* animation: condense 2s forwards; */
 }
 .patty {
     background: white;
@@ -41,6 +41,7 @@
     background: white;
     height: 2px;
     width: 24px;
+    /* animation: expand 2s forwards; */
     transition: transform 1s;
 
 }
@@ -48,13 +49,23 @@
     width: 0;
     transition: width 1s;
 }
+@keyframes condense {
+    50% {transform: translate(0, -7px)}
+    100% {transform: rotateZ(-45deg) translate(3px, -3px)}
+}
+@keyframes expand {
+    50% {transform: translate(0, 7px)}
+    100% {transform: rotateZ(45deg) translate(3px, 3px)}
+}
 .counterclock {
-    transform: rotateZ(-45deg) translate(3px,-3px);
-    transition: transform 1s;
+    transform: rotateZ(-45deg) translate(3px, -3px);
+
+    /* animation: condense 1s forwards; */
 }
 .clock {
-    transform: rotateZ(45deg) translate(3px,3px);
-    transition: transform 1s;
+    transform: rotateZ(45deg) translate(3px, 3px);
+
+    /* animation: expand 1s forwards; */
 }
 
 .fa-search, .fa-sign-out-alt, .fa-bars {
