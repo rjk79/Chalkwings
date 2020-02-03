@@ -1,3 +1,5 @@
+# Chalkwings
+
 Live site: http://chalkwings.herokuapp.com/#/
 
 ## Features: 
@@ -6,3 +8,12 @@ Live site: http://chalkwings.herokuapp.com/#/
 - interactive area charts for climbing grades
 - mobile-responsive design
 - search
+
+## Technologies: 
+- MongoDB
+- Express
+- React
+- Node
+- WebSockets
+- Bootstrap
+
