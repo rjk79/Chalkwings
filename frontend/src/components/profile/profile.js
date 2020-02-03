@@ -57,6 +57,9 @@ class Profile extends React.Component {
     }
 
     createAreaGraph(data, color){
+        if (color === "#6CD09D") {
+            data = data.map(({grade, count})=>{return {grade:grade.slice(2), count}}) //remove "5."
+        }
         return (
         <ResponsiveContainer>
             <AreaChart
@@ -68,7 +71,7 @@ class Profile extends React.Component {
                 }}
             >
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="grade" />
+                <XAxis dataKey="grade" /> 
                 <YAxis />
                 <Tooltip />
                 <Legend />
