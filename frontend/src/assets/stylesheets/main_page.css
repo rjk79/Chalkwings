@@ -26,3 +26,13 @@
     width: 50%;
 }
 
+.social-links {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    width: 100px;
+}
+.social-link img {
+    width: 30px;
+    height: 30px;
+}

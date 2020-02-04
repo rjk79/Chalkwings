@@ -13,7 +13,15 @@ class MainPage extends React.Component {
                 <Link className="get-started btn btn-primary" to="/login">Get Started</Link>
                 </div>
                 <footer>
-                    
+                    <div className="social-links">
+                        <a className="social-link" href="https://github.com/rjk79" target="_blank">
+                            <img className="icon" src={require("../../assets/images/github.png")} />
+                        </a>
+                        <a className="social-link" href="https://www.linkedin.com/in/robert-ku-b9464461" target="_blank">
+                            <img className="icon" src={require("../../assets/images/linkedin.png")} />
+                        </a>
+                        
+                    </div>
                 </footer>
             </div>
         );
