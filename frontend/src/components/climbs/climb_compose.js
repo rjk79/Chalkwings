@@ -151,9 +151,10 @@ class BoulderCompose extends React.Component {
             for (let i = 0;i < 4;i++){
                 options.push(
                     <tr className="boulder-grades">
-                        <td onClick={this.handleClickClimb(BOULDER_GRADES[3 * i])}>{BOULDER_GRADES[3*i]}</td>
-                        <td onClick={this.handleClickClimb(BOULDER_GRADES[3 * i + 1])}>{BOULDER_GRADES[3 * i + 1]}</td>
-                        <td onClick={this.handleClickClimb(BOULDER_GRADES[3 * i + 2])}>{BOULDER_GRADES[3 * i + 2]}</td>
+                        {4 * i < BOULDER_GRADES.length ? <td onClick={this.handleClickClimb(BOULDER_GRADES[4 * i])}>{BOULDER_GRADES[4*i]}</td> : null}
+                        {4 * i+1 < BOULDER_GRADES.length ? <td onClick={this.handleClickClimb(BOULDER_GRADES[4 * i+1])}>{BOULDER_GRADES[4*i+1]}</td> : null}
+                        {4 * i+2 < BOULDER_GRADES.length ? <td onClick={this.handleClickClimb(BOULDER_GRADES[4 * i+2])}>{BOULDER_GRADES[4*i+2]}</td> : null}
+                        {4 * i+3 < BOULDER_GRADES.length ? <td onClick={this.handleClickClimb(BOULDER_GRADES[4 * i+3])}>{BOULDER_GRADES[4*i+3]}</td> : null}
                     </tr>
                 )
             }
