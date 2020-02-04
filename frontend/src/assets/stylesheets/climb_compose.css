@@ -3,10 +3,26 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 90%;
+    height: 100%; /* instead of 90 because graph causes overflow */
     background: rgb(55, 55, 55);
+    /* flex-wrap: wrap; */
+    overflow: scroll;
+}
+.compose-session .recharts-wrapper {
+    height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.compose-session .recharts-surface {
+    width: 300px;
+    height: 300px;
 }
 .compose-session > h3 {
+    color: white;
+}
+.compose-session h4 {
     color: white;
 }
 .compose-session .type {
@@ -61,7 +77,8 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-
+    position: relative;
+    z-index: 1;
 }
 .session li {
     background: rgb(255, 228, 22);

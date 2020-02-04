@@ -2,6 +2,14 @@ import React from 'react';
 // import BoulderBox from './boulder_box';
 import '../../assets/stylesheets/climb_compose.css'
 import {merge} from 'lodash'
+import { Legend, Tooltip, PieChart, Pie, Sector, Cell, ResponsiveContainer} from 'recharts'
+const BOULDER_GRADES = ["V0", "V1", "V2", "V3", "V4", "V5", "V6", "V7", "V8", "V9", "V10", "V11"]
+const ROPE_GRADES = ["5.5", "5.6", "5.7", "5.8",
+    "5.9", "5.10a", "5.10b", "5.10c",
+    "5.10d", "5.11a", "5.11b", "5.11c",
+    "5.11d", "5.12a", "5.12b", "5.12c",
+    "5.12d", "5.13a"]
+
 
 class BoulderCompose extends React.Component {
     constructor(props) {
@@ -54,10 +62,12 @@ class BoulderCompose extends React.Component {
         }
     }
 
-    handleRemove(){
-        let newState = merge({}, this.state)
-        newState.session.pop()
-        this.setState(newState)
+    handleRemove(idx){
+        return () => {
+            let newState = merge({}, this.state)
+            newState.session.splice(idx, 1)
+            this.setState(newState)
+        }
     }
     handleSubmitSession(){ //TODO: refactor using insertMany([])
         if (this.state.type === 'boulder') {
@@ -79,6 +89,7 @@ class BoulderCompose extends React.Component {
         // this.props.history.push(`/profile/${this.props.currentUser.id}`)
 
     }
+    
     handleSwitchType(){
         if (this.state.type === 'boulder'){
             this.setState({type: 'rope'})}
@@ -87,10 +98,54 @@ class BoulderCompose extends React.Component {
         }
         this.setState({session: []})
     }
+
+    createGraph(data){
+        const COLORS = ['#8884d8', '#83a6ed', '#8dd1e1', '#82ca9d', '#a4de6c', '#d0ed57', '#ffc658'];
+        
+        const RADIAN = Math.PI / 180;
+        const renderCustomizedLabel = ({cx, cy, midAngle, innerRadius, outerRadius, percent, index,}) => {
+            const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+            const x = cx + radius * Math.cos(-midAngle * RADIAN);
+            const y = cy + radius * Math.sin(-midAngle * RADIAN); //splays them in circle
+            
+            return (
+                <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+                    {percent > 0? data[index].name:null}
+                    {/* {`${(percent * 100).toFixed(0)}%`} */}
+                </text>
+            );
+            // return (
+            //     <text fill="white" x={x} y={y} dominantBaseline="central" offset="10">
+            //         {data[index].name}: &nbsp;
+            //     </text>
+            // )
+        };
+        return (
+            <PieChart width={250} height={250}>
+                <Pie
+                    data={data}
+                    cx={125}
+                    cy={125} //center coords
+                    labelLine={false}
+                    label={renderCustomizedLabel}
+                    // label
+                    outerRadius={80}
+                    fill="#8884d8"
+                    dataKey="value"
+                >
+                    {
+                        data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}  />)
+                    }
+                    
+                </Pie>
+                    <Tooltip />
+                    {/* <Legend /> */}
+            </PieChart>
+            )
+    }
     render() {
         let options = []
         if (this.state.type === 'boulder'){
-            const BOULDER_GRADES = ["V0", "V1", "V2", "V3", "V4", "V5", "V6", "V7", "V8", "V9", "V10", "V11"]
 
             for (let i = 0;i < 4;i++){
                 options.push(
@@ -103,11 +158,7 @@ class BoulderCompose extends React.Component {
             }
         }
         else {
-            const ROPE_GRADES = ["5.5", "5.6", "5.7", "5.8", 
-                                "5.9", "5.10a", "5.10b", "5.10c", 
-                                "5.10d", "5.11a", "5.11b", "5.11c", 
-                                "5.11d", "5.12a", "5.12b", "5.12c", 
-                                "5.12d", "5.13a"]
+        
             for (let i = 0;i < 5;i++) {
                 options.push(<tr className="rope-grades">
                     <td onClick={this.handleClickClimb(ROPE_GRADES[4 * i])}>{ROPE_GRADES[4*i]}</td>
@@ -117,7 +168,24 @@ class BoulderCompose extends React.Component {
                 </tr>)
             }
         }
-        let session = this.state.session.map((grade, idx) => <> <li key={idx}>{grade}</li> &nbsp; </> )
+        let session = this.state.session.map((grade, idx) => <> <li key={idx} onClick={this.handleRemove(idx)}>{grade}</li> &nbsp; </> )
+
+        let counts = {}
+        const allGrades = this.state.type === 'boulder' ? BOULDER_GRADES : ROPE_GRADES
+        for (let i=0;i < allGrades.length; i ++){ //populate default dict
+            counts[allGrades[i]] = 0
+        }
+        for (let i = 0; i < this.state.session.length; i++) {
+            let currClimb = this.state.session[i]
+            counts[currClimb]++
+        }
+        let data = []
+        const grades = Object.keys(counts)
+        for (let i = 0; i < grades.length; i++) {
+            let grade = grades[i]
+            data.push({ name: grade, value: counts[grade] })
+        }
+
         return (
             <div className="compose-session">
                 <div className="type">
@@ -129,12 +197,14 @@ class BoulderCompose extends React.Component {
                     {options}
                 </tbody>
             </table>
-                <button className="remove-button" onClick={this.handleRemove}><i className="fas fa-eraser"></i> </button>
+                <button className="remove-button" onClick={this.handleRemove(this.state.session.length-1)}><i className="fas fa-eraser"></i> </button>
             <button className="submit-session-button" onClick={this.handleSubmitSession}>Submit Session</button>
-            <h4>Session:</h4>
+            {/* <h4>Session:</h4> */}
             <ul className="session">
                 {session}
             </ul>
+            {this.createGraph(data)}
+
             {/* <div className="compose-boulder-container">
                 <form onSubmit={this.handleSubmit} className="compose-boulder-form">
                     <div className="compose-boulder">
