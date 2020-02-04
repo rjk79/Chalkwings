@@ -38,12 +38,13 @@
 .compose-session .type button {
     color: black;
     height: 30px;
-    width: 30px;
+    width: 66px;
     justify-content: center;
     display: flex;
     align-items: center;
+    
 }
-.compose-session .type button:hover {
+.compose-session .switch-button:hover {
     color: white;
     background: black;
 }
@@ -85,13 +86,15 @@
     border-radius: 25%;
     width: 37px;
     text-align: center;
+    cursor: pointer;
 }
 .submit-session-button {
     border: 2px solid black;
     background: white;
     border-radius: 5px;
-    width: 100px;
+    width: 123px;
     margin: 2px;
+    height:30px;
 }
 .submit-session-button:hover {
     background: black;

@@ -193,7 +193,8 @@ class BoulderCompose extends React.Component {
             <div className="compose-session">
                 <div className="type">
                     {this.state.type === 'boulder' ? <h3>Bouldering</h3>: <h3>Rope Climbing</h3>} &nbsp;
-                    <button className="switch-button" onClick={this.handleSwitchType}><i className="fas fa-exchange-alt"></i></button>
+                    <button className="switch-button" onClick={this.handleSwitchType}>{this.state.type === 'boulder' ? 'Ropes' : 'Boulders'}</button>
+
                 </div>
             <table className="options">
                 <tbody>

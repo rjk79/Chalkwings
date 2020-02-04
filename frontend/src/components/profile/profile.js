@@ -15,8 +15,10 @@ class Profile extends React.Component {
             username: "",
             boulders: [],
             ropes: [],
+            type: 'boulders',
         }
         this.deleteAll = this.deleteAll.bind(this)
+        this.handleClickType = this.handleClickType.bind(this)
     }
     componentDidMount(){
         UserAPIUtil.getUser(this.props.match.params.userId)
@@ -85,7 +87,9 @@ class Profile extends React.Component {
         UserAPIUtil.deleteUserBoulders(this.props.match.params.userId)
         UserAPIUtil.deleteUserRopes(this.props.match.params.userId)
     }
-    
+    handleClickType(){
+        this.setState({type: this.state.type === 'boulders' ? 'ropes':'boulders'})
+    }
     render() {
             
         const BOULDER_GRADES = ["V0", "V1", "V2", 
@@ -116,34 +120,40 @@ class Profile extends React.Component {
             return (
                 <div className="profile">
                     <h1>{this.state.username}'s Profile</h1>
-                    <h2>Monthly Data</h2>
+                    {this.state.type === 'boulders' ? <h3>Boulders</h3>:<h3>Ropes</h3>}
+                    <button onClick={this.handleClickType}>{this.state.type === 'boulders' ? 'View Ropes':'View Boulders'}</button>
+                    <h2>This Month</h2>
                     <div>
                         # of boulders: {boulderMonthlyData.length}<br/>
                         # of rope climbs: {ropeMonthlyData.length}<br/>
                         Distance bouldered: approx.&nbsp;{boulderMonthlyData.length * 15}&nbsp; feet<br/>
                         Distance rope-climbed: approx.&nbsp;{ropeMonthlyData.length * 40}&nbsp; feet
                     </div>
-                    <h3>Boulders</h3> 
-                    <div className="climb-chart">
-                        {this.createAreaGraph(boulderMonthlyData, "#8884d8")}
-                    </div>
+                    {this.state.type === 'boulders' ?
+                        <>
+                        <div className="climb-chart">
+                            {this.createAreaGraph(boulderMonthlyData, "#8884d8")}
+                        </div></> : 
+                        <>
+                        <div className="climb-chart">
+                            {this.createAreaGraph(ropeMonthlyData, "#6CD09D")}
+                        </div>
+                        </>
+                    }}
 
-                    <h3>Ropes</h3> 
-                    <div className="climb-chart">
-                        {this.createAreaGraph(ropeMonthlyData, "#6CD09D")}
-                    </div>
 
-                    <h2>Lifetime Data</h2>
-                    <h3>Boulders</h3>                
+                    <h2>All-time</h2>
+                    {this.state.type === 'boulders' ?
+                    <>
                     <div className="climb-chart">
                         {this.createAreaGraph(boulderData, "#8884d8")}
-                    </div>
-
-                    <h3>Ropes</h3>
+                    </div> 
+                    </> :
+                    <>
                     <div className="climb-chart">
                         {this.createAreaGraph(ropeData, "#6CD09D")}
                     </div>
-
+                    </> }
                     {/* {this.state.boulders.map(boulder => (
                         <BoulderBox key={boulder._id} name={boulder.name} grade={boulder.grade} date={boulder.date} />
                     ))} */}
