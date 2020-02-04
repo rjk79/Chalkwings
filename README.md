@@ -1,6 +1,6 @@
 # Chalkwings
 
-Live site: http://chalkwings.herokuapp.com/#/
+Live site: https://chalkwings.herokuapp.com/#/
 
 ## Features: 
 - ability to perform CRUD on boulder climbs, rope climbs, and teams

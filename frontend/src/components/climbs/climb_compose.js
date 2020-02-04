@@ -200,8 +200,10 @@ class BoulderCompose extends React.Component {
                     {options}
                 </tbody>
             </table>
+            <div className="controls">
                 <button className="remove-button" onClick={this.handleRemove(this.state.session.length-1)}><i className="fas fa-eraser"></i> </button>
-            <button className="submit-session-button" onClick={this.handleSubmitSession}>Submit Session</button>
+                <button className="submit-session-button" onClick={this.handleSubmitSession}>Submit Session</button>
+            </div>    
             {/* <h4>Session:</h4> */}
             <ul className="session">
                 {sessionLis}
