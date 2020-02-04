@@ -145,6 +145,7 @@ class BoulderCompose extends React.Component {
     }
     render() {
         let options = []
+        const{session} = this.state
         if (this.state.type === 'boulder'){
 
             for (let i = 0;i < 4;i++){
@@ -161,22 +162,23 @@ class BoulderCompose extends React.Component {
         
             for (let i = 0;i < 5;i++) {
                 options.push(<tr className="rope-grades">
-                    <td onClick={this.handleClickClimb(ROPE_GRADES[4 * i])}>{ROPE_GRADES[4*i]}</td>
-                    {4 * i + 1 < ROPE_GRADES.length ? <td onClick={this.handleClickClimb(ROPE_GRADES[4 * i + 1])}>{ROPE_GRADES[4 * i + 1]}</td> : null}
-                    {4 * i + 2 < ROPE_GRADES.length ? <td onClick={this.handleClickClimb(ROPE_GRADES[4 * i + 2])}>{ROPE_GRADES[4 * i + 2]}</td> : null}
-                    {4 * i + 3 < ROPE_GRADES.length ? <td onClick={this.handleClickClimb(ROPE_GRADES[4 * i + 3])}>{ROPE_GRADES[4 * i + 3]}</td> : null}
+                    {5 * i  < ROPE_GRADES.length ? <td onClick={this.handleClickClimb(ROPE_GRADES[5 * i ])}>{ROPE_GRADES[5 * i ]}</td> : null}
+                    {5 * i + 1 < ROPE_GRADES.length ? <td onClick={this.handleClickClimb(ROPE_GRADES[5 * i + 1])}>{ROPE_GRADES[5 * i + 1]}</td> : null}
+                    {5 * i + 2 < ROPE_GRADES.length ? <td onClick={this.handleClickClimb(ROPE_GRADES[5 * i + 2])}>{ROPE_GRADES[5 * i + 2]}</td> : null}
+                    {5 * i + 3 < ROPE_GRADES.length ? <td onClick={this.handleClickClimb(ROPE_GRADES[5 * i + 3])}>{ROPE_GRADES[5 * i + 3]}</td> : null}
+                    {5 * i + 4 < ROPE_GRADES.length ? <td onClick={this.handleClickClimb(ROPE_GRADES[5 * i + 4])}>{ROPE_GRADES[5 * i + 4]}</td> : null}
                 </tr>)
             }
         }
-        let session = this.state.session.map((grade, idx) => <> <li key={idx} onClick={this.handleRemove(idx)}>{grade}</li> &nbsp; </> )
+        let sessionLis = session.map((grade, idx) => <> <li key={idx} onClick={this.handleRemove(idx)}>{grade}</li> &nbsp; </> )
 
         let counts = {}
         const allGrades = this.state.type === 'boulder' ? BOULDER_GRADES : ROPE_GRADES
         for (let i=0;i < allGrades.length; i ++){ //populate default dict
             counts[allGrades[i]] = 0
         }
-        for (let i = 0; i < this.state.session.length; i++) {
-            let currClimb = this.state.session[i]
+        for (let i = 0; i < session.length; i++) {
+            let currClimb = session[i]
             counts[currClimb]++
         }
         let data = []
@@ -201,7 +203,7 @@ class BoulderCompose extends React.Component {
             <button className="submit-session-button" onClick={this.handleSubmitSession}>Submit Session</button>
             {/* <h4>Session:</h4> */}
             <ul className="session">
-                {session}
+                {sessionLis}
             </ul>
             {this.createGraph(data)}
 
