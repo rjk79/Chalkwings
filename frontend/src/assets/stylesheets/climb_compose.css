@@ -31,6 +31,7 @@
     align-items: center;
     width: 50%;
     justify-content: center;
+    margin-top: 10px;
 }
 .compose-session .type h3 {
     margin: 0;
@@ -38,7 +39,7 @@
 .compose-session .type button {
     color: black;
     height: 30px;
-    width: 66px;
+    width: 81px;
     justify-content: center;
     display: flex;
     align-items: center;
@@ -134,6 +135,7 @@
     border: 2px solid black;
     border-radius: 5px;
     background: white;
+    width: 100px;
 }
 button:focus {
     outline: none;

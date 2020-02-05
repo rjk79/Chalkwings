@@ -5,7 +5,9 @@
     background: rgb(55,55,55);
     color: white;
 }
-
+.search h1 {
+    text-align: center;
+}
 
 
 .search img {

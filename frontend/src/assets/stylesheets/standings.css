@@ -31,6 +31,9 @@
 .members li {
     color: rgb(108, 208, 157)
 }
+.members li a {
+    color: white;
+}
 .teams i {
     position: absolute;
     opacity: .3;

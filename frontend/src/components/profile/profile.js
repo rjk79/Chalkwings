@@ -113,6 +113,12 @@ class Profile extends React.Component {
         while (i < this.state.ropes.length && parseInt(this.state.ropes[i].date.slice(5, 7)) -1 === currMonth) i ++ //getMo is 0 indexed
         let ropeMonthlyData = this.createGraphData(this.state.ropes.slice(0, i), ROPE_GRADES)
 
+        // i = 0
+        // while (i < this.state.ropes.length && parseInt(this.state.ropes[i].date.slice(5, 7)) - 1 === currMonth) {
+        //     debugger
+        //     i++
+        // } //getMo is 0 indexed
+        // let ropeWeeklyData = this.createGraphData(this.state.ropes.slice(0, i), ROPE_GRADES)
 
 
         let ropeData = this.createGraphData(this.state.ropes, ROPE_GRADES)
@@ -121,8 +127,8 @@ class Profile extends React.Component {
                 <div className="profile">
                     <h1>{this.state.username}'s Profile</h1>
                     {this.state.type === 'boulders' ? <h3>Boulders</h3>:<h3>Ropes</h3>}
-                    <button onClick={this.handleClickType}>{this.state.type === 'boulders' ? 'View Ropes':'View Boulders'}</button>
-                    <h2>This Month</h2>
+                    <button onClick={this.handleClickType}><i className="fas fa-exchange-alt"></i>&nbsp;{this.state.type === 'boulders' ? 'View Ropes':'View Boulders'}</button>
+                    <h2>This Month ({new Date().toString().slice(4, 7)})</h2>
                     <div>
                         # of boulders: {boulderMonthlyData.length}<br/>
                         # of rope climbs: {ropeMonthlyData.length}<br/>
@@ -139,7 +145,7 @@ class Profile extends React.Component {
                             {this.createAreaGraph(ropeMonthlyData, "#6CD09D")}
                         </div>
                         </>
-                    }}
+                    }
 
 
                     <h2>All-time</h2>

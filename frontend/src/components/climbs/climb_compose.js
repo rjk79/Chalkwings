@@ -29,9 +29,9 @@ class BoulderCompose extends React.Component {
         this.handleSwitchType = this.handleSwitchType.bind(this)
     }
 
-    componentWillReceiveProps(nextProps) {
-        this.setState({ newBoulder: nextProps.newBoulder.name });
-    }
+    // componentWillReceiveProps(nextProps) {
+    //     this.setState({ newBoulder: nextProps.newBoulder.name });
+    // }
 
     // handleSubmit(e) {   
     //     e.preventDefault();
@@ -193,7 +193,7 @@ class BoulderCompose extends React.Component {
             <div className="compose-session">
                 <div className="type">
                     {this.state.type === 'boulder' ? <h3>Bouldering</h3>: <h3>Rope Climbing</h3>} &nbsp;
-                    <button className="switch-button" onClick={this.handleSwitchType}>{this.state.type === 'boulder' ? 'Ropes' : 'Boulders'}</button>
+                    <button className="switch-button" onClick={this.handleSwitchType}><i className="fas fa-exchange-alt"></i>&nbsp;{this.state.type === 'boulder' ? 'Ropes' : 'Boulders'}</button>
 
                 </div>
             <table className="options">
