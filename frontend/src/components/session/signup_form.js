@@ -17,22 +17,24 @@ class SignupForm extends React.Component {
         this.handleBlur = this.handleBlur.bind(this)
     }
     componentDidMount(){
-        document.getElementsByClassName("username")[0].addEventListener('focus', this.handleClick)
-        document.getElementsByClassName("username")[0].addEventListener('blur', this.handleBlur)
-        document.getElementsByClassName("password")[0].addEventListener('focus', this.handleClick)
-        document.getElementsByClassName("password")[0].addEventListener('blur', this.handleBlur)
-        document.getElementsByClassName("password2")[0].addEventListener('focus', this.handleClick)
-        document.getElementsByClassName("password2")[0].addEventListener('blur', this.handleBlur)
+        let classes = ['username', 'password', 'password2']
+        for (let i = 0;i < classes.length;i++){
+                document.getElementsByClassName(classes[i])[0].addEventListener('focus', this.handleFocus)
+                document.getElementsByClassName(classes[i])[0].addEventListener('blur', this.handleBlur)
+            
+        }
+        
     }
     componentWillUnmount(){
-        document.getElementsByClassName("username")[0].removeEventListener('focus', this.handleClick)
-        document.getElementsByClassName("username")[0].removeEventListener('blur', this.handleBlur)
-        document.getElementsByClassName("password")[0].removeEventListener('focus', this.handleClick)
-        document.getElementsByClassName("password")[0].removeEventListener('blur', this.handleBlur)
-        document.getElementsByClassName("password2")[0].removeEventListener('focus', this.handleClick)
-        document.getElementsByClassName("password2")[0].removeEventListener('blur', this.handleBlur)
+        let classes = ['username', 'password', 'password2']
+        for (let i = 0; i < classes.length; i++) {
+                document.getElementsByClassName(classes[i])[0].removeEventListener('focus', this.handleFocus)
+                document.getElementsByClassName(classes[i])[0].removeEventListener('blur', this.handleBlur)
+                // document.getElementsByClassName(classes[i])[0].removeEventListener('focus', this.handleFocus)
+            
+        }
     }
-    handleClick(e) {
+    handleFocus(e) {
         let movingPlaceholder;
         switch (e.currentTarget.classList[0]) {
             case 'username':
@@ -51,45 +53,49 @@ class SignupForm extends React.Component {
                 movingPlaceholder.style.left = '5px'
                 break
             default:
-                // movingPlaceholder = document.getElementsByClassName("signup-moving-placeholder")[0]
         }
         movingPlaceholder.style.fontSize = '10px'
+        movingPlaceholder.style.color = 'rgb(0, 223, 223)'
+
         movingPlaceholder.style.WebkitTransition = 'top .1s, left .1s';
         movingPlaceholder.style.MozTransition = 'top .1s, left .1s';
     }
     handleBlur(e) {
-
         let movingPlaceholder
+        
         switch (e.currentTarget.classList[0]) {
             case 'username':
+                movingPlaceholder = document.getElementsByClassName("signup-moving-placeholder")[0]
                 if (!this.state.username.length) {
-                    movingPlaceholder = document.getElementsByClassName("signup-moving-placeholder")[0]
                     movingPlaceholder.style.top = '22px'
                     movingPlaceholder.style.left = '3px'
                     movingPlaceholder.style.fontSize = '14px'
                 }
                 break
             case 'password':
+                movingPlaceholder = document.getElementsByClassName("signup-moving-placeholder2")[0]
                 if (!this.state.password.length) {
-                    movingPlaceholder = document.getElementsByClassName("signup-moving-placeholder2")[0]
                     movingPlaceholder.style.top = '69px'
                     movingPlaceholder.style.left = '3px'
                     movingPlaceholder.style.fontSize = '14px'
                 }
                 break
             case 'password2':
+                movingPlaceholder = document.getElementsByClassName("signup-moving-placeholder3")[0]
                 if (!this.state.password2.length) {
-                    movingPlaceholder = document.getElementsByClassName("signup-moving-placeholder3")[0]
                     movingPlaceholder.style.top = '115px'
                     movingPlaceholder.style.left = '3px'
                     movingPlaceholder.style.fontSize = '14px'
                 }
                 break
             default:
+                movingPlaceholder = <div></div>
                 break
         }
+        movingPlaceholder.style.color = 'gray'
 
     }
+    
     componentWillReceiveProps(nextProps) {
         if (nextProps.signedIn === true) {
             this.props.history.push('/login');

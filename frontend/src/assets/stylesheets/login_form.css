@@ -74,6 +74,7 @@
     background: white;
 }
 .demo-button:hover {
-    background: gold;
+    background: black;
+    color: white;
 }
 

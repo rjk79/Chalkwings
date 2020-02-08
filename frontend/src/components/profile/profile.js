@@ -127,7 +127,7 @@ class Profile extends React.Component {
                 <div className="profile">
                     <h1>{this.state.username}'s Profile</h1>
                     {this.state.type === 'boulders' ? <h3>Boulders</h3>:<h3>Ropes</h3>}
-                    <button onClick={this.handleClickType}><i className="fas fa-exchange-alt"></i>&nbsp;{this.state.type === 'boulders' ? 'View Ropes':'View Boulders'}</button>
+                    <button onClick={this.handleClickType} className="profile-swap"><i className="fas fa-exchange-alt"></i>&nbsp;{this.state.type === 'boulders' ? 'View Ropes':'View Boulders'}</button>
                     <h2>This Month ({new Date().toString().slice(4, 7)})</h2>
                     <div>
                         # of boulders: {boulderMonthlyData.length}<br/>

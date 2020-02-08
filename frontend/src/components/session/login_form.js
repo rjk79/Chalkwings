@@ -24,7 +24,7 @@ class LoginForm extends React.Component {
         };
         this.props.login(user);
     }
-    handleClick(e){
+    handleFocus(e){
         let movingPlaceholder 
         switch (e.currentTarget.classList[0]){
             case 'input-username': 
@@ -38,6 +38,8 @@ class LoginForm extends React.Component {
                 movingPlaceholder.style.left = '5px'
         }
         movingPlaceholder.style.fontSize = '10px'
+        movingPlaceholder.style.color = 'rgb(0, 223, 223)'
+
         movingPlaceholder.style.WebkitTransition = 'top .1s, left .1s';
         movingPlaceholder.style.MozTransition = 'top .1s, left .1s';
     }
@@ -46,34 +48,35 @@ class LoginForm extends React.Component {
         let movingPlaceholder
         switch (e.currentTarget.classList[0]) {
             case 'input-username':
+                movingPlaceholder = document.getElementsByClassName("moving-placeholder")[0]
                 if (!this.state.username.length) {
-                    movingPlaceholder = document.getElementsByClassName("moving-placeholder")[0]
                     movingPlaceholder.style.top = '2px'
                     movingPlaceholder.style.left = '3px'
                     movingPlaceholder.style.fontSize = '14px'
                 }
                 break
             case 'input-password':
-                if (!this.state.password.length) {
                 movingPlaceholder = document.getElementsByClassName("moving-placeholder2")[0]
+                if (!this.state.password.length) {
                 movingPlaceholder.style.top = '49px'
                 movingPlaceholder.style.left = '3px'
                 movingPlaceholder.style.fontSize = '14px'
                 }
         }
-    
+        movingPlaceholder.style.color = 'gray'
+
     }
     
     componentDidMount(){
-        document.getElementsByClassName("input-username")[0].addEventListener('focus', this.handleClick)
+        document.getElementsByClassName("input-username")[0].addEventListener('focus', this.handleFocus)
         document.getElementsByClassName("input-username")[0].addEventListener('blur', this.handleBlur)
-        document.getElementsByClassName("input-password")[0].addEventListener('focus', this.handleClick)
+        document.getElementsByClassName("input-password")[0].addEventListener('focus', this.handleFocus)
         document.getElementsByClassName("input-password")[0].addEventListener('blur', this.handleBlur)
     }
     componentWillUnmount() {
-        document.getElementsByClassName("input-username")[0].removeEventListener('focus', this.handleClick)
+        document.getElementsByClassName("input-username")[0].removeEventListener('focus', this.handleFocus)
         document.getElementsByClassName("input-username")[0].removeEventListener('blur', this.handleBlur)
-        document.getElementsByClassName("input-password")[0].removeEventListener('focus', this.handleClick)
+        document.getElementsByClassName("input-password")[0].removeEventListener('focus', this.handleFocus)
         document.getElementsByClassName("input-password")[0].removeEventListener('blur', this.handleBlur)
     }
     // Once the user has been authenticated, redirect to the index page
