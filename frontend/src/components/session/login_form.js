@@ -29,13 +29,13 @@ class LoginForm extends React.Component {
         switch (e.currentTarget.classList[0]){
             case 'input-username': 
                 movingPlaceholder = document.getElementsByClassName("moving-placeholder")[0]
-                movingPlaceholder.style.top = '-7px'
-                movingPlaceholder.style.left = '5px'
+                movingPlaceholder.style.top = '-3%'
+                movingPlaceholder.style.left = '2%'
                 break
             case 'input-password': 
                 movingPlaceholder = document.getElementsByClassName("moving-placeholder2")[0]
-                movingPlaceholder.style.top = '38px'
-                movingPlaceholder.style.left = '5px'
+                movingPlaceholder.style.top = '20%'
+                movingPlaceholder.style.left = '2%'
         }
         movingPlaceholder.style.fontSize = '10px'
         movingPlaceholder.style.color = 'rgb(0, 223, 223)'
@@ -50,16 +50,16 @@ class LoginForm extends React.Component {
             case 'input-username':
                 movingPlaceholder = document.getElementsByClassName("moving-placeholder")[0]
                 if (!this.state.username.length) {
-                    movingPlaceholder.style.top = '2px'
-                    movingPlaceholder.style.left = '3px'
+                    movingPlaceholder.style.top = '1%'
+                    movingPlaceholder.style.left = '4%'
                     movingPlaceholder.style.fontSize = '14px'
                 }
                 break
             case 'input-password':
                 movingPlaceholder = document.getElementsByClassName("moving-placeholder2")[0]
                 if (!this.state.password.length) {
-                movingPlaceholder.style.top = '49px'
-                movingPlaceholder.style.left = '3px'
+                movingPlaceholder.style.top = '24%'
+                movingPlaceholder.style.left = '4%'
                 movingPlaceholder.style.fontSize = '14px'
                 }
         }
