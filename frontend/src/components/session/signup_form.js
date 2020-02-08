@@ -39,18 +39,18 @@ class SignupForm extends React.Component {
         switch (e.currentTarget.classList[0]) {
             case 'username':
                 movingPlaceholder = document.getElementsByClassName("signup-moving-placeholder")[0]
-                movingPlaceholder.style.top = '13px'
-                movingPlaceholder.style.left = '5px'
+                movingPlaceholder.style.top = '7%'
+                movingPlaceholder.style.left = '3%'
                 break
             case 'password':
                 movingPlaceholder = document.getElementsByClassName("signup-moving-placeholder2")[0]
-                movingPlaceholder.style.top = '58px'
-                movingPlaceholder.style.left = '5px'
+                movingPlaceholder.style.top = '29%'
+                movingPlaceholder.style.left = '3%'
                 break
             case 'password2':
                 movingPlaceholder = document.getElementsByClassName("signup-moving-placeholder3")[0]
-                movingPlaceholder.style.top = '103px'
-                movingPlaceholder.style.left = '5px'
+                movingPlaceholder.style.top = '50%'
+                movingPlaceholder.style.left = '3%'
                 break
             default:
         }
@@ -67,24 +67,24 @@ class SignupForm extends React.Component {
             case 'username':
                 movingPlaceholder = document.getElementsByClassName("signup-moving-placeholder")[0]
                 if (!this.state.username.length) {
-                    movingPlaceholder.style.top = '22px'
-                    movingPlaceholder.style.left = '3px'
+                    movingPlaceholder.style.top = '11%'
+                    movingPlaceholder.style.left = '5%'
                     movingPlaceholder.style.fontSize = '14px'
                 }
                 break
             case 'password':
                 movingPlaceholder = document.getElementsByClassName("signup-moving-placeholder2")[0]
                 if (!this.state.password.length) {
-                    movingPlaceholder.style.top = '69px'
-                    movingPlaceholder.style.left = '3px'
+                    movingPlaceholder.style.top = '33%'
+                    movingPlaceholder.style.left = '5%'
                     movingPlaceholder.style.fontSize = '14px'
                 }
                 break
             case 'password2':
                 movingPlaceholder = document.getElementsByClassName("signup-moving-placeholder3")[0]
                 if (!this.state.password2.length) {
-                    movingPlaceholder.style.top = '115px'
-                    movingPlaceholder.style.left = '3px'
+                    movingPlaceholder.style.top = '54%'
+                    movingPlaceholder.style.left = '5%'
                     movingPlaceholder.style.fontSize = '14px'
                 }
                 break

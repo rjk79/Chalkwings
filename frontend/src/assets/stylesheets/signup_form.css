@@ -21,7 +21,8 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    
+    height: 210px;
+    width: 152px;
 }
 
 .signup-form .btn {
@@ -51,16 +52,16 @@
 
 
 .signup-moving-placeholder {
-    top: 22px;
-    left: 3px;
+    top: 11%;
+    left: 5%;
 }
 
 .signup-moving-placeholder2 {
-    top: 69px;
-    left: 3px;
+    top: 33%;
+    left: 5%;
 }
 
 .signup-moving-placeholder3 {
-    top: 115px;
-    left: 3px;
+    top: 54%;
+    left: 5%;
 }
