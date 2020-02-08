@@ -32,6 +32,8 @@
     pointer-events: none;
     background: white;
     color: gray;
+    top: 11%;
+    left: 5%;
 }
 .login-form input {
     border-radius: 5px;
@@ -42,7 +44,7 @@
 }
 
 
-.moving-placeholder {
+/* .moving-placeholder {
     top: 1%;
     left: 4%;   
 }
@@ -50,7 +52,7 @@
 .moving-placeholder2 {
     top: 24%;
     left: 4%;
-}
+} */
 
 /* 
 .high {
@@ -79,5 +81,8 @@
 .demo-button:hover {
     background: black;
     color: white;
+}
+.login-form>div {
+    position: relative;
 }
 

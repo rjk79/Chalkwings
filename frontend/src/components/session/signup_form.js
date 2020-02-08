@@ -142,36 +142,36 @@ class SignupForm extends React.Component {
                     <div className="signup-form">
                         <br />
                         <div>
-                        <div className="signup-moving-placeholder">Username</div>
+                            <div className="signup-moving-placeholder">Username</div>
 
-                        <input type="text"
-                            value={this.state.username}
-                            onChange={this.update('username')}
-                            className="username"
-                            // placeholder="Username"
+                            <input type="text"
+                                value={this.state.username}
+                                onChange={this.update('username')}
+                                className="username"
+                                // placeholder="Username"
 
-                        />
+                            />
                         </div>
                         <br />
                         <div>
-                        <div className="signup-moving-placeholder2">Password</div>
+                            <div className="signup-moving-placeholder2">Password</div>
 
-                        <input type="password"
-                            value={this.state.password}
-                            onChange={this.update('password')}
-                            className="password"
-                            // placeholder="Password"
-                        />
+                            <input type="password"
+                                value={this.state.password}
+                                onChange={this.update('password')}
+                                className="password"
+                                // placeholder="Password"
+                            />
                         </div>
                         <br />
                         <div>
-                        <div className="signup-moving-placeholder3">Confirm Password</div>
-                        <input type="password"
-                            value={this.state.password2}
-                            onChange={this.update('password2')}
-                            className="password2"
-                            // placeholder="Confirm Password"
-                        />
+                            <div className="signup-moving-placeholder3">Confirm Password</div>
+                            <input type="password"
+                                value={this.state.password2}
+                                onChange={this.update('password2')}
+                                className="password2"
+                                // placeholder="Confirm Password"
+                            />
                         </div>
                         <br />
                         <input className="btn btn-primary" type="submit" value="Sign Up" />
