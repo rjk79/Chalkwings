@@ -23,6 +23,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    align-items: center;
 }
 [class^='moving-placeholder'] {
     position: absolute;
@@ -60,8 +61,19 @@
     border: none;
     background: #59277d;
     transition: opacity .3s;
+    width: 100px;
+    height: 32px;
 }
 .login-form .btn:hover {
     opacity: .7;
+}
+.demo-button {
+    margin-top: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background: white;
+}
+.demo-button:hover {
+    background: gold;
 }
 

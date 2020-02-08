@@ -15,6 +15,14 @@ class LoginForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
         this.handleBlur = this.handleBlur.bind(this)
+        this.handleDemo = this.handleDemo.bind(this)
+    }
+    handleDemo(){
+        let user = {
+            username: "Guest",
+            password: "password"
+        };
+        this.props.login(user);
     }
     handleClick(e){
         let movingPlaceholder 
@@ -138,6 +146,7 @@ class LoginForm extends React.Component {
                         <input className="btn btn-primary" type="submit" value="Log In" />
                         {this.renderErrors()}
                     <Link className="" to="/signup"> Are you a new user? </Link>
+                    <button className="demo-button" onClick={this.handleDemo}>Demo Log In</button>
                     </div>
                 </form>
             </div>
