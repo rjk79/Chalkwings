@@ -32,7 +32,8 @@ class Dashboard extends React.Component{
             <li key={idx}>{result.name}</li>
         ))
         
-        return (<div className="dashboard">
+        return (
+           <div className="dashboard">
             <h1>Team Dashboard</h1>
             <h3>Edit Teammates</h3>
             <h3>Challenge Team</h3>
@@ -52,7 +53,9 @@ class Dashboard extends React.Component{
             </form>
             
             <button>Delete Team</button>
-        </div>)
+         </div>
+       
+        )
     }
 }
 

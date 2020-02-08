@@ -20,9 +20,46 @@
 .signup-form {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .signup-form .btn {
     border: none;
     background: #59277d;
+    transition: opacity .3s;
+}
+.signup-form .btn:hover {
+    opacity: .7;
+}
+
+
+.signup-form input {
+    border-radius: 5px;
+    outline: none;
+}
+.signup-form input:focus {
+    border: 2px solid rgb(0, 223, 223);
+}
+
+[class*="signup-moving"] {
+    pointer-events: none;
+    position: absolute;
+    background: white;
+    color: gray;
+}
+
+
+.signup-moving-placeholder {
+    top: 22px;
+    left: 3px;
+}
+
+.signup-moving-placeholder2 {
+    top: 67px;
+    left: 3px;
+}
+
+.signup-moving-placeholder3 {
+    top: 112px;
+    left: 3px;
 }

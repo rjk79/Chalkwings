@@ -8,7 +8,10 @@ class MainPage extends React.Component {
         return (
             <div className="main-page">
                 <div className="welcome-box">
+                    {/* <div className="rotater"></div> */}
+                    <div className="img-holder">
                 <img src={require("../../assets/images/mascotstand.png")} alt="mascotstand"/>
+                    </div>
                 <div>climb socially + see your progress</div>
                 <Link className="get-started btn btn-primary" to="/login">Get Started</Link>
                 </div>

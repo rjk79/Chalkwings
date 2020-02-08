@@ -14,15 +14,54 @@
     font-weight: 100;
     font-size: 24px;    
 }
-
+.login-form input:focus {
+    outline: none;
+}
 
 
 .login-form {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
+[class^='moving-placeholder'] {
+    position: absolute;
+    pointer-events: none;
+    background: white;
+    color: gray;
+}
+.login-form input {
+    border-radius: 5px;
+    outline: none;
+}
+.login-form input:focus {
+    border: 2px solid rgb(0, 223, 223);
+}
+
+
+.moving-placeholder {
+    top: 2px;
+    left: 3px;   
+}
+
+.moving-placeholder2 {
+    top: 47px;
+    left: 3px;
+}
+
+/* 
+.high {
+    top: -10px;
+    left: -10px;
+    color: blue;
+} */
 
 .login-form .btn {
     border: none;
     background: #59277d;
+    transition: opacity .3s;
 }
+.login-form .btn:hover {
+    opacity: .7;
+}
+
