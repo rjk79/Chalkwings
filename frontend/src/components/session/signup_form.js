@@ -72,7 +72,7 @@ class SignupForm extends React.Component {
             case 'password':
                 if (!this.state.password.length) {
                     movingPlaceholder = document.getElementsByClassName("signup-moving-placeholder2")[0]
-                    movingPlaceholder.style.top = '67px'
+                    movingPlaceholder.style.top = '69px'
                     movingPlaceholder.style.left = '3px'
                     movingPlaceholder.style.fontSize = '14px'
                 }
@@ -80,7 +80,7 @@ class SignupForm extends React.Component {
             case 'password2':
                 if (!this.state.password2.length) {
                     movingPlaceholder = document.getElementsByClassName("signup-moving-placeholder3")[0]
-                    movingPlaceholder.style.top = '112px'
+                    movingPlaceholder.style.top = '115px'
                     movingPlaceholder.style.left = '3px'
                     movingPlaceholder.style.fontSize = '14px'
                 }

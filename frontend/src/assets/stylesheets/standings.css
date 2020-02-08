@@ -19,6 +19,9 @@
     padding: 0 10px;
     color: white;
 }
+.teams li:hover {
+    /* opacity: .7; */
+}
 .teams p:first-child {
     font-size: 18px;
     font-weight: 600;

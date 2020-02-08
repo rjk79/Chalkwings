@@ -48,7 +48,7 @@ class LoginForm extends React.Component {
             case 'input-password':
                 if (!this.state.password.length) {
                 movingPlaceholder = document.getElementsByClassName("moving-placeholder2")[0]
-                movingPlaceholder.style.top = '47px'
+                movingPlaceholder.style.top = '49px'
                 movingPlaceholder.style.left = '3px'
                 movingPlaceholder.style.fontSize = '14px'
                 }
