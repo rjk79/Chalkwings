@@ -51,17 +51,11 @@
 }
 
 
-.signup-moving-placeholder {
+[class ^= "signup-moving-placeholder"] {
     top: 11%;
     left: 5%;
 }
 
-.signup-moving-placeholder2 {
-    top: 33%;
-    left: 5%;
-}
-
-.signup-moving-placeholder3 {
-    top: 54%;
-    left: 5%;
+.signup-form > div {
+    position: relative;
 }

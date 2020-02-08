@@ -39,21 +39,20 @@ class SignupForm extends React.Component {
         switch (e.currentTarget.classList[0]) {
             case 'username':
                 movingPlaceholder = document.getElementsByClassName("signup-moving-placeholder")[0]
-                movingPlaceholder.style.top = '7%'
-                movingPlaceholder.style.left = '3%'
+          
                 break
             case 'password':
                 movingPlaceholder = document.getElementsByClassName("signup-moving-placeholder2")[0]
-                movingPlaceholder.style.top = '29%'
-                movingPlaceholder.style.left = '3%'
+                
                 break
             case 'password2':
                 movingPlaceholder = document.getElementsByClassName("signup-moving-placeholder3")[0]
-                movingPlaceholder.style.top = '50%'
-                movingPlaceholder.style.left = '3%'
+                
                 break
             default:
         }
+        movingPlaceholder.style.top = '-30%'
+        movingPlaceholder.style.left = '5%'
         movingPlaceholder.style.fontSize = '10px'
         movingPlaceholder.style.color = 'rgb(0, 223, 223)'
 
@@ -75,7 +74,7 @@ class SignupForm extends React.Component {
             case 'password':
                 movingPlaceholder = document.getElementsByClassName("signup-moving-placeholder2")[0]
                 if (!this.state.password.length) {
-                    movingPlaceholder.style.top = '33%'
+                    movingPlaceholder.style.top = '11%'
                     movingPlaceholder.style.left = '5%'
                     movingPlaceholder.style.fontSize = '14px'
                 }
@@ -83,7 +82,7 @@ class SignupForm extends React.Component {
             case 'password2':
                 movingPlaceholder = document.getElementsByClassName("signup-moving-placeholder3")[0]
                 if (!this.state.password2.length) {
-                    movingPlaceholder.style.top = '54%'
+                    movingPlaceholder.style.top = '11%'
                     movingPlaceholder.style.left = '5%'
                     movingPlaceholder.style.fontSize = '14px'
                 }
@@ -142,6 +141,7 @@ class SignupForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <div className="signup-form">
                         <br />
+                        <div>
                         <div className="signup-moving-placeholder">Username</div>
 
                         <input type="text"
@@ -151,7 +151,9 @@ class SignupForm extends React.Component {
                             // placeholder="Username"
 
                         />
+                        </div>
                         <br />
+                        <div>
                         <div className="signup-moving-placeholder2">Password</div>
 
                         <input type="password"
@@ -160,15 +162,17 @@ class SignupForm extends React.Component {
                             className="password"
                             // placeholder="Password"
                         />
+                        </div>
                         <br />
+                        <div>
                         <div className="signup-moving-placeholder3">Confirm Password</div>
-
                         <input type="password"
                             value={this.state.password2}
                             onChange={this.update('password2')}
                             className="password2"
                             // placeholder="Confirm Password"
                         />
+                        </div>
                         <br />
                         <input className="btn btn-primary" type="submit" value="Sign Up" />
                         {this.renderErrors()}
