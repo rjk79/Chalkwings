@@ -28,12 +28,12 @@ class LoginForm extends React.Component {
         let movingPlaceholder 
         switch (e.currentTarget.classList[0]){
             case 'input-username': 
-                movingPlaceholder = document.getElementsByClassName("moving-placeholder")[0]
-                
+                movingPlaceholder = document.getElementsByClassName("moving-placeholder")[0]              
                 break
             case 'input-password': 
                 movingPlaceholder = document.getElementsByClassName("moving-placeholder2")[0]
-                
+                break
+            default:
         }
         movingPlaceholder.style.top = '-30%'
         movingPlaceholder.style.left = '5%'
@@ -62,6 +62,8 @@ class LoginForm extends React.Component {
                 movingPlaceholder.style.left = '5%'
                 movingPlaceholder.style.fontSize = '14px'
                 }
+                break
+            default:
         }
         movingPlaceholder.style.color = 'gray'
 

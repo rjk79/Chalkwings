@@ -4,6 +4,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 90%;
+    /* background: linear-gradient(45deg, rgb(100, 100, 100), white, rgb(100, 100, 100)); */
 }
 
 .welcome-box {

@@ -24,8 +24,7 @@
     flex-direction: column;
     position: relative;
     align-items: center;
-    height: 201px;
-    width: 152px;
+    
 }
 [class^='moving-placeholder'] {
     position: absolute;

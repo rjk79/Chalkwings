@@ -88,8 +88,7 @@ class SignupForm extends React.Component {
                 }
                 break
             default:
-                movingPlaceholder = <div></div>
-                break
+                
         }
         movingPlaceholder.style.color = 'gray'
 

@@ -112,15 +112,18 @@ class Profile extends React.Component {
         i = 0
         while (i < this.state.ropes.length && parseInt(this.state.ropes[i].date.slice(5, 7)) -1 === currMonth) i ++ //getMo is 0 indexed
         let ropeMonthlyData = this.createGraphData(this.state.ropes.slice(0, i), ROPE_GRADES)
-
-        // i = 0
-        // while (i < this.state.ropes.length && parseInt(this.state.ropes[i].date.slice(5, 7)) - 1 === currMonth) {
-        //     debugger
-        //     i++
-        // } //getMo is 0 indexed
-        // let ropeWeeklyData = this.createGraphData(this.state.ropes.slice(0, i), ROPE_GRADES)
-
-
+        
+        let ropeMonthlyAverageIdx = ropeMonthlyData.map(datum => ROPE_GRADES.indexOf(datum.grade) * datum.count)
+                                                    .reduce((a, b)=> a+b, 0)
+                                    / ropeMonthlyData.map(datum => datum.count)
+                                                    .reduce((a, b) => a + b, 0)
+        let ropeMonthlyAverage = ROPE_GRADES[Math.floor(ropeMonthlyAverageIdx)]
+        let boulderMonthlyAverageIdx = boulderMonthlyData.map(datum => BOULDER_GRADES.indexOf(datum.grade) * datum.count)
+                                                    .reduce((a, b)=> a+b, 0)
+                                    / boulderMonthlyData.map(datum => datum.count)
+                                                    .reduce((a, b) => a + b, 0)
+        let boulderMonthlyAverage = BOULDER_GRADES[Math.floor(boulderMonthlyAverageIdx)]
+        
         let ropeData = this.createGraphData(this.state.ropes, ROPE_GRADES)
 
             return (
@@ -133,7 +136,9 @@ class Profile extends React.Component {
                         # of boulders: {boulderMonthlyData.length}<br/>
                         # of rope climbs: {ropeMonthlyData.length}<br/>
                         Distance bouldered: approx.&nbsp;{boulderMonthlyData.length * 15}&nbsp; feet<br/>
-                        Distance rope-climbed: approx.&nbsp;{ropeMonthlyData.length * 40}&nbsp; feet
+                        Distance rope-climbed: approx.&nbsp;{ropeMonthlyData.length * 40}&nbsp; feet<br/>
+                        Monthly average rope grade: {ropeMonthlyAverage} <br/>
+                        Monthly average boulder grade: {boulderMonthlyAverage}
                     </div>
                     {this.state.type === 'boulders' ?
                         <>

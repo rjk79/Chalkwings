@@ -2,7 +2,13 @@ import React from 'react';
 // import BoulderBox from './boulder_box';
 import '../../assets/stylesheets/climb_compose.css'
 import {merge} from 'lodash'
-import { Legend, Tooltip, PieChart, Pie, Sector, Cell, ResponsiveContainer} from 'recharts'
+import { 
+    // Legend, 
+    Tooltip, PieChart, Pie, 
+    // Sector, 
+    Cell, 
+    // ResponsiveContainer
+    } from 'recharts'
 const BOULDER_GRADES = ["V0", "V1", "V2", "V3", "V4", "V5", "V6", "V7", "V8", "V9", "V10", "V11"]
 const ROPE_GRADES = ["5.5", "5.6", "5.7", "5.8",
     "5.9", "5.10a", "5.10b", "5.10c",
