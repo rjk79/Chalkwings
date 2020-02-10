@@ -41,12 +41,12 @@ class NavBar extends React.Component {
                     
                     <div className="links1" >
                             <Link onClick={this.handleClickLink} to={'/standings'}><i className="fas fa-home"></i>&nbsp;Home</Link>
-                        <Link onClick={this.handleClickLink} to={'/chat'}><i className="fas fa-comment"></i>&nbsp;Messages</Link>
                             <Link onClick={this.handleClickLink} to={`/profile/${this.props.currentUser.id}`}><i className="fas fa-user"></i>&nbsp;Profile</Link>
-                        <Link onClick={this.handleClickLink} to={'/new_boulder'}>Add Session</Link>
-                        <Link onClick={this.handleClickLink} to={'/teams'}>Create Team</Link>
+                            <Link onClick={this.handleClickLink} to={'/new_boulder'}>Add Session</Link>
+                            <Link onClick={this.handleClickLink} to={'/teams'}>Create Team</Link>
                         {/* <Link onClick={this.handleClickLink} to={'/dashboard'}>Dashboard</Link> */}
                             <Link onClick={this.handleClickLink} to={'/search'}><i className="fas fa-search"></i>&nbsp;Find User</Link>
+                            <Link onClick={this.handleClickLink} to={'/chat'}><i className="fas fa-comment"></i>&nbsp;Need Help?</Link>
                             <button className="logout-button" onClick={this.logoutUser}><i className="fas fa-sign-out-alt"></i>&nbsp;Log out</button>
                     </div>
                 : null}
