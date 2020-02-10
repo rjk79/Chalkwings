@@ -70,12 +70,18 @@ class Profile extends React.Component {
                     top: 5, right: 30, left: 20, bottom: 5,
                 }}
             >
+                <defs>
+                    <linearGradient id={`${color}`} x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="5%" stopColor={color} stopOpacity={0.8} />
+                        <stop offset="95%" stopColor={color} stopOpacity={0} />
+                    </linearGradient>
+                </defs>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="grade" /> 
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Area type="monotone" dataKey="count" fill={color} />
+                <Area type="monotone" stroke={color} dataKey="count" fill={`url(#${color})`} />
             </AreaChart>
         </ResponsiveContainer>
         )
@@ -101,8 +107,9 @@ class Profile extends React.Component {
                             "5.11d", "5.12a", "5.12b", "5.12c",
                             "5.12d", "5.13a"]
 
-        let boulderData = this.createGraphData(boulders, BOULDER_GRADES)
-        
+        let boulderData = this.createGraphData(boulders, BOULDER_GRADES) // {grade: count: }
+        let ropeData = this.createGraphData(ropes, ROPE_GRADES) // {grade: count: }
+
         let date = new Date()
         let currMonth = date.getMonth()
         let i = 0
@@ -110,7 +117,7 @@ class Profile extends React.Component {
         let boulderMonthlyData = this.createGraphData(boulders.slice(0, i), BOULDER_GRADES)
         i = 0
         while (i < ropes.length && parseInt(ropes[i].date.slice(5, 7)) -1 === currMonth) i ++ //getMo is 0 indexed
-        let ropeMonthlyData = this.createGraphData(ropes.slice(0, i), ROPE_GRADES)
+        let ropeMonthlyData = this.createGraphData(ropes.slice(0, i), ROPE_GRADES) // {grade: count: }
         
         let ropeMonthlyAverageIdx = ropeMonthlyData.map(datum => ROPE_GRADES.indexOf(datum.grade) * datum.count)
                                                     .reduce((a, b)=> a+b, 0)
@@ -123,8 +130,8 @@ class Profile extends React.Component {
                                                     .reduce((a, b) => a + b, 0)
         let boulderMonthlyAverage = BOULDER_GRADES[Math.floor(boulderMonthlyAverageIdx)]
         
-        let ropeData = this.createGraphData(ropes, ROPE_GRADES)
-            
+        let boulderMonthlyCount = boulderMonthlyData.filter(el => el.count).reduce((a, b)=>a + b.count,0)
+        let ropeMonthlyCount = ropeMonthlyData.filter(el => el.count).reduce((a, b)=>a + b.count,0)
 
         return (
             <div className="profile">
@@ -133,12 +140,11 @@ class Profile extends React.Component {
                 <button onClick={this.handleClickType} className="profile-swap"><i className="fas fa-exchange-alt"></i>&nbsp;{this.state.type === 'boulders' ? 'View Ropes':'View Boulders'}</button>
                 <h2>This Month ({new Date().toString().slice(4, 7)})</h2>
                 <div>
-                    # of boulders: {boulderMonthlyData.filter(el => el.count).length}<br/>
-                    # of rope climbs: {ropeMonthlyData.filter(el => el.count).length}<br/>
-                    Distance bouldered: approx.&nbsp;{boulderMonthlyData.filter(el => el.count).length * 15}&nbsp; feet<br/>
-                    Distance rope-climbed: approx.&nbsp;{ropeMonthlyData.filter(el => el.count).length * 40}&nbsp; feet<br/>
-                    Monthly average rope grade: {ropeMonthlyAverage} <br/>
-                    Monthly average boulder grade: {boulderMonthlyAverage}
+                    <strong># of boulders:</strong> {boulderMonthlyCount}<br/>
+                    <strong># of rope climbs:</strong> {ropeMonthlyCount}<br/>
+                    <strong>Distance bouldered:</strong> approx.&nbsp;{boulderMonthlyCount * 15} ft. | {Math.floor(boulderMonthlyCount * 15 *.3048)} m.<br/>
+                    <strong>Distance rope-climbed:</strong> approx.&nbsp;{ropeMonthlyCount * 40} ft. | {Math.floor(ropeMonthlyCount * 40 *.3048)} m.<br/>
+                    <strong>Average  grades climbed:</strong> {ropeMonthlyAverage ? ropeMonthlyAverage : "n/a"} {boulderMonthlyAverage ? boulderMonthlyAverage : "n/a"}<br/>
                 </div>
                 {this.state.type === 'boulders' ?
                     <>
