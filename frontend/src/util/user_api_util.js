@@ -36,3 +36,11 @@ export const getWeekBoulders = id => {
 export const getWeekRopes = id => {
     return axios.get(`/api/users/${id}/weekropes`)
 }
+
+export const updatePhoto = (id, formData, config) => {
+    return axios.post(`/api/users/${id}/photo`, formData, config)
+}
+
+export const getPhoto = id => {
+    return axios.get(`/api/users/${id}/photo`)
+}

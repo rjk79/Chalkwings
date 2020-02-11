@@ -3,6 +3,16 @@
     padding: 10px;
 }
 
+.profile img {
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+.profile-header {
+    display: flex;
+    align-items: center;
+}
+
 .climb-chart {
     height: 50%;
 }
@@ -24,4 +34,5 @@ h2 {
     background: black;
     color: white;
 }
+
 

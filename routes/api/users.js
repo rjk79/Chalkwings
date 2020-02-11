@@ -10,6 +10,10 @@ const Boulder = require('../../models/Boulder');
 const Rope = require('../../models/Rope');
 
 
+var multer = require('multer')
+var upload = multer({ dest: 'uploads/' })
+
+
 const router = express.Router();
 
 router.post('/register', (req, res) => {
@@ -40,7 +44,7 @@ router.post('/register', (req, res) => {
                             .then(user => {
                                 const payload = { id: user.id, username: user.username };
                                 // sign token
-                                jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+                                jwt.sign(payload, keys.secretOrKey, { expiresIn: 4*60*60 }, (err, token) => {
                                     res.json({
                                         success: true,
                                         token: "Bearer " + token
@@ -79,8 +83,8 @@ router.post('/login', (req, res) => {
                         jwt.sign(
                             payload,
                             keys.secretOrKey,
-                            // set the key to expire in one hour
-                            { expiresIn: 3600 },
+                            // set the key to expire in two hours
+                            { expiresIn: 4*60*60 },
                             (err, token) => {
                                 res.json({
                                     success: true,
@@ -127,6 +131,7 @@ router.get('/', (req, res) => {
         )
     );
 })
+// show
 router.get('/:id', (req, res)=> {
     User.findById(req.params.id)
         .then(user => res.json(user))
@@ -188,6 +193,30 @@ router.get('/:id/weekropes', (req, res) => {
             res.status(404).json({ nouserfound: 'No user found' }
             )
         );
+})
+
+//'upload.single' makes file with .name='avatar' accessible by 'req.file'
+router.post('/:id/photo', upload.single('avatar'), (req, res) => {
+    User.findByIdAndUpdate(req.params.id, {photo: req.file}, { new: true })
+        .then(user => res.json(user))
+        .catch(err =>
+        res.status(404).json({ nousersfound: 'No users found' }
+           )
+        )
+})
+
+router.get('/:id/photo', (req, res)=> {
+    User.findById(req.params.id)
+        .then(user => {
+            // console.log("helloooooo")
+            // console.log(user) 
+            // res.json(user)
+            // cant use since sends response
+        //     console.log(user.photo.data)
+            res.contentType(user.photo.contentType);
+            res.send(user.photo.data);
+        })
+   
 })
 
 module.exports = router;

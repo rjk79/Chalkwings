@@ -26,7 +26,7 @@ class BoulderCompose extends React.Component {
             name: "",
             grade: "",
             newBoulder: "",
-            type: "boulder"
+            type: "boulder",
         }
 
         // this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,9 +35,7 @@ class BoulderCompose extends React.Component {
         this.handleSwitchType = this.handleSwitchType.bind(this)
     }
 
-    // componentWillReceiveProps(nextProps) {
-    //     this.setState({ newBoulder: nextProps.newBoulder.name });
-    // }
+
 
     // handleSubmit(e) {   
     //     e.preventDefault();
@@ -79,11 +77,16 @@ class BoulderCompose extends React.Component {
         if (this.state.type === 'boulder') {
             for (let idx in this.state.session){  
                 this.props.composeBoulder({name: "Default", grade: `${this.state.session[idx]}`})
+                    .catch(err => {
+                        console.log(err)})
             }
         }
         else {
             for (let idx in this.state.session) {
                 this.props.composeRope({ name: "Default", grade: `${this.state.session[idx]}` })
+                    .catch(err => {
+                        alert(err)
+                        console.log(err)})
             }
         }
         this.setState({session: []})

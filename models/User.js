@@ -18,6 +18,10 @@ const UserSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'teams'
     },
+    photo: {
+        data: Buffer,
+        contentType: String,
+    }
 })
 
 module.exports = User = mongoose.model('users', UserSchema);

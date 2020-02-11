@@ -13,19 +13,30 @@ class Profile extends React.Component {
 
         this.state = {
             username: "",
-            
             type: 'boulders',
+            imageUrl: "",
+            imageFile: null,
+            savedImage: null,
         }
         this.deleteAll = this.deleteAll.bind(this)
         this.handleClickType = this.handleClickType.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
     componentDidMount(){
         UserAPIUtil.getUser(this.props.match.params.userId)
-            .then(res => this.setState({ username: res.data.username }))
+            .then(res => {
+                this.setState({ username: res.data.username })})
             .catch(err => console.log(err))
         this.props.fetchUserBoulders(this.props.match.params.userId)
         this.props.fetchUserRopes(this.props.match.params.userId)
-
+        
+        UserAPIUtil.getPhoto(this.props.match.params.userId)
+            .then(res => {
+                debugger
+                this.setState({ imageUrl: res.data })})
+            .catch(err => {
+                debugger
+                console.log(err)})
     }
 
 
@@ -86,6 +97,39 @@ class Profile extends React.Component {
         </ResponsiveContainer>
         )
     } 
+    handleChangePhoto(){
+        return e => {
+            const reader = new FileReader()
+            let file = e.target.files[0]
+            reader.onloadend = () => { //listener
+                
+                this.setState({ imageUrl: reader.result, imageFile: file })
+            }
+            if (file) {
+                reader.readAsDataURL(file) //read image 
+            } else {
+                this.setState({ imageUrl: "", imageFile: null })
+            }
+            
+        }
+    }
+    handleSubmit(e){
+        e.preventDefault()
+        // submit form data thru axios
+        const formData = new FormData()
+        formData.append('avatar', this.state.imageFile)
+        const config = { headers: { 'content-type': 'multipart/form-data' } }
+
+        // debugger 
+        // [1].name
+        // for (var pair of formData.entries()) {
+        //     console.log(pair[0] + ', ' + pair[1]);
+        // }
+        UserAPIUtil.updatePhoto(this.props.currentUser.id, formData, config)
+            .then((res) => {
+                console.log(res.data);
+            })
+    }
     deleteAll(){
         
         UserAPIUtil.deleteUserBoulders(this.props.match.params.userId)
@@ -96,7 +140,7 @@ class Profile extends React.Component {
     }
     render() {
         
-        const {boulders, ropes} = this.props
+        const {boulders, ropes, currentUser} = this.props
         const BOULDER_GRADES = ["V0", "V1", "V2", 
                                 "V3", "V4", "V5", 
                                 "V6", "V7", "V8", 
@@ -132,10 +176,26 @@ class Profile extends React.Component {
         
         let boulderMonthlyCount = boulderMonthlyData.filter(el => el.count).reduce((a, b)=>a + b.count,0)
         let ropeMonthlyCount = ropeMonthlyData.filter(el => el.count).reduce((a, b)=>a + b.count,0)
-
+        
+        // if () {debugger}
         return (
             <div className="profile">
+                <div className="profile-header">
+                {/* {this.state.savedImage ? <img src='data:image/(contentType);base64,(this.state.savedImage).toString("base64")'/> : null} */}
+                {/* <img src={this.state.imageUrl || require("../../assets/images/mascotstand.png")} alt="profile" /> */}
                 <h1>{this.state.username}'s Profile</h1>
+                </div>
+                {/* {currentUser.id === this.props.match.params.userId ? 
+                    <>
+                    <form onSubmit={this.handleSubmit}>
+                        <input accept="image/*" type="file" onChange={this.handleChangePhoto()} /> 
+                        <input type="submit" value="Save"/>
+                    </form>
+
+                    </>
+                    : null} */}
+                    {/* <div>{this.state.imageFile ? this.state.imageFile.name : null }</div> */}
+
                 {this.state.type === 'boulders' ? <h3>Boulders</h3>:<h3>Ropes</h3>}
                 <button onClick={this.handleClickType} className="profile-swap"><i className="fas fa-exchange-alt"></i>&nbsp;{this.state.type === 'boulders' ? 'View Ropes':'View Boulders'}</button>
                 <h2>This Month ({new Date().toString().slice(4, 7)})</h2>
@@ -144,7 +204,7 @@ class Profile extends React.Component {
                     <strong># of rope climbs:</strong> {ropeMonthlyCount}<br/>
                     <strong>Distance bouldered:</strong> approx.&nbsp;{boulderMonthlyCount * 15} ft. | {Math.floor(boulderMonthlyCount * 15 *.3048)} m.<br/>
                     <strong>Distance rope-climbed:</strong> approx.&nbsp;{ropeMonthlyCount * 40} ft. | {Math.floor(ropeMonthlyCount * 40 *.3048)} m.<br/>
-                    <strong>Average  grades climbed:</strong> {ropeMonthlyAverage ? ropeMonthlyAverage : "n/a"} {boulderMonthlyAverage ? boulderMonthlyAverage : "n/a"}<br/>
+                    <strong>Average  grades climbed:</strong> {ropeMonthlyAverage || "n/a"} {boulderMonthlyAverage || "n/a"}<br/> 
                 </div>
                 {this.state.type === 'boulders' ?
                     <>

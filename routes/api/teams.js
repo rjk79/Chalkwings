@@ -127,7 +127,7 @@ router.delete('/:id', (req, res) => {
 
 router.patch('/:id', (req, res) => {
     //{name: "happy"}
-
+    //id, {field: value}, option to return new obj
     Team.findByIdAndUpdate(req.params.id, req.body, { new: true })
         .then(team => res.json(team))
         .catch(err =>

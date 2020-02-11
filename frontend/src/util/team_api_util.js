@@ -33,7 +33,6 @@ export const deleteTeam = id => {
 }
 
 export const updateTeam = data => {
-    
     return axios.patch(`/api/teams/${data._id}`, data)
 }
 

@@ -53,7 +53,10 @@ router.post('/',
             user: req.user.id
         });
 
-        newRope.save().then(rope => res.json(rope));
+        newRope.save()
+            .then(rope => res.json(rope), 
+                err => console.log(err)
+            );
     }
 );
 
