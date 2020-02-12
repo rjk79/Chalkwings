@@ -7,13 +7,14 @@ import { fetchUserSports } from '../../actions/sport_actions';
 import {
     BarChart, Bar, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
+import '../../assets/stylesheets/data.css'
 
 const mapStateToProps = (state) => {
     return {
         boulders: Object.values(state.entities.boulders.user),
         ropes: Object.values(state.entities.ropes.user),
         sports: Object.values(state.entities.sports.user),
-        currentUser: state.session.user
+        currentUser: state.session.user,
     };
 };
 
@@ -27,6 +28,13 @@ const mapDispatchToProps = dispatch => {
 };
 
 class DataComponent extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            graphType: 'area',
+        }
+        this.handleSwitchGraphType = this.handleSwitchGraphType.bind(this)
+    }
     componentDidMount(){
         
         this.props.fetchUserBoulders(this.props.match.params.userId)
@@ -121,7 +129,15 @@ class DataComponent extends React.Component {
             </ResponsiveContainer>
         )
     } 
-    
+    handleSwitchGraphType(){
+        return e => {
+            if (this.state.graphType === 'area'){
+            this.setState({graphType: 'bar'})
+            } else {
+                this.setState({graphType: 'area'})
+            }
+        }
+    }
     render(){
 
         const { boulders, ropes, sports, type } = this.props
@@ -170,11 +186,14 @@ class DataComponent extends React.Component {
             / monthlyData.map(datum => datum.count)
                 .reduce((a, b) => a + b, 0)
         let monthlyAverage = GRADES[Math.floor(monthlyAverageIdx)]
-        
+        debugger
         let monthlyCount = monthlyData.filter(el => el.count).reduce((a, b) => a + b.count, 0)
+        let monthlyGraph = this.state.graphType == 'area' ? this.createAreaGraph(monthlyData, color) : this.createBarGraph(monthlyData, color) 
+        let alltimeGraph = this.state.graphType == 'area' ? this.createAreaGraph(climbData, color) : this.createBarGraph(climbData, color) 
 
         return(
             <>
+                <button className="bw-button" onClick={this.handleSwitchGraphType()}><i className="fas fa-exchange-alt"></i> Graph Type</button>
                 <h3>This Month ({new Date().toString().slice(4, 7)})</h3>
                 <div>
                     <strong># of climbs:</strong> {monthlyCount}<br />
@@ -183,7 +202,7 @@ class DataComponent extends React.Component {
                 </div>
                     
                         <div className="climb-chart">
-                            {this.createAreaGraph(monthlyData, color)}
+                            {monthlyGraph}
                         </div>
                     
                 
@@ -192,7 +211,7 @@ class DataComponent extends React.Component {
                 <h3>All-time</h3>                    
                     
                         <div className="climb-chart">
-                            {this.createAreaGraph(climbData, color)}
+                            {alltimeGraph}
                         </div>
                     
                 {/* {this.state.boulders.map(boulder => (

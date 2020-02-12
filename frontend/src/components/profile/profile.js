@@ -134,7 +134,7 @@ class Profile extends React.Component {
                     {/* <div>{this.state.imageFile ? this.state.imageFile.name : null }</div> */}
 
                 {currentType}
-                <button onClick={this.handleClickType} className="profile-swap"><i className="fas fa-exchange-alt"></i>&nbsp;</button>
+                <button onClick={this.handleClickType} className="bw-button"><i className="fas fa-exchange-alt"></i>&nbsp;Climb Type</button>
                 
                 <DataComponent type={this.state.type} />
                 
