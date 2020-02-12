@@ -71,6 +71,9 @@
 .options .rope-grades td {
     background: rgb(108, 208, 157);
 }
+.options .sport-grades td {
+    background: #83a6ed;
+}
 
 .options tr td:hover {
     opacity: .5;

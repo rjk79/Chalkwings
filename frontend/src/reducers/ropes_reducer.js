@@ -1,5 +1,5 @@
 import { RECEIVE_ROPES, RECEIVE_USER_ROPES, RECEIVE_NEW_ROPE } from '../actions/rope_actions';
-
+import {REMOVE_USER_ROPES} from '../actions/user_actions'
 
 
 const RopesReducer = (state = { all: {}, user: {}, new: undefined }, action) => {
@@ -15,6 +15,9 @@ const RopesReducer = (state = { all: {}, user: {}, new: undefined }, action) => 
         case RECEIVE_NEW_ROPE:
             newState.new = action.rope.data
             return newState;
+        case REMOVE_USER_ROPES:
+            newState.user = []
+            return newState
         default:
             return state;
     }

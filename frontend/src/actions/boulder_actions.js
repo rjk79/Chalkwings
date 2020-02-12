@@ -37,3 +37,5 @@ export const composeBoulder = data => dispatch => {
         .then(boulder => dispatch(receiveNewBoulder(boulder)))
         .catch(err => console.log(err))
 )};
+
+

@@ -8,6 +8,7 @@ const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 const Boulder = require('../../models/Boulder');
 const Rope = require('../../models/Rope');
+const Sport = require('../../models/Sport');
 
 
 var multer = require('multer')
@@ -155,6 +156,17 @@ router.delete('/:id/boulders', (req, res)=> {
 router.delete('/:id/ropes', (req, res)=> {
 
     Rope.deleteMany({ user: req.params.id }, function (err, result) { //need cb 
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(result);
+        }
+    })
+        
+})
+router.delete('/:id/sports', (req, res)=> {
+
+    Sport.deleteMany({ user: req.params.id }, function (err, result) { //need cb 
         if (err) {
             res.send(err);
         } else {

@@ -1,4 +1,5 @@
-import { RECEIVE_BOULDERS, RECEIVE_USER_BOULDERS, RECEIVE_NEW_BOULDER } from '../actions/boulder_actions';
+import { RECEIVE_BOULDERS, RECEIVE_USER_BOULDERS, RECEIVE_NEW_BOULDER} from '../actions/boulder_actions';
+import { REMOVE_USER_BOULDERS } from '../actions/user_actions';
 
 const BouldersReducer = (state = { all: {}, user: {}, new: undefined }, action) => {
     Object.freeze(state);
@@ -13,6 +14,9 @@ const BouldersReducer = (state = { all: {}, user: {}, new: undefined }, action) 
         case RECEIVE_NEW_BOULDER:
             newState.new = action.boulder.data
             return newState;
+        case REMOVE_USER_BOULDERS:
+            newState.user = []
+            return newState
         default:
             return state;
     }

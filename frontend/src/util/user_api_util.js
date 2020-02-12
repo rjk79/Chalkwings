@@ -9,7 +9,6 @@ export const getUser = id => {
 };
 
 export const deleteUserBoulders = id => {
-    
     return axios.delete(`/api/users/${id}/boulders`)
         .then(response => {
             
@@ -22,6 +21,15 @@ export const deleteUserBoulders = id => {
 }
 export const deleteUserRopes = id => {
     return axios.delete(`/api/users/${id}/ropes`)
+        .then(response => {
+            console.log(response);
+        })
+            .catch(error => {
+                console.log(error);
+        });
+}
+export const deleteUserSports = id => {
+    return axios.delete(`/api/users/${id}/sports`)
         .then(response => {
             console.log(response);
         })

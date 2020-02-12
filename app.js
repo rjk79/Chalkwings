@@ -5,6 +5,8 @@ const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
 const boulders = require("./routes/api/boulders");
 const ropes = require("./routes/api/ropes");
+const sports = require("./routes/api/sports");
+
 const teams = require("./routes/api/teams");
 const messages = require("./routes/api/messages");
 const challenges = require("./routes/api/challenges");
@@ -30,6 +32,7 @@ mongoose
 app.use("/api/users", users);
 app.use("/api/boulders", boulders);
 app.use("/api/ropes", ropes);
+app.use("/api/sports", sports);
 app.use("/api/teams", teams);
 app.use("/api/messages", messages);
 app.use("/api/challenges", challenges);

@@ -26,6 +26,8 @@ h2 {
     flex-direction: row;
 }
 .profile-swap {
+    height: 30px;
+    width: 81px;
     border-radius: 5px;
     background: white;
     border: 2px solid black;

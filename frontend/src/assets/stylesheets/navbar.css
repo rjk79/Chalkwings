@@ -50,7 +50,7 @@
 .shrink {
     width: 0px;
     height: 0px;
-    transition: width 1s, height 2s;
+    transition: width 1s;
 }
 
 .hidden {

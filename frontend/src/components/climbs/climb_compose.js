@@ -17,7 +17,7 @@ const ROPE_GRADES = ["5.5", "5.6", "5.7", "5.8",
     "5.12d", "5.13a"]
 
 
-class BoulderCompose extends React.Component {
+class ClimbCompose extends React.Component {
     constructor(props) {
         super(props);
 
@@ -26,7 +26,7 @@ class BoulderCompose extends React.Component {
             name: "",
             grade: "",
             newBoulder: "",
-            type: "boulder",
+            type: "Bouldering",
         }
 
         // this.handleSubmit = this.handleSubmit.bind(this);
@@ -74,19 +74,29 @@ class BoulderCompose extends React.Component {
         }
     }
     handleSubmitSession(){ //TODO: refactor using insertMany([])
-        if (this.state.type === 'boulder') {
+        if (this.state.type === 'Bouldering') {
             for (let idx in this.state.session){  
                 this.props.composeBoulder({name: "Default", grade: `${this.state.session[idx]}`})
                     .catch(err => {
                         console.log(err)})
             }
         }
-        else {
+        else if (this.state.type === 'Top-Roping') {
             for (let idx in this.state.session) {
                 this.props.composeRope({ name: "Default", grade: `${this.state.session[idx]}` })
                     .catch(err => {
                         alert(err)
                         console.log(err)})
+            }
+        }
+        else if (this.state.type === 'Sport Climbing') {
+            
+            for (let idx in this.state.session) {
+                this.props.composeSport({ name: "Default", grade: `${this.state.session[idx]}` })
+                    .catch(err => {
+                        alert(err)
+                        console.log(err)
+                    })
             }
         }
         this.setState({session: []})
@@ -100,10 +110,12 @@ class BoulderCompose extends React.Component {
     }
     
     handleSwitchType(){
-        if (this.state.type === 'boulder'){
-            this.setState({type: 'rope'})}
-        else {
-            this.setState({type: 'boulder'}) 
+        if (this.state.type === 'Bouldering'){
+            this.setState({type: 'Top-Roping'})}
+        else if (this.state.type === 'Top-Roping') {
+            this.setState({type: 'Sport Climbing'}) }
+        else if (this.state.type === 'Sport Climbing') {
+            this.setState({ type: 'Bouldering' }) 
         }
         this.setState({session: []})
     }
@@ -155,7 +167,7 @@ class BoulderCompose extends React.Component {
     render() {
         let options = []
         const{session} = this.state
-        if (this.state.type === 'boulder'){
+        if (this.state.type === 'Bouldering'){
 
             for (let i = 0;i < 4;i++){
                 options.push(
@@ -171,7 +183,7 @@ class BoulderCompose extends React.Component {
         else {
         
             for (let i = 0;i < 5;i++) {
-                options.push(<tr className="rope-grades">
+                options.push(<tr className={this.state.type === 'Top-Roping' ? 'rope-grades':'sport-grades'}>
                     {5 * i  < ROPE_GRADES.length ? <td onClick={this.handleClickClimb(ROPE_GRADES[5 * i ])}>{ROPE_GRADES[5 * i ]}</td> : null}
                     {5 * i + 1 < ROPE_GRADES.length ? <td onClick={this.handleClickClimb(ROPE_GRADES[5 * i + 1])}>{ROPE_GRADES[5 * i + 1]}</td> : null}
                     {5 * i + 2 < ROPE_GRADES.length ? <td onClick={this.handleClickClimb(ROPE_GRADES[5 * i + 2])}>{ROPE_GRADES[5 * i + 2]}</td> : null}
@@ -183,7 +195,7 @@ class BoulderCompose extends React.Component {
         let sessionLis = session.map((grade, idx) => <> <li key={idx} onClick={this.handleRemove(idx)}>{grade}</li> &nbsp; </> )
 
         let counts = {}
-        const allGrades = this.state.type === 'boulder' ? BOULDER_GRADES : ROPE_GRADES
+        const allGrades = this.state.type === 'Bouldering' ? BOULDER_GRADES : ROPE_GRADES
         for (let i=0;i < allGrades.length; i ++){ //populate default dict
             counts[allGrades[i]] = 0
         }
@@ -201,8 +213,8 @@ class BoulderCompose extends React.Component {
         return (
             <div className="compose-session">
                 <div className="type">
-                    {this.state.type === 'boulder' ? <h3>Bouldering</h3>: <h3>Rope Climbing</h3>} &nbsp;
-                    <button className="switch-button" onClick={this.handleSwitchType}><i className="fas fa-exchange-alt"></i>&nbsp;{this.state.type === 'boulder' ? 'Ropes' : 'Boulders'}</button>
+                    {<h3>{this.state.type}</h3>} &nbsp;
+                    <button className="switch-button" onClick={this.handleSwitchType}><i className="fas fa-exchange-alt"></i>&nbsp;</button>
 
                 </div>
             <table className="options">
@@ -245,4 +257,4 @@ class BoulderCompose extends React.Component {
     }
 }
 
-export default BoulderCompose;
+export default ClimbCompose;
