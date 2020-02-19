@@ -1,5 +1,6 @@
 import React from 'react';
 // import BoulderBox from '../boulders/boulder_box';
+import axios from 'axios';
 
 import DataComponent from './data'
 
@@ -12,13 +13,11 @@ class Profile extends React.Component {
 
         this.state = {
             username: "",
-            type: 'boulders',
             imageUrl: "",
             imageFile: null,
             savedImage: null,
         }
         this.deleteAll = this.deleteAll.bind(this)
-        this.handleClickType = this.handleClickType.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
     componentDidMount(){
@@ -27,13 +26,19 @@ class Profile extends React.Component {
                 this.setState({ username: res.data.username })})
             .catch(err => console.log(err))
 
-        UserAPIUtil.getPhoto(this.props.match.params.userId)
-            .then(res => {
-                debugger
-                this.setState({ imageUrl: res.data })})
-            .catch(err => {
-                debugger
-                console.log(err)})
+        // UserAPIUtil.getPhoto(this.props.match.params.userId)
+        //     .then(res => {
+        //         debugger
+        //         this.setState({ imageUrl: res.data })})
+        //     .catch(err => {
+        //         debugger
+        //         console.log(err)})
+        axios.get(`/api/images/${this.props.match.params.userId}`).then(res => {
+            // debugger
+            this.setState({imageUrl: 
+                res.data
+                })
+        })
     }
 
 
@@ -64,9 +69,11 @@ class Profile extends React.Component {
     }
     handleSubmit(e){
         e.preventDefault()
+        let {userId} = this.props.match.params
         // submit form data thru axios
         const formData = new FormData()
-        formData.append('avatar', this.state.imageFile)
+        
+        formData.append('image', this.state.imageFile, `${userId}.png`)
         const config = { headers: { 'content-type': 'multipart/form-data' } }
 
         // debugger 
@@ -74,10 +81,11 @@ class Profile extends React.Component {
         // for (var pair of formData.entries()) {
         //     console.log(pair[0] + ', ' + pair[1]);
         // }
-        UserAPIUtil.updatePhoto(this.props.currentUser.id, formData, config)
-            .then((res) => {
-                console.log(res.data);
-            })
+        // UserAPIUtil.updatePhoto(this.props.currentUser.id, formData, config)
+        //     .then((res) => {
+        //         console.log(res.data);
+        //     })
+        axios.post(`/api/images/upload/${userId}`, formData, config)
     }
     deleteAll(){
         const {deleteUserBoulders, deleteUserRopes, deleteUserSports, currentUser} = this.props
@@ -85,41 +93,23 @@ class Profile extends React.Component {
         deleteUserRopes(currentUser.id)
         deleteUserSports(currentUser.id)
     }
-    handleClickType(){
-        switch (this.state.type) {
-            case 'ropes':
-                this.setState({type: 'sports'})
-                break
-            case 'sports':
-                this.setState({ type: 'boulders' })
-                break
-            case 'boulders':
-                this.setState({ type: 'ropes' })
-                break
-            default: 
-                break
-        }
-    }
+    
     render() {
-        let currentType 
-        switch (this.state.type) {
-            case 'boulders': 
-                currentType = <h2>Boulders</h2>
-                break
-            case 'ropes': 
-                currentType = <h2>Top-Ropes</h2>
-                break
-            case 'sports': 
-                currentType = <h2>Sport Climbs</h2>
-                break
-            default:
-        }
-        // if () {debugger}
+        let {currentUser} = this.props
+        
+        if (this.state.imageUrl) {debugger}
+        
+        // var arr = new Uint8Array(this.state.imageUrl);
+        // var raw = String.fromCharCode.apply(null, arr);
+        // var b64 = btoa(this.state.imageUrl);
+        // let source = 'data:image/png;base64,' + b64;
+        // if (b64 !== ""){debugger}
         return (
             <div className="profile">
                 <div className="profile-header">
-                {/* {this.state.savedImage ? <img src='data:image/(contentType);base64,(this.state.savedImage).toString("base64")'/> : null} */}
-                {/* <img src={this.state.imageUrl || require("../../assets/images/mascotstand.png")} alt="profile" /> */}
+                {/* {this.state.savedImage ? <img src={this.state.savedImage}/> : null}
+                    <img src={source
+                     || require("../../assets/images/mascotstand.png")} alt="profile" /> */}
                 <h1>{this.state.username}'s Profile</h1>
                 </div>
                 {/* {currentUser.id === this.props.match.params.userId ? 
@@ -133,8 +123,6 @@ class Profile extends React.Component {
                     : null} */}
                     {/* <div>{this.state.imageFile ? this.state.imageFile.name : null }</div> */}
 
-                {currentType}
-                <button onClick={this.handleClickType} className="bw-button"><i className="fas fa-exchange-alt"></i>&nbsp;Climb Type</button>
                 
                 <DataComponent type={this.state.type} />
                 

@@ -10,6 +10,7 @@ const sports = require("./routes/api/sports");
 const teams = require("./routes/api/teams");
 const messages = require("./routes/api/messages");
 const challenges = require("./routes/api/challenges");
+const images = require("./routes/api/images");
 
 const bodyParser = require('body-parser');
 const passport = require('passport');
@@ -22,13 +23,14 @@ app.use(passport.initialize());
 require('./config/passport')(passport);
 
 
-
 mongoose
-    .connect(db, { useNewUrlParser: true })
-    .then(() => console.log("Connected to MongoDB successfully"))
-    .catch(err => console.log(err));
+.connect(db, { useNewUrlParser: true })
+.then(() => console.log("Connected to MongoDB successfully"))
+.catch(err => console.log(err));
 
 // routes
+app.use('/uploads', express.static('uploads')) //image uploading
+
 app.use("/api/users", users);
 app.use("/api/boulders", boulders);
 app.use("/api/ropes", ropes);
@@ -36,6 +38,7 @@ app.use("/api/sports", sports);
 app.use("/api/teams", teams);
 app.use("/api/messages", messages);
 app.use("/api/challenges", challenges);
+app.use("/api/images", images);
 
 const port = process.env.PORT || 5000;
 

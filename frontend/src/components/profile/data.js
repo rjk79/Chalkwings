@@ -32,8 +32,10 @@ class DataComponent extends React.Component {
         super(props)
         this.state = {
             graphType: 'area',
+            type: 'boulders',
         }
         this.handleSwitchGraphType = this.handleSwitchGraphType.bind(this)
+        this.handleClickType = this.handleClickType.bind(this)
     }
     componentDidMount(){
         
@@ -51,6 +53,21 @@ class DataComponent extends React.Component {
             this.props.fetchUserRopes(this.props.match.params.userId)
             this.props.fetchUserSports(this.props.match.params.userId)
 
+        }
+    }
+    handleClickType() {
+        switch (this.state.type) {
+            case 'ropes':
+                this.setState({ type: 'sports' })
+                break
+            case 'sports':
+                this.setState({ type: 'boulders' })
+                break
+            case 'boulders':
+                this.setState({ type: 'ropes' })
+                break
+            default:
+                break
         }
     }
     createGraphData(climbs, grades) { // { grade: 'V0', count: 0 }, 
@@ -140,7 +157,8 @@ class DataComponent extends React.Component {
     }
     render(){
 
-        const { boulders, ropes, sports, type } = this.props
+        const { boulders, ropes, sports } = this.props
+        const {type} = this.state
         const BOULDER_GRADES = ["V0", "V1", "V2",
             "V3", "V4", "V5",
             "V6", "V7", "V8",
@@ -153,21 +171,26 @@ class DataComponent extends React.Component {
         let GRADES
         let climbs
         let color
+        let currentType
+        
         switch(type){
             case 'boulders':
                 GRADES = BOULDER_GRADES
                 climbs = boulders
                 color = "#8884d8"
+                currentType = "Boulders"
                 break
             case 'ropes':
                 GRADES = ROPE_GRADES
                 climbs = ropes
                 color = "#6CD09D"
+                currentType = "Top-Rope Climbs"
                 break
             case 'sports':
                 GRADES = ROPE_GRADES
                 climbs = sports
                 color = "#83a6ed"
+                currentType = "Sport Climbs"
                 break
             default:
 
@@ -186,13 +209,16 @@ class DataComponent extends React.Component {
             / monthlyData.map(datum => datum.count)
                 .reduce((a, b) => a + b, 0)
         let monthlyAverage = GRADES[Math.floor(monthlyAverageIdx)]
-        debugger
+        
         let monthlyCount = monthlyData.filter(el => el.count).reduce((a, b) => a + b.count, 0)
-        let monthlyGraph = this.state.graphType == 'area' ? this.createAreaGraph(monthlyData, color) : this.createBarGraph(monthlyData, color) 
-        let alltimeGraph = this.state.graphType == 'area' ? this.createAreaGraph(climbData, color) : this.createBarGraph(climbData, color) 
+        let monthlyGraph = this.state.graphType === 'area' ? this.createAreaGraph(monthlyData, color) : this.createBarGraph(monthlyData, color) 
+        let alltimeGraph = this.state.graphType === 'area' ? this.createAreaGraph(climbData, color) : this.createBarGraph(climbData, color) 
 
         return(
             <>
+                <h2 style={{background: color, color: 'white'}}>{currentType}</h2>
+                <button onClick={this.handleClickType} className="bw-button"><i className="fas fa-exchange-alt"></i>&nbsp;Climb Type</button>
+
                 <button className="bw-button" onClick={this.handleSwitchGraphType()}><i className="fas fa-exchange-alt"></i> Graph Type</button>
                 <h3>This Month ({new Date().toString().slice(4, 7)})</h3>
                 <div>
