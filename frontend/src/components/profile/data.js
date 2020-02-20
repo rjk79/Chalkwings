@@ -148,6 +148,7 @@ class DataComponent extends React.Component {
     } 
     renderTooltip = (data) => {
         // debugger
+        if (!data.payload) {return null}
         if (data.payload.length) {
             let stats = data.payload[0].payload
             return (
@@ -261,7 +262,7 @@ class DataComponent extends React.Component {
         while (i < climbs.length && parseInt(climbs[i].date.slice(5, 7)) - 1 === currMonth) i++ //getMo is 0 indexed
         let monthlyData = this.createGraphData(climbs.slice(0, i), GRADES)
        
-        let monthlyAverageIdx = monthlyData.map(datum => GRADES.indexOf(datum.grade) * datum.count)
+        let monthlyAverageIdx = monthlyData.map(datum => GRADES.indexOf(datum.grade[0] === "." ? "5" + datum.grade : datum.grade) * datum.count)
             .reduce((a, b) => a + b, 0)
             / monthlyData.map(datum => datum.count)
                 .reduce((a, b) => a + b, 0)
