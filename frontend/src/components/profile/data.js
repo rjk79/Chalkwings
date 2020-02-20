@@ -218,6 +218,16 @@ class DataComponent extends React.Component {
         }
         return res
     }
+    numberClimbs(data){
+        return data.filter(el => el.count).reduce((a, b) => a + b.count, 0)
+    }
+    averageGrade(data, grades){
+        let averageIdx = data.map(datum => grades.indexOf(datum.grade[0] === "." ? "5" + datum.grade : datum.grade) * datum.count)
+            .reduce((a, b) => a + b, 0)
+            / data.map(datum => datum.count).reduce((a, b) => a + b, 0) 
+            // total / sum
+        return grades[Math.floor(averageIdx)]
+    }
     render(){
 
         const { boulders, ropes, sports } = this.props
@@ -261,14 +271,8 @@ class DataComponent extends React.Component {
         let i = 0
         while (i < climbs.length && parseInt(climbs[i].date.slice(5, 7)) - 1 === currMonth) i++ //getMo is 0 indexed
         let monthlyData = this.createGraphData(climbs.slice(0, i), GRADES)
-       
-        let monthlyAverageIdx = monthlyData.map(datum => GRADES.indexOf(datum.grade[0] === "." ? "5" + datum.grade : datum.grade) * datum.count)
-            .reduce((a, b) => a + b, 0)
-            / monthlyData.map(datum => datum.count)
-                .reduce((a, b) => a + b, 0)
-        let monthlyAverage = GRADES[Math.floor(monthlyAverageIdx)]
         
-        let monthlyCount = monthlyData.filter(el => el.count).reduce((a, b) => a + b.count, 0)
+  
         let monthlyGraph = this.state.graphType === 'area' ? this.createAreaGraph(monthlyData, color) : this.createBarGraph(monthlyData, color) 
         let alltimeGraph = this.state.graphType === 'area' ? this.createAreaGraph(climbData, color) : this.createBarGraph(climbData, color) 
         let sessionGraph = this.createBubbleChart(sessionData, color)
@@ -281,14 +285,16 @@ class DataComponent extends React.Component {
                     <button className="bw-button" onClick={this.handleSwitchGraphType()}><i className="fas fa-exchange-alt"></i> Graph Type</button>
                 </div>
                 <h3>Most Recent Session</h3>
+                <strong># of climbs:</strong> {this.numberClimbs(sessionData)}<br />
+                <strong>Average grade climbed:</strong> {this.averageGrade(sessionData, GRADES) || "n/a"} <br />
                 <div className="session-chart">
                     {sessionGraph}
                 </div>
                 <h3>This Month ({new Date().toString().slice(4, 7)})</h3>
                 <div>
-                    <strong># of climbs:</strong> {monthlyCount}<br />
+                    <strong># of climbs:</strong> {this.numberClimbs(monthlyData)}<br />
                     {/* <strong>Distance climbed:</strong> approx.&nbsp;{monthlyCount * 15} ft. | {Math.floor(monthlyCount * 15 * .3048)} m.<br /> */}
-                    <strong>Average  grades climbed:</strong> {monthlyAverage || "n/a"} <br />
+                    <strong>Average grade climbed:</strong> {this.averageGrade(monthlyData, GRADES) || "n/a"} <br />
                 </div>
                     
                         <div className="climb-chart">
