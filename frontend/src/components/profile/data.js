@@ -174,6 +174,7 @@ class DataComponent extends React.Component {
         const domain = Math.max(...data.map(el=>el.count))
         const range = [16, 225];
         return (
+            <ResponsiveContainer>
 
             <ScatterChart
                 width={800}
@@ -188,6 +189,8 @@ class DataComponent extends React.Component {
                 <Tooltip cursor={{ strokeDasharray: '3 3' }} wrapperStyle={{ zIndex: 100 }} content={this.renderTooltip} />
                 <Scatter data={data} fill={color} />
             </ScatterChart>
+                </ResponsiveContainer>
+
         )
     }
     handleSwitchGraphType(){
@@ -273,9 +276,10 @@ class DataComponent extends React.Component {
         return(
             <>
                 <h2 style={{background: color, color: 'white'}}>{currentType}</h2>
-                <button onClick={this.handleClickType} className="bw-button"><i className="fas fa-exchange-alt"></i>&nbsp;Climb Type</button>
-                <button className="bw-button" onClick={this.handleSwitchGraphType()}><i className="fas fa-exchange-alt"></i> Graph Type</button>
-
+                <div className="profile-controls">
+                    <button onClick={this.handleClickType} className="bw-button"><i className="fas fa-exchange-alt"></i>&nbsp;Climb Type</button>
+                    <button className="bw-button" onClick={this.handleSwitchGraphType()}><i className="fas fa-exchange-alt"></i> Graph Type</button>
+                </div>
                 <h3>Most Recent Session</h3>
                 <div className="session-chart">
                     {sessionGraph}

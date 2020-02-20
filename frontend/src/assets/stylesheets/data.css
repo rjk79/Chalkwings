@@ -1,3 +1,8 @@
 .session-chart {
     height: 100px;
 }
+
+.profile-controls {
+    display: flex;
+    justify-content: space-around;
+}
