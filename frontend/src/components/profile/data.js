@@ -85,12 +85,13 @@ class DataComponent extends React.Component {
                 })
             })
         }
+        if (data[0].grade === "5.5") {
+            data = data.map(({ grade, count }) => { return { grade: grade.slice(1), count } }) //remove "5"
+        }
         return data // { grade: 'V0', count: 0 }, 
     }
     createBarGraph(data, color){
-        if (color === "#6CD09D") {
-            data = data.map(({ grade, count }) => { return { grade: grade.slice(1), count } }) //remove "5."
-        }
+        
         return (
             <ResponsiveContainer>
                 <BarChart
@@ -118,9 +119,7 @@ class DataComponent extends React.Component {
         )
     }
     createAreaGraph(data, color) {
-        if (color === "#6CD09D") {
-            data = data.map(({ grade, count }) => { return { grade: grade.slice(1), count } }) //remove "5."
-        }
+        
         return (
             <ResponsiveContainer>
                 <AreaChart
@@ -275,7 +274,7 @@ class DataComponent extends React.Component {
 
         return(
             <>
-                <h2 style={{background: color, color: 'white'}}>{currentType}</h2>
+                <div className="current-type" style={{background: color, color: 'white'}}>{currentType}</div>
                 <div className="profile-controls">
                     <button onClick={this.handleClickType} className="bw-button"><i className="fas fa-exchange-alt"></i>&nbsp;Climb Type</button>
                     <button className="bw-button" onClick={this.handleSwitchGraphType()}><i className="fas fa-exchange-alt"></i> Graph Type</button>

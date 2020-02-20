@@ -110,7 +110,7 @@ class Profile extends React.Component {
                 {/* {this.state.savedImage ? <img src={this.state.savedImage}/> : null}
                     <img src={source
                      || require("../../assets/images/mascotstand.png")} alt="profile" /> */}
-                <h1>{this.state.username}'s Profile</h1>
+                <div className="username">{this.state.username}</div>
                 </div>
                 {/* {currentUser.id === this.props.match.params.userId ? 
                     <>
