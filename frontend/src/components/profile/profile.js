@@ -97,7 +97,7 @@ class Profile extends React.Component {
     render() {
         let {currentUser} = this.props
         
-        if (this.state.imageUrl) {debugger}
+        // if (this.state.imageUrl) {debugger}
         
         // var arr = new Uint8Array(this.state.imageUrl);
         // var raw = String.fromCharCode.apply(null, arr);

@@ -106,7 +106,11 @@ class Standings extends React.Component {
             return (
                  
                 <div className="standings">
-                    
+                    <div className="changelog">
+                        <div >Changelog:</div>
+                        <div>2/19: Added most recent session data.</div>
+                        <div>2/19: Changed headers to match climb type in profile.</div>
+                    </div>
                     
                     <div className="standings-title">Team Rankings: (last 2 weeks)</div>
                     <ul className="teams">

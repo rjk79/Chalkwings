@@ -17,7 +17,7 @@ const MessageSchema = new Schema({
     date: {
         type: Date,
         default: Date.now,
-        expires: 172800, //store for 2 days
+        expires: 172800 * 5, //store for 10 days
     }
 });
 

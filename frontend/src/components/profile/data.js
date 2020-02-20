@@ -5,7 +5,7 @@ import { fetchUserBoulders } from '../../actions/boulder_actions';
 import { fetchUserRopes } from '../../actions/rope_actions';
 import { fetchUserSports } from '../../actions/sport_actions';
 import {
-    BarChart, Bar, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
+    BarChart, Bar, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ScatterChart, Scatter, ZAxis
 } from 'recharts';
 import '../../assets/stylesheets/data.css'
 
@@ -38,7 +38,7 @@ class DataComponent extends React.Component {
         this.handleClickType = this.handleClickType.bind(this)
     }
     componentDidMount(){
-        
+        console.log("fetching")
         this.props.fetchUserBoulders(this.props.match.params.userId)
 
         this.props.fetchUserRopes(this.props.match.params.userId)
@@ -50,8 +50,8 @@ class DataComponent extends React.Component {
 
             this.props.fetchUserBoulders(this.props.match.params.userId)
         
-            this.props.fetchUserRopes(this.props.match.params.userId)
-            this.props.fetchUserSports(this.props.match.params.userId)
+            // this.props.fetchUserRopes(this.props.match.params.userId)
+            // this.props.fetchUserSports(this.props.match.params.userId)
 
         }
     }
@@ -70,7 +70,8 @@ class DataComponent extends React.Component {
                 break
         }
     }
-    createGraphData(climbs, grades) { // { grade: 'V0', count: 0 }, 
+    createGraphData(climbs, grades) { 
+        if (!climbs.length){return []}
         let data = []
         for (let i = 0; i < grades.length; i++) {
             data.push({ grade: grades[i], count: 0 })
@@ -84,7 +85,7 @@ class DataComponent extends React.Component {
                 })
             })
         }
-        return data
+        return data // { grade: 'V0', count: 0 }, 
     }
     createBarGraph(data, color){
         if (color === "#6CD09D") {
@@ -109,7 +110,7 @@ class DataComponent extends React.Component {
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="grade" />
                     <YAxis />
-                    <Tooltip />
+                    <Tooltip content={this.renderTooltip}/>
                     <Legend />
                     <Bar stroke={color} dataKey="count" fill={`url(#${color})`} />
                 </BarChart>
@@ -139,13 +140,56 @@ class DataComponent extends React.Component {
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="grade" />
                     <YAxis />
-                    <Tooltip />
+                    <Tooltip content={this.renderTooltip}/>
                     <Legend />
                     <Area type="monotone" stroke={color} dataKey="count" fill={`url(#${color})`} />
                 </AreaChart>
             </ResponsiveContainer>
         )
     } 
+    renderTooltip = (data) => {
+        // debugger
+        if (data.payload.length) {
+            let stats = data.payload[0].payload
+            return (
+                <div style={{
+                    backgroundColor: '#fff', border: '1px solid #999', margin: 0, padding: 10, width: '70px'
+                }}
+                >
+                    <p>{stats.grade}</p>
+                    <p>
+                        count: 
+                        {stats.count}
+                    </p>
+                </div>
+            );
+        } else {
+            return null
+        }
+    }
+    createBubbleChart(data, color){
+        for (let i = 0; i < data.length;i++){ 
+            data[i]["index"] = 1 //merge {index: 1}
+        }
+        const domain = Math.max(...data.map(el=>el.count))
+        const range = [16, 225];
+        return (
+
+            <ScatterChart
+                width={800}
+                height={60}
+                margin={{
+                    top: 10, right: 0, bottom: 0, left: 0,
+                }}
+            >
+                <XAxis type="category" dataKey="grade" interval={0} tick={{ fontSize: 12 }} tickLine={{ transform: 'translate(0, -6)' }} />
+                <YAxis type="number" dataKey="index" name="count" height={10} width={80} tick={false} tickLine={false} axisLine={false} label={{ value: 'Session', position: 'insideRight' }} />
+                <ZAxis type="number" dataKey="count" domain={domain} range={range} />
+                <Tooltip cursor={{ strokeDasharray: '3 3' }} wrapperStyle={{ zIndex: 100 }} content={this.renderTooltip} />
+                <Scatter data={data} fill={color} />
+            </ScatterChart>
+        )
+    }
     handleSwitchGraphType(){
         return e => {
             if (this.state.graphType === 'area'){
@@ -155,9 +199,26 @@ class DataComponent extends React.Component {
             }
         }
     }
+    findPreviousSession(climbs){
+        if (!climbs.length){return []}
+        let mostRecentDate = new Date(climbs[0].date)  
+        let currDate     
+        for (let i = 0;i < climbs.length;i++){
+            currDate = new Date(climbs[i].date)
+            if (currDate > mostRecentDate) {mostRecentDate = currDate} // later is greater
+        }
+        mostRecentDate = mostRecentDate.toString().slice(0, 15) //"Wed Feb 19 2020"
+        let res = []
+        for (let i = 0; i < climbs.length; i++) {
+            
+            if (new Date(climbs[i].date).toString().slice(0, 15) === mostRecentDate) {res.push(climbs[i])}
+        }
+        return res
+    }
     render(){
 
         const { boulders, ropes, sports } = this.props
+        
         const {type} = this.state
         const BOULDER_GRADES = ["V0", "V1", "V2",
             "V3", "V4", "V5",
@@ -175,26 +236,20 @@ class DataComponent extends React.Component {
         
         switch(type){
             case 'boulders':
-                GRADES = BOULDER_GRADES
-                climbs = boulders
-                color = "#8884d8"
-                currentType = "Boulders"
+                GRADES = BOULDER_GRADES; climbs = boulders; color = "#8884d8"; currentType = "Boulders";
                 break
             case 'ropes':
-                GRADES = ROPE_GRADES
-                climbs = ropes
-                color = "#6CD09D"
-                currentType = "Top-Rope Climbs"
+                GRADES = ROPE_GRADES; climbs = ropes; color = "#6CD09D"; currentType = "Top-Rope Climbs"
                 break
             case 'sports':
-                GRADES = ROPE_GRADES
-                climbs = sports
-                color = "#83a6ed"
-                currentType = "Sport Climbs"
+                GRADES = ROPE_GRADES; climbs = sports; color = "#83a6ed"; currentType = "Sport Climbs"
                 break
             default:
 
         }
+
+        let sessionRawData = this.findPreviousSession(climbs)
+        let sessionData = this.createGraphData(sessionRawData, GRADES)
 
         let climbData = this.createGraphData(climbs, GRADES) // {grade: count: }
 
@@ -213,13 +268,18 @@ class DataComponent extends React.Component {
         let monthlyCount = monthlyData.filter(el => el.count).reduce((a, b) => a + b.count, 0)
         let monthlyGraph = this.state.graphType === 'area' ? this.createAreaGraph(monthlyData, color) : this.createBarGraph(monthlyData, color) 
         let alltimeGraph = this.state.graphType === 'area' ? this.createAreaGraph(climbData, color) : this.createBarGraph(climbData, color) 
+        let sessionGraph = this.createBubbleChart(sessionData, color)
 
         return(
             <>
                 <h2 style={{background: color, color: 'white'}}>{currentType}</h2>
                 <button onClick={this.handleClickType} className="bw-button"><i className="fas fa-exchange-alt"></i>&nbsp;Climb Type</button>
-
                 <button className="bw-button" onClick={this.handleSwitchGraphType()}><i className="fas fa-exchange-alt"></i> Graph Type</button>
+
+                <h3>Most Recent Session</h3>
+                <div className="session-chart">
+                    {sessionGraph}
+                </div>
                 <h3>This Month ({new Date().toString().slice(4, 7)})</h3>
                 <div>
                     <strong># of climbs:</strong> {monthlyCount}<br />
@@ -234,7 +294,7 @@ class DataComponent extends React.Component {
                 
 
 
-                <h3>All-time</h3>                    
+                <h3>Lifetime</h3>                    
                     
                         <div className="climb-chart">
                             {alltimeGraph}
