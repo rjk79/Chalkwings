@@ -39,6 +39,8 @@
     border-radius: 10px;
     border: none;
     font-size: 1em;
+    display: flex;
+    justify-content: center;
 }
 .search form [type='submit']:hover {
     opacity: .5;

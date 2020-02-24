@@ -15,3 +15,12 @@
     color: white;
 }
 
+.title {
+    font-size: 32px;
+    font-weight: 500;
+}
+.subtitle {
+    font-size: 24px;
+    font-weight: 450;
+}
+

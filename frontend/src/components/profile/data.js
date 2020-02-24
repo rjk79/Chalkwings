@@ -176,20 +176,22 @@ class DataComponent extends React.Component {
         return (
             <ResponsiveContainer>
 
-            <ScatterChart
-                width={800}
-                height={60}
-                margin={{
-                    top: 10, right: 0, bottom: 0, left: 0,
-                }}
-            >
-                <XAxis type="category" dataKey="grade" interval={0} tick={{ fontSize: 12 }} tickLine={{ transform: 'translate(0, -6)' }} />
-                <YAxis type="number" dataKey="index" name="count" height={10} width={80} tick={false} tickLine={false} axisLine={false} label={{ value: 'Session', position: 'insideRight' }} />
-                <ZAxis type="number" dataKey="count" domain={domain} range={range} />
-                <Tooltip cursor={{ strokeDasharray: '3 3' }} wrapperStyle={{ zIndex: 100 }} content={this.renderTooltip} />
-                <Scatter data={data} fill={color} />
-            </ScatterChart>
-                </ResponsiveContainer>
+                <ScatterChart
+                    width={800}
+                    height={60}
+                    margin={{
+                        top: 10, right: 0, bottom: 0, left: 0,
+                    }}
+                >
+                    <XAxis type="category" dataKey="grade" interval={0} tick={{ fontSize: 12 }} tickLine={{ transform: 'translate(0, -6)' }} />
+                    <YAxis type="number" dataKey="index" name="count" height={10} width={80} tick={false} tickLine={false} axisLine={false} 
+                        // label={{ value: 'Session', position: 'insideRight' }} 
+                        />
+                    <ZAxis type="number" dataKey="count" domain={domain} range={range} />
+                    <Tooltip cursor={{ strokeDasharray: '3 3' }} wrapperStyle={{ zIndex: 100 }} content={this.renderTooltip} />
+                    <Scatter data={data} fill={color} />
+                </ScatterChart>
+            </ResponsiveContainer>
 
         )
     }
@@ -217,6 +219,9 @@ class DataComponent extends React.Component {
             if (new Date(climbs[i].date).toString().slice(0, 15) === mostRecentDate) {res.push(climbs[i])}
         }
         return res
+    }
+    allMonthlyData(){
+        
     }
     numberClimbs(data){
         return data.filter(el => el.count).reduce((a, b) => a + b.count, 0)
@@ -282,34 +287,35 @@ class DataComponent extends React.Component {
                 <div className="current-type" style={{background: color, color: 'white'}}>{currentType}</div>
                 <div className="profile-controls">
                     <button onClick={this.handleClickType} className="bw-button"><i className="fas fa-exchange-alt"></i>&nbsp;Climb Type</button>
-                    <button className="bw-button" onClick={this.handleSwitchGraphType()}><i className="fas fa-exchange-alt"></i> Graph Type</button>
                 </div>
-                <h3>Most Recent Session</h3>
-                <strong># of climbs:</strong> {this.numberClimbs(sessionData)}<br />
-                <strong>Average grade climbed:</strong> {this.averageGrade(sessionData, GRADES) || "n/a"} <br />
-                <div className="session-chart">
-                    {sessionGraph}
-                </div>
-                <h3>This Month ({new Date().toString().slice(4, 7)})</h3>
-                <div>
-                    <strong># of climbs:</strong> {this.numberClimbs(monthlyData)}<br />
-                    {/* <strong>Distance climbed:</strong> approx.&nbsp;{monthlyCount * 15} ft. | {Math.floor(monthlyCount * 15 * .3048)} m.<br /> */}
-                    <strong>Average grade climbed:</strong> {this.averageGrade(monthlyData, GRADES) || "n/a"} <br />
-                </div>
-                    
+                {/* <div> */}
+                    <h3>Most Recent Session</h3>
+                    <strong># of climbs:</strong> {this.numberClimbs(sessionData)}<br />
+                    <strong>Average grade climbed:</strong> {this.averageGrade(sessionData, GRADES) || "n/a"} <br />
+                    <div className="session-chart">
+                        {sessionGraph}
+                    </div>
+                {/* </div> */}
+                {/* <div> */}
+                    <h3>This Month ({new Date().toString().slice(4, 7)})</h3>
+                    <div>
+                        <strong># of climbs:</strong> {this.numberClimbs(monthlyData)}<br />
+                        {/* <strong>Distance climbed:</strong> approx.&nbsp;{monthlyCount * 15} ft. | {Math.floor(monthlyCount * 15 * .3048)} m.<br /> */}
+                        <strong>Average grade climbed:</strong> {this.averageGrade(monthlyData, GRADES) || "n/a"} <br />
+                        <button className="bw-button" onClick={this.handleSwitchGraphType()}><i className="fas fa-exchange-alt"></i> Graph Type</button>
+                    </div>
+                        
                         <div className="climb-chart">
                             {monthlyGraph}
                         </div>
-                    
-                
-
-
+                {/* </div> */}
+                {/* <div> */}
                 <h3>Lifetime</h3>                    
                     
                         <div className="climb-chart">
                             {alltimeGraph}
                         </div>
-                    
+                {/* </div>     */}
                 {/* {this.state.boulders.map(boulder => (
                     <BoulderBox key={boulder._id} name={boulder.name} grade={boulder.grade} date={boulder.date} />
                 ))} */}

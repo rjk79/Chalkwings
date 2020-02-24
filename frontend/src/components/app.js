@@ -12,6 +12,7 @@ import SearchComponent from './search/search'
 import TeamsComponent from './teams/create_team'
 import TeamComponent from './teams/team_container'
 import DashboardComponent from './dashboard/dashboard'
+import TrainingGuideComponent from './guides/training_guide'
 
 import MainPage from './main/main_page';
 import LoginFormContainer from './session/login_form_container';
@@ -40,6 +41,7 @@ const App = () => (
         <ProtectedRoute exact path="/teams" component={TeamsComponent} />
         <ProtectedRoute exact path="/teams/:teamId" component={TeamComponent} />
         <ProtectedRoute exact path="/dashboard" component={DashboardComponent} />
+        <ProtectedRoute exact path="/guide" component={TrainingGuideComponent} />
     </Switch>
     </div>
 );

@@ -95,7 +95,7 @@ class Profile extends React.Component {
     }
     
     render() {
-        let {currentUser} = this.props
+        // let {currentUser} = this.props
         
         // if (this.state.imageUrl) {debugger}
         

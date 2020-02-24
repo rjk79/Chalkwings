@@ -1,0 +1,82 @@
+.training-guide {
+    background: rgb(15,15,15);
+    color: white;
+    min-height: 100%;
+}
+.training-guide > div {
+    margin: 0 10px;
+}
+.training-guide .content {
+    height: 35px;
+    width: 115px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+/* .training-guide .content:hover {
+} */
+.training-guide .links > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 110px;
+    border-radius: 10px;
+    border: 2px solid black;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 2px;
+    transition: background-color .3s, height .3s, width .3s;
+    color: black;
+
+    overflow: hidden;
+}
+.training-guide .links div:hover{
+    cursor: pointer;
+    /* height: 35px;
+    width: 115px; */
+    background: ghostwhite;
+    overflow: visible;
+}
+.training-guide .links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+/* COLORS = ['', '', '', '#', '#', '#', '#']; */
+
+.training-guide .color0 {
+    background: #8884d8;
+}
+.training-guide .color1 {
+    background: #83a6ed;
+}
+.training-guide .color2 {
+    background: #8dd1e1;
+}
+.training-guide .color3 {
+    background: #82ca9d;
+}
+.training-guide .color4 {
+    background: #a4de6c;
+}
+.training-guide .color5 {
+    background: #d0ed57;
+}
+.training-guide .color6 {
+    background: #ffc658;
+}
+
+.training-guide .title {
+    color:  rgb(172, 172, 172);
+}
+
+.training-guide .subtitle {
+    color: rgb(172, 172, 172);
+}
+
+.training-guide ul {
+    list-style: none;
+}
