@@ -13,6 +13,16 @@ class TrainingGuide extends React.Component {
         // change .guide instead
        
     }
+    stars(rating){
+        let stars = []
+        for (let i = 0;i<rating;i++){
+            stars.push('\u2605')
+        }
+        for (let i = 0;i<3-rating;i++){
+            stars.push('\u2606')
+        }
+        return <div className="stars">Difficulty: {stars.join(" ")}</div>
+    }
     handleClick(field1, field2){
         return e => {
             this.setState({type: field1, color: field2})
@@ -45,33 +55,34 @@ class TrainingGuide extends React.Component {
         )
     }
     climbingInfo(){
+        
         return(
             < >
-                <div className="subtitle"> Pyramid (Endurance): </div> <br/>
+                <div className="subtitle"> Pyramid -- Endurance</div> {this.stars(3)}<br/>
                 [Your max V grade minus 3]:  Do 4 climbs at this grade. <br/>
                 [Your max V grade minus 2]: Do 3 climbs at this grade. <br/>
                 [Your max V grade minus 1]: Do 2 climbs at this grade. <br/>
                 [Your max V grade]: Do 1 climb at this grade. <br/>
                 <br/>
-                <div className="subtitle"> Ladder (Endurance): </div> <br/>
+                <div className="subtitle"> Ladder -- Endurance {this.stars(2)}</div> <br/>
                 Do one climb at each V grade, starting at V0, until you reach[your max V grade].Then do work your way down the grade scale. <br/>
                 <br/>
-                <div className="subtitle"> Four by Four (Power-Endurance): </div> <br/>
+                <div className="subtitle"> Four by Four (Power-Endurance): {this.stars(3)}</div> <br/>
                 Step 1: Choose 4 boulder problems that are[your max V grade - 2].  <br/>
                 Step 2: Attempt each of them once without taking breaks between problems.  <br/>
                 Step 3: Rest for 4 minutes. <br/>
                 Step 4: Repeat steps 2 and 3, three more times.<br/>
                 <br/>
-                <div className="subtitle"> Red Point (Power): </div> <br/>
+                <div className="subtitle"> Red Point (Power): {this.stars(2)}</div> <br/>
                 Attempt all boulder problems at[your max V grade] in the gym.Only give each problem 3 attempts at most.<br/>
                 <br/>
-                <div className="subtitle"> Foot Cuts (Core Tension):  </div> <br/>
+                <div className="subtitle"> Foot Cuts (Core Tension):  {this.stars(1)}</div> <br/>
                 Choose a boulder problem.Each time you grab a new hold, simultaneously remove both feet from the wall.Then squeeze your core and place them back on.  <br/>
                 <br/>
-                <div className="subtitle"> No Readjustments (Hand and Foot Placement):  </div> <br/>
+                <div className="subtitle"> No Readjustments (Hand and Foot Placement): {this.stars(1)}</div> <br/>
                 Choose a boulder problem.Each time you grab or step on a new hold, you cannot shift around on it to find a better position.  <br/>
                 <br/>
-                <div className="subtitle"> One Hold Type (Hand and Foot Placement):  </div> <br/>
+                <div className="subtitle"> One Hold Type (Hand and Foot Placement): {this.stars(1)} </div> <br/>
                 Choose a boulder problem and a type of hold (Sloper, Pincher, Undercling, Sidepull, Crimp).Whenever you grab a hold, you must grip it as if it was the chosen hold type.  <br/>
                 <br/>
             </>
@@ -80,6 +91,7 @@ class TrainingGuide extends React.Component {
     intermediateInfo(){
         return (
             <>
+            {this.stars(1)}
             <div className="subtitle"> Week 1-3 </div>  <br/>
             - Choose 3 Non - consecutive days to do this workout(8MinuteAbs can be everyday)(takes about 1 hour) <br/>
                 - take a minute of rest after every bullet point <br/ >
@@ -156,7 +168,7 @@ class TrainingGuide extends React.Component {
     fingerInfo(){
         return (
             <>
-           <div className="subtitle">Hangboard</div>
+            <div className="subtitle">Hangboard {this.stars(2)}</div>
 <br/ > Variation 1: Repeaters < a href = "https://www.youtube.com/watch?v=8YTn7qEpxtU" > Demo Video</a > <br/ >
 <br/ > Choose a pair of edges that are 10 - 15mm and can hold all four fingers.Using an open - crimp position, hang off the edges for 7 seconds then rest for 3 seconds.Repeat this 5 more times for a total of 6 hangs.
 <br/ >
@@ -174,7 +186,7 @@ class TrainingGuide extends React.Component {
 <br/ > Choose a pair of edges that are 10 - 15mm and can hold all four fingers.Use a pulley system to provide a counter weight so you are lighter.
 <br/ > Using an open - crimp position, hang off the edges for at least 5 seconds then rest for at least 5 mins.Repeat this 4 more times for a total of 5 hangs.
 <br/ >
-                <br /> <div className="subtitle">Campus Board</div> 
+                <br /> <div className="subtitle">Campus Board {this.stars(2)}</div> 
 <br/ > Variation 1: 
 <br/ > Using an open - crimp position, go up the campus board using every rung and match on each before going up to the next one.
 <br/ >
@@ -214,7 +226,7 @@ class TrainingGuide extends React.Component {
             Work on the first exercise of each Progression list.Once you are able to do the full amount of reps + sets in one session, try adding reps + sets until you can do the next exercise in the list. (videos to come!)
 
                 < br/ >
-                <div className="subtitle">1. Dips and Iron Cross Prog.</div> <br/>
+                <div className="subtitle">1. Dips and Iron Cross Prog. {this.stars(3)}</div> <br/>
                 Band pull - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=1xEizoLOqmA" > Demo Video</a > <br/>
         Assisted Dips - 5 reps * 5 sets <br/>
             Dips - 5 reps * 5 sets <br/>
@@ -224,7 +236,7 @@ class TrainingGuide extends React.Component {
         Half Cross - 10 seconds * 3 sets < a href = "https://www.youtube.com/watch?v=vK8LxtyKZf0" > Demo Video</a > <br/>
         Strap Cross - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=vH1w7DQhafc" > Demo Video</a > <br/>
             <br/>
-                <div className="subtitle">2. Flies and Planche Prog.</div> <br/>
+                <div className="subtitle">2. Flies and Planche Prog. {this.stars(3)}</div> <br/>
                 Push - ups - 10 reps * 3 sets <br/>
             X push - ups - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=IOQjVhXOEeo" > Demo Video</a > <br/>
         Push - ups(on rings) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=7enjS7Y2LYc" > Demo Video</a > <br/>
@@ -234,14 +246,14 @@ class TrainingGuide extends React.Component {
         Pseudo Planche Pushups - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=CVUM4BKIbf8" > Demo Video</a > <br/>
         Raised Ring Flies - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=PNo7ZEUtOms" > Demo Video</a > <br/>
             <br/>
-                <div className="subtitle">3. Dragon Flag Prog.</div> <br/>
+                <div className="subtitle">3. Dragon Flag Prog. {this.stars(3)}</div> <br/>
                 Lying Leg Raises - 10 reps * 3 sets < a href = "https://www.youtube.com/watch?v=qJt-Ah-lWCw" > Demo Video</a > <br/>
         V - ups - 10 reps * 3 sets <br/>
             Leg - ups - 10 reps * 3 sets < a href = "https://www.youtube.com/watch?v=g2R_Y9rE0Hg" > Demo Video</a > <br/>
         Toes to Bar - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=X4n7GKTQhwg" > Demo Video</a > <br/>
         Dragon Flag - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=gub2VJbEF-c" > Demo Video</a > <br/>
             <br/>
-                <div className="subtitle">4. Superman Flies Prog.</div> <br/>
+                <div className="subtitle">4. Superman Flies Prog. {this.stars(3)}</div> <br/>
                 Plank - 90 seconds <br/>
             Crunches - 40 reps * 1 set <br/>
                 Ab Wheel Rollouts - 5 reps * 5 sets <br/>
@@ -249,7 +261,7 @@ class TrainingGuide extends React.Component {
         Superman Flies(one arm) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=Ubd5IHuYlTo" > Demo Video</a > <br/>
         Superman Flies - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=svq_tDPVl9A" > Demo Video</a > <br/>
             <br/>
-                <div className="subtitle">5. Windshield Wiper Prog.</div> <br/>
+                <div className="subtitle">5. Windshield Wiper Prog. {this.stars(2)}</div> <br/>
                 Side planks - 90 seconds <br/>
             Side Crunches - 40 reps * 1 set < a href = "https://www.youtube.com/watch?v=E3pHxKVfsz0" > Demo Video</a > <br/>
         Thread the Needle - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=xXyIJAg8LFU" > Demo Video</a > <br/>
@@ -258,20 +270,20 @@ class TrainingGuide extends React.Component {
         Windshield Wipers(tucked, on bar) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=xM5ojvBKI94" > Demo Video</a > <br/>
         Windshield Wipers(extended, on bar) - 3 reps * 5 sets < a href = "https://www.youtube.com/watch?v=cQPehma273s" > Demo Video</a > <br/>
             <br/>
-                <div className="subtitle">6. Front Lever Prog.</div> <br/>
+                <div className="subtitle">6. Front Lever Prog. {this.stars(2)}</div> <br/>
                 Scapular Shrugs - 5 reps * 5 sets <br/>
             Scapular Pull - ups(tucked) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=OYRAFPM2yDI" > Demo Video </a > <br/>
         Assisted Lever Pull - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=q5hXGcAETFM" > Demo Video</a > <br/>
         Scapular Pull - ups(one leg out or straddle) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=zymHuZDnD5U" > Demo Video</a > <br/>
         Front Lever - 5 seconds < a href = "https://www.youtube.com/watch?v=TxKoh9NIFtU" > Demo Video</a > <br/>
             <br/>
-            <div>7. Inverted Row Prog.</div> <br/>
+                <div className="subtitle">7. Inverted Row Prog. {this.stars(2)}</div> <br/>
                 Inverted Ring Rows(leaning) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=wZPKoq1Ydcg" > Demo Video</a > <br/>
         Inverted Ring Rows(one arm) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=C3F4ltRbDOE" > Demo Video</a > <br/>
         Inverted Ring Rows(legs propped up) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=OdivQZB8oDkg" > Demo Video</a > <br/>
         Inverted Ring Rows(hanging) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=dZQMlqx9aOk" > Demo Video</a > <br/>
             <br/>
-                <div className="subtitle">8. One Arm Pull-up Prog.</div> <br/>
+                <div className="subtitle">8. One Arm Pull-up Prog. {this.stars(2)}</div> <br/>
                 Assisted Pull - ups - 5 reps * 5 sets <br/>
             Pull - ups - 5 reps * 5 sets <br/>
                 One Arm Bar Hold - 30 seconds <br/>
@@ -282,7 +294,7 @@ class TrainingGuide extends React.Component {
         One - Arm Pull - ups - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=RCCYTvxkQWE" > Demo Video</a > <br/>
         Weighted One - Arm Pull - ups - 5 reps * 5 sets <br/>
             <br/>
-                <div className="subtitle">9. Muscle-up Prog.</div> <br/>
+                <div className="subtitle">9. Muscle-up Prog.{this.stars(2)}</div> <br/>
                 Wide - set Pull - ups - 5 reps * 5 sets <br/>
             Bar to Chest - 5 reps * 5 sets <br/>
                 Muscle - ups - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=41RQW52vf3U" > Demo Video</a > <br/>
@@ -345,7 +357,7 @@ class TrainingGuide extends React.Component {
                     </tbody>
                 </table>
 
-                <div className="subtitle">Ring Flies: </div>This is one of my favorite exercises (inspired by Alexander Megos). Ring Flies will allow you to hang more actively on the wall and build compression strength.  Set the rings shoulder-width apart and a few inches off the ground.
+                <div className="subtitle">Ring Flies: {this.stars(2)}</div>This is one of my favorite exercises (inspired by Alexander Megos). Ring Flies will allow you to hang more actively on the wall and build compression strength.  Set the rings shoulder-width apart and a few inches off the ground.
       Put your hands into the rings and rest on your knees.
   <br/> Variations:
                       Lean onto your hands and bring them apart so your nose almost touches the ground.
@@ -353,11 +365,11 @@ class TrainingGuide extends React.Component {
                       To adjust difficulty you can allow / prevent your feet from lifting up as you go down.
                       Another way to adjust difficulty is to lower down as if you were doing a ring push - up instead of keeping your arms straight throughout the movement.
                       To do it Flies full difficulty, you can start from a normal push - up position instead.
-  <br/> <div className="subtitle">Superman Flies: </div>This is similar to the Ring Flies except when you lean onto your hands, you bring them forward.
+  <br/> <div className="subtitle">Superman Flies: {this.stars(2)}</div>This is similar to the Ring Flies except when you lean onto your hands, you bring them forward.
                       In this way, they stay roughly shoulder - width apart as you go down.This will target your abs more than the normal Flies.
-  <br/> <div className="subtitle">Ring Dips: </div>These are much harder than normal dips and it is recommended you flare the rings out each time you reach the top of the movement.
-  <br/> <div className="subtitle">Dragon Flags: </div>Dragon Flags are extremely difficult so one should work up to them using leg - ups and negatives.
-  <br/> <div className="subtitle">Planche Push-ups: </div>This an easily - adjustable gymnastics exercise that builds pushing power.                                                                                                                                                                                                               
+  <br/> <div className="subtitle">Ring Dips: {this.stars(2)}</div>These are much harder than normal dips and it is recommended you flare the rings out each time you reach the top of the movement.
+  <br /> <div className="subtitle">Dragon Flags: {this.stars(3)}</div>Dragon Flags are extremely difficult so one should work up to them using leg - ups and negatives.
+  <br /> <div className="subtitle">Planche Push-ups: {this.stars(2)}</div>This an easily - adjustable gymnastics exercise that builds pushing power.                                                                                                                                                                                                               
                             
             </>
         )
@@ -403,10 +415,10 @@ class TrainingGuide extends React.Component {
             </table>
 
                     <p>
-                    <div className="subtitle">Scapular Pull-ups: </div>Acquiring scapula (shoulder blade) strength results in greater control of your arms since your scapulae control them.
+                    <div className="subtitle">Scapular Pull-ups: {this.stars(1)}</div>Acquiring scapula (shoulder blade) strength results in greater control of your arms since your scapulae control them.
                         The way to perform these is to hang on a bar with your hands shoulder-width.
                         First, you want to sink your head between your shoulders then you want to shrug so you enter an active hang.
-        <br /><div className="subtitle">Front Lever: </div> The Front Lever is well-known for being the one of the hardest pushing/core exercises amongst gymnasts and for good reason. (inspired by Sean McColl)
+        <br /><div className="subtitle">Front Lever: {this.stars(2)}</div> The Front Lever is well-known for being the one of the hardest pushing/core exercises amongst gymnasts and for good reason. (inspired by Sean McColl)
                     
             </p>
             </>
@@ -467,9 +479,9 @@ class TrainingGuide extends React.Component {
                     </tbody>
                 </table>
 
-                <div className="subtitle">Type-writers: </div> While lock-off strength is important it is debatable whether simply doing it is the best way of improving it.
-  <br/> <div className="subtitle">Bar to Chest: </div> These are pull - ups that are dynamic and build explosive power.
-  <br/> <div className="subtitle">One-arm Pull-up: </div> (Inspired by Alex Puccio) While difficult, make sure you squeeze the bar as hard as you can, start with your body perpendicular to the bar, and fold your body inwards.
+                <div className="subtitle">Type-writers: {this.stars(2)}</div> While lock-off strength is important it is debatable whether simply doing it is the best way of improving it.
+  <br /> <div className="subtitle">Bar to Chest: {this.stars(2)}</div> These are pull - ups that are dynamic and build explosive power.
+  <br /> <div className="subtitle">One-arm Pull-up: {this.stars(2)}</div> (Inspired by Alex Puccio) While difficult, make sure you squeeze the bar as hard as you can, start with your body perpendicular to the bar, and fold your body inwards.
               
             </>
         )
@@ -534,7 +546,7 @@ class TrainingGuide extends React.Component {
   </>
         )
     }
-    otherInfo(){
+    moreInfo(){
         const tips = ["Step using the tip of your shoe.Use the point of your shoe to step on holds and be conscious of whether the left edge, right edge, or center point should be used. "
         ,"Keep your arms straight.Keep them straight as often as you can but if you need to move into a powerful move soon after then keep them slightly bent since pulling up from a straight arm position is much harder.Also bend them at the later stage of a movement if it is very long."
         ,"Stay close to the wall, especially your hips.Unless you need to jump out over an overhang in which case staying close will increase your swing."
@@ -596,6 +608,33 @@ class TrainingGuide extends React.Component {
             ))
         return (
             <>
+            <div className="subtitle">40 Tips for Rock Climbing</div>
+            <ul>
+            {tipLis}
+            </ul>
+
+
+<div className="subtitle"> <h1> Customizing </h1></div>
+<h3> So you want to form your own plan? Great idea! Pick 2-3 exercises under each of the following headers and do them 3-4 times a week.
+  You should stick to these for at least 6 weeks to see results.  Try not to cause "muscle confusion". </h3>
+<p className="">If training power, complete 5 sets each with 5 reps.
+Take up to 3 minutes rest between sets.  You can take more or less time as long as you feel fully recovered before starting new sets.
+During the following week, you should try to add 1 more rep to each set.
+  Then, once you can do 7-10 reps per set, you would need to add ~5% more weight (factoring bodyweight) and reset to 5 reps/set. </p>
+<p className="">If training endurance, complete 3 sets each with 10 reps. Take .5-1 minute rest between sets.
+You want to take shorter rests so that you work out your muscles to exhaustion.
+Also, you should do as many reps as you are able in the final set.
+During the following week, you should try to add 1 more rep to each set.
+  Then, once you can do 15-20 reps per set, you would need to add ~5% more weight (factoring bodyweight) and reset to 10 reps/set</p>
+<p>Don't overexert yourself. This goes without saying but there are a lot of options at your disposal you're feeling overworked:
+  	<br/>Reduce weight
+  	<br/>Switch to a different variation of the exercise
+  	<br/>Hold in the contracted position(isometric)
+  	<br/> Come out of the contracted position slowly(perform a negative / eccentric)
+  	<br/> Stop the set
+  <br/> As you can see, there are many options that aren't even mutually exclusive that can keep you safe from injury but still keep your time-under-tension high per set (~40sec).
+  	</p >
+
             <div className="subtitle">My personal workout from 10/2018</div><br/>
             <div >
                 Depth Jumps<br/>
@@ -618,41 +657,15 @@ class TrainingGuide extends React.Component {
                 One Arm Flies 10 reps x 3 sets 3min rests<br/>
                 Weighted One-Arm Pullups 1rep x 3 sets 3min rests 5lb<br/>
             </div>
-            <h1>40 Tips for Rock Climbing</h1>
-            <ul>
-            {tipLis}
-            </ul>
 
 
 
 
-                                                                                                                                                                                                                                <div className='container' id="p5">
-                                                                                                                                                                                                                                    <div className="page-header"> <h1> Customizing </h1></div>
-                                                                                                                                                                                                                                    <h3> So you want to form your own plan? Great idea! Pick 2-3 exercises under each of the following headers and do them 3-4 times a week.
-  You should stick to these for at least 6 weeks to see results.  Try not to cause "muscle confusion". </h3>
-                                                                                                                                                                                                                                    <p className="">If training power, complete 5 sets each with 5 reps.
-                                                                                                                                                                                                                                    Take up to 3 minutes rest between sets.  You can take more or less time as long as you feel fully recovered before starting new sets.
-                                                                                                                                                                                                                                    During the following week, you should try to add 1 more rep to each set.
-  Then, once you can do 7-10 reps per set, you would need to add ~5% more weight (factoring bodyweight) and reset to 5 reps/set. </p>
-                                                                                                                                                                                                                                    <p className="">If training endurance, complete 3 sets each with 10 reps. Take .5-1 minute rest between sets.
-                                                                                                                                                                                                                                    You want to take shorter rests so that you work out your muscles to exhaustion.
-                                                                                                                                                                                                                                    Also, you should do as many reps as you are able in the final set.
-                                                                                                                                                                                                                                    During the following week, you should try to add 1 more rep to each set.
-  Then, once you can do 15-20 reps per set, you would need to add ~5% more weight (factoring bodyweight) and reset to 10 reps/set</p>
-                                                                                                                                                                                                                                    <p>Don't overexert yourself. This goes without saying but there are a lot of options at your disposal you're feeling overworked:
-  	<br/>Reduce weight
-  	<br/>Switch to a different variation of the exercise
-  	<br/>Hold in the contracted position(isometric)
-  	<br/> Come out of the contracted position slowly(perform a negative / eccentric)
-  	<br/> Stop the set
-  <br/> As you can see, there are many options that aren't even mutually exclusive that can keep you safe from injury but still keep your time-under-tension high per set (~40sec).
-  	</p >
-                                                                                                                                                                                                                                </div >
 
-                                                                                                                                                                                                                                <div className="title">Completed Goals</div>
-                                                                                                                                                                                                                                <iframe class="center" width="560" height="315" src="https://www.youtube.com/embed/41RQW52vf3U" frameborder="0" allow="autoplay; encrypted-media" allowFullScreen title="muscle-up"></iframe>
-                                                                                                                                                                                                                                <iframe class="center" width="560" height="315" src="https://www.youtube.com/embed/RCCYTvxkQWE" frameborder="0" allow="autoplay; encrypted-media" allowFullScreen title="pull-up"></iframe>
-                                                                                                                                                                                                                                <iframe class="center" width="560" height="315" src="https://www.youtube.com/embed/TxKoh9NIFtU" frameborder="0" allow="autoplay; encrypted-media" allowFullScreen title="front-lever"></iframe>
+<div className="title">Completed Goals</div>
+<iframe class="center" width="560" height="315" src="https://www.youtube.com/embed/41RQW52vf3U" frameborder="0" allow="autoplay; encrypted-media" allowFullScreen title="muscle-up"></iframe>
+<iframe class="center" width="560" height="315" src="https://www.youtube.com/embed/RCCYTvxkQWE" frameborder="0" allow="autoplay; encrypted-media" allowFullScreen title="pull-up"></iframe>
+<iframe class="center" width="560" height="315" src="https://www.youtube.com/embed/TxKoh9NIFtU" frameborder="0" allow="autoplay; encrypted-media" allowFullScreen title="front-lever"></iframe>
         </>
         )
     }
@@ -687,31 +700,35 @@ class TrainingGuide extends React.Component {
             case "Legs":
                 info = this.legInfo()
                 break
-            case "Other":
-                info = this.otherInfo()
+            case "More":
+                info = this.moreInfo()
                 break
             default:
                 
             // case 
         }
         let buttons = []
-        let workoutTypes = ["Climbing", "Intermediate", "Fingers", "Calisthenics", "Chest", "Back", "Arms", "Legs", "Other"]
+        let workoutTypes = ["Climbing", "Intermediate", "Fingers", "Calisthenics", "Chest", "Back", "Arms", "Legs", "More"]
         let colorTypes = ["#8884d8","#83a6ed","#8dd1e1","#82ca9d","#a4de6c","#d0ed57","#ffc658"]
         for (let i = 0; i < workoutTypes.length; i++) {
                     buttons.push(<div key={i} onClick={this.handleClick(workoutTypes[i], colorTypes[i%7])} className={`color${i % 7}`} >
-                        <div className="content">{workoutTypes[i]}</div>
+                        {/* <div className="content"> */}
+                            {workoutTypes[i]}
+                            {/* </div> */}
                         {/* <i className="far fa-hand-rock"></i> */}
                     </div>)
         }
         
         return (
             <div className="training-guide">
-                <strong>Select Workout Type:</strong>
+                <strong>Workout Types:</strong>
                 <div className="links">
                     {buttons}
                 </div>
                 <div>
-                    <div className="title" style={{color: this.state.color}}>{this.state.type}</div>
+                    <div className="title workout-type" style={{color: this.state.color}}>{this.state.type}
+                    <hr/>
+                    </div>
                     {info}
                 </div>
             

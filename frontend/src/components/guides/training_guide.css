@@ -1,6 +1,6 @@
 .training-guide {
-    background: rgb(15,15,15);
-    color: white;
+    /* background: rgb(15,15,15); */
+    /* color: white; */
     min-height: 100%;
 }
 .training-guide > div {
@@ -36,8 +36,14 @@
     cursor: pointer;
     /* height: 35px;
     width: 115px; */
-    background: ghostwhite;
+    background: white;
     overflow: visible;
+}
+.training-guide .workout-type {
+    /* -webkit-text-stroke: 1px black; */
+}
+.training-guide button:hover {
+    background: white;
 }
 .training-guide .links {
     display: flex;
@@ -73,9 +79,18 @@
 }
 
 .training-guide .subtitle {
-    color: cyan;
+    /* color: cyan; */
+    color: black;
 }
 
 .training-guide ul {
     list-style: none;
+}
+.training-guide ul li {
+    margin: 5px;
+}
+.training-guide .stars {
+    /* color: yellow; */
+    color: black;
+    font-size: 14px;
 }
