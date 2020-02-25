@@ -12,6 +12,7 @@
 .profile-header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .climb-chart {
@@ -42,5 +43,9 @@ h2 {
     font-weight: 500;
     font-size: 24px;
 }
-
+.profile-header .add-session {
+    padding: 5px 5px;
+    cursor: pointer;
+    color: rgb(36, 36, 255);
+}
 

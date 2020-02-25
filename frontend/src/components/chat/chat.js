@@ -84,7 +84,7 @@ class Chat extends React.Component {
         let newTimestamps = [...this.state.timestamps]
         // whenever you receive a msg, if the hour is diff than the prev msg's hour, then create timestamp
         
-        if (newMessages[len - 1].date.slice(11,13) !== newMessages[len - 2].date.slice(11,13)){
+        if (len-2 < 0 || newMessages[len - 1].date.slice(11,13) !== newMessages[len - 2].date.slice(11,13)){
             newTimestamps.push(len-1)
         }
         this.setState({messages: newMessages})

@@ -24,6 +24,7 @@ class TrainingGuide extends React.Component {
             <>
             <p>Whether you're new to climbing and trying to get a fast start or experienced and trying to get to the next level, these exercises will help you elevate your skills.
             </p>
+
             <br/> <br/>
             <div>
                 <p>
@@ -46,8 +47,6 @@ class TrainingGuide extends React.Component {
     climbingInfo(){
         return(
             < >
-                <div className="title"> Climbing Session Workouts </div>
-
                 <div className="subtitle"> Pyramid (Endurance): </div> <br/>
                 [Your max V grade minus 3]:  Do 4 climbs at this grade. <br/>
                 [Your max V grade minus 2]: Do 3 climbs at this grade. <br/>
@@ -81,7 +80,6 @@ class TrainingGuide extends React.Component {
     intermediateInfo(){
         return (
             <>
-            <h1 className="title"> Intermediate Workout </h1>
             <div className="subtitle"> Week 1-3 </div>  <br/>
             - Choose 3 Non - consecutive days to do this workout(8MinuteAbs can be everyday)(takes about 1 hour) <br/>
                 - take a minute of rest after every bullet point <br/ >
@@ -158,11 +156,7 @@ class TrainingGuide extends React.Component {
     fingerInfo(){
         return (
             <>
-            <div className="title">
-                 Finger Strength Exercises (Tendons) 
-            </div>
-
-                <br /> <div className="subtitle">Hangboard</div>
+           <div className="subtitle">Hangboard</div>
 <br/ > Variation 1: Repeaters < a href = "https://www.youtube.com/watch?v=8YTn7qEpxtU" > Demo Video</a > <br/ >
 <br/ > Choose a pair of edges that are 10 - 15mm and can hold all four fingers.Using an open - crimp position, hang off the edges for 7 seconds then rest for 3 seconds.Repeat this 5 more times for a total of 6 hangs.
 <br/ >
@@ -217,10 +211,7 @@ class TrainingGuide extends React.Component {
     calisthenicsInfo(){
         return (
                 <>
-            <div className="title">
-                 Calisthenics Progressions (Muscles) 
-            </div>
-            <br/>Work on the first exercise of each Progression list.Once you are able to do the full amount of reps + sets in one session, try adding reps + sets until you can do the next exercise in the list. (videos to come!)
+            Work on the first exercise of each Progression list.Once you are able to do the full amount of reps + sets in one session, try adding reps + sets until you can do the next exercise in the list. (videos to come!)
 
                 < br/ >
                 <div className="subtitle">1. Dips and Iron Cross Prog.</div> <br/>
@@ -302,7 +293,6 @@ class TrainingGuide extends React.Component {
     chestInfo(){
         return (
             <>
-                <div className="title"> Chest </div>
                 <table className="">
                     <thead>
                         <tr>
@@ -375,7 +365,6 @@ class TrainingGuide extends React.Component {
     backInfo(){
         return (
             <>
-  <div className="title"> Back </div>
             <table className="">
                 <thead>
                     <tr>
@@ -426,9 +415,6 @@ class TrainingGuide extends React.Component {
     armInfo(){
         return (
             <>
-
-                <div className="title"> Arms </div>
-
                 <table className="">
                     <thead>
                         <tr>
@@ -491,9 +477,7 @@ class TrainingGuide extends React.Component {
     legInfo(){
         return (
             <>
-            <div className="title">
-                 Legs
-            </div>
+            
             <table className="">
                 <thead>
                     <tr>
@@ -612,7 +596,6 @@ class TrainingGuide extends React.Component {
             ))
         return (
             <>
-            <div className="title">More info</div>
             <div className="subtitle">My personal workout from 10/2018</div><br/>
             <div >
                 Depth Jumps<br/>
@@ -686,7 +669,7 @@ class TrainingGuide extends React.Component {
             case "Intermediate":
                 info = this.intermediateInfo()
                 break
-            case "Finger Strength":
+            case "Fingers":
                 info = this.fingerInfo()
                 break
             case "Calisthenics":
@@ -712,7 +695,7 @@ class TrainingGuide extends React.Component {
             // case 
         }
         let buttons = []
-        let workoutTypes = ["Climbing", "Intermediate", "Finger Strength", "Calisthenics", "Chest", "Back", "Arms", "Legs", "Other"]
+        let workoutTypes = ["Climbing", "Intermediate", "Fingers", "Calisthenics", "Chest", "Back", "Arms", "Legs", "Other"]
         let colorTypes = ["#8884d8","#83a6ed","#8dd1e1","#82ca9d","#a4de6c","#d0ed57","#ffc658"]
         for (let i = 0; i < workoutTypes.length; i++) {
                     buttons.push(<div key={i} onClick={this.handleClick(workoutTypes[i], colorTypes[i%7])} className={`color${i % 7}`} >
@@ -728,6 +711,7 @@ class TrainingGuide extends React.Component {
                     {buttons}
                 </div>
                 <div>
+                    <div className="title" style={{color: this.state.color}}>{this.state.type}</div>
                     {info}
                 </div>
             

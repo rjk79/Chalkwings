@@ -206,13 +206,8 @@ class DataComponent extends React.Component {
     }
     findPreviousSession(climbs){
         if (!climbs.length){return []}
-        let mostRecentDate = new Date(climbs[0].date)  
-        let currDate     
-        for (let i = 0;i < climbs.length;i++){
-            currDate = new Date(climbs[i].date)
-            if (currDate > mostRecentDate) {mostRecentDate = currDate} // later is greater
-        }
-        mostRecentDate = mostRecentDate.toString().slice(0, 15) //"Wed Feb 19 2020"
+        
+        let mostRecentDate = this.mostRecentSessionDate(climbs)
         let res = []
         for (let i = 0; i < climbs.length; i++) {
             
@@ -225,6 +220,17 @@ class DataComponent extends React.Component {
     }
     numberClimbs(data){
         return data.filter(el => el.count).reduce((a, b) => a + b.count, 0)
+    }
+    mostRecentSessionDate(data){
+        if (!data.length) { return null }
+        let mostRecentDate = new Date(data[0].date)
+        
+        for (let i = 0; i < data.length; i++) {
+            let currDate = new Date(data[i].date)
+            if (currDate > mostRecentDate) { mostRecentDate = currDate } // later is greater
+        }
+        debugger
+        return mostRecentDate.toString().slice(0, 15) //"Wed Feb 19 2020"
     }
     averageGrade(data, grades){
         let averageIdx = data.map(datum => grades.indexOf(datum.grade[0] === "." ? "5" + datum.grade : datum.grade) * datum.count)
@@ -290,6 +296,7 @@ class DataComponent extends React.Component {
                 </div>
                 {/* <div> */}
                     <h3>Most Recent Session</h3>
+                    <strong>Date: </strong>{this.mostRecentSessionDate(sessionRawData)}<br/>
                     <strong># of climbs:</strong> {this.numberClimbs(sessionData)}<br />
                     <strong>Average grade climbed:</strong> {this.averageGrade(sessionData, GRADES) || "n/a"} <br />
                     <div className="session-chart">

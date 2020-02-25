@@ -70,11 +70,10 @@
 }
 
 .training-guide .title {
-    color:  rgb(172, 172, 172);
 }
 
 .training-guide .subtitle {
-    color: rgb(172, 172, 172);
+    color: cyan;
 }
 
 .training-guide ul {

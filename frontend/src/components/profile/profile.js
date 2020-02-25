@@ -19,6 +19,7 @@ class Profile extends React.Component {
         }
         this.deleteAll = this.deleteAll.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleClickToSession = this.handleClickToSession.bind(this)
     }
     componentDidMount(){
         UserAPIUtil.getUser(this.props.match.params.userId)
@@ -67,6 +68,9 @@ class Profile extends React.Component {
             
         }
     }
+    handleClickToSession(){
+        this.props.history.push('/new_boulder')
+    }
     handleSubmit(e){
         e.preventDefault()
         let {userId} = this.props.match.params
@@ -110,7 +114,8 @@ class Profile extends React.Component {
                 {/* {this.state.savedImage ? <img src={this.state.savedImage}/> : null}
                     <img src={source
                      || require("../../assets/images/mascotstand.png")} alt="profile" /> */}
-                <div className="username">{this.state.username}</div>
+                    <div className="username">{this.state.username}</div>
+                    {this.props.match.params.userId === this.props.currentUser.id ? <div onClick={this.handleClickToSession} className="add-session">Add session >></div> :null}
                 </div>
                 {/* {currentUser.id === this.props.match.params.userId ? 
                     <>
