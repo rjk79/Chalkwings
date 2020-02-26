@@ -51,8 +51,8 @@ class DataComponent extends React.Component {
 
             this.props.fetchUserBoulders(this.props.match.params.userId)
         
-            // this.props.fetchUserRopes(this.props.match.params.userId)
-            // this.props.fetchUserSports(this.props.match.params.userId)
+            this.props.fetchUserRopes(this.props.match.params.userId)
+            this.props.fetchUserSports(this.props.match.params.userId)
 
         }
     }
@@ -300,7 +300,7 @@ class DataComponent extends React.Component {
                 if (stat === 'date' || !stats[stat]){return null}
                 else {
                     return (
-                        <p>{stat}: {stats[stat]}</p>
+                        <p key={idx}>{stat}: {stats[stat]}</p>
                     )
                 }
             })

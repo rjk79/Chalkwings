@@ -66,13 +66,13 @@ class TrainingGuide extends React.Component {
                 <br/>
                 <div className="subtitle"> One Hold Type (Hand and Foot Placement): {this.stars(1)} </div> <br/>
                 Choose a boulder problem and a type of hold (Sloper, Pincher, Undercling, Sidepull, Crimp).Whenever you grab a hold, you must grip it as if it was the chosen hold type.  
-                <br/>
+                <br /><br />
                 <div className="subtitle"> Ladder -- Endurance {this.stars(2)}</div> <br/>
                 Do one climb at each V grade, starting at V0, until you reach[your max V grade].Then do work your way down the grade scale. <br/>
                 <br/>
                 <div className="subtitle"> Red Point (Power): {this.stars(2)}</div> <br/>
                 Attempt all boulder problems at[your max V grade] in the gym.Only give each problem 3 attempts at most.
-                <br/>
+                <br/><br/>
                 
                 <div className="subtitle"> Four by Four (Power-Endurance): {this.stars(3)}</div> <br/>
                 Step 1: Choose 4 boulder problems that are[your max V grade - 2].  <br/>
