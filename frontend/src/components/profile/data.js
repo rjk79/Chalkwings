@@ -306,7 +306,7 @@ class DataComponent extends React.Component {
             })
             return (
                 <div style={{
-                    backgroundColor: '#fff', border: '1px solid #999', margin: 0, padding: 10, width: '70px'
+                    backgroundColor: '#fff', border: '1px solid #999', margin: 0, padding: 10, width: '80px'
                 }}
                 >
                     
