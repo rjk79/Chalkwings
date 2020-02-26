@@ -23,7 +23,7 @@
     height: 30px;
     width: 110px;
     border-radius: 10px;
-    border: 2px solid black;
+    border: 2px solid rgb(0, 0, 0, .2);
     font-size: 14px;
     font-weight: 500;
     margin: 2px;
@@ -42,9 +42,13 @@
 .training-guide .workout-type {
     /* -webkit-text-stroke: 1px black; */
 }
-.training-guide button:hover {
-    background: white;
+.training-guide .links div {
+    /* text-transform: uppercase;
+    font-weight: 300; */
 }
+/* .training-guide button:hover {
+    background: white;
+} */
 .training-guide .links {
     display: flex;
     flex-wrap: wrap;

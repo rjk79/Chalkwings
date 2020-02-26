@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
 // user's sports
 router.get('/user/:user_id', (req, res) => {
     Sport.find({ user: req.params.user_id })
+        .sort({ date: -1 })
         .then(sports => res.json(sports))
         .catch(err =>
             res.status(404).json({ nosportsfound: 'No sports found from that user' }

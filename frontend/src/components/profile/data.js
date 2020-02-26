@@ -8,6 +8,7 @@ import {
     BarChart, Bar, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ScatterChart, Scatter, ZAxis
 } from 'recharts';
 import '../../assets/stylesheets/data.css'
+// import {merge} from 'lodash'
 
 const mapStateToProps = (state) => {
     return {
@@ -68,6 +69,18 @@ class DataComponent extends React.Component {
                 break
             default:
                 break
+        }
+    }
+    handleSwitchGraphType() {
+        return e => {
+            if (this.state.graphType === 'area') {
+                this.setState({ graphType: 'bar' })
+            } else if (this.state.graphType === 'bar') {
+                this.setState({ graphType: 'area' })
+            } 
+            // else {
+            //     this.setState({ graphType: 'stackedArea' })
+            // }
         }
     }
     createGraphData(climbs, grades) { 
@@ -168,6 +181,7 @@ class DataComponent extends React.Component {
         }
     }
     createBubbleChart(data, color){
+        // modify data
         for (let i = 0; i < data.length;i++){ 
             data[i]["index"] = 1 //merge {index: 1}
         }
@@ -195,15 +209,6 @@ class DataComponent extends React.Component {
 
         )
     }
-    handleSwitchGraphType(){
-        return e => {
-            if (this.state.graphType === 'area'){
-            this.setState({graphType: 'bar'})
-            } else {
-                this.setState({graphType: 'area'})
-            }
-        }
-    }
     findPreviousSession(climbs){
         if (!climbs.length){return []}
         
@@ -229,7 +234,7 @@ class DataComponent extends React.Component {
             let currDate = new Date(data[i].date)
             if (currDate > mostRecentDate) { mostRecentDate = currDate } // later is greater
         }
-        debugger
+        // debugger
         return mostRecentDate.toString().slice(0, 15) //"Wed Feb 19 2020"
     }
     averageGrade(data, grades){
@@ -238,6 +243,80 @@ class DataComponent extends React.Component {
             / data.map(datum => datum.count).reduce((a, b) => a + b, 0) 
             // total / sum
         return grades[Math.floor(averageIdx)]
+    }
+    monthlySessionGraphData(data, grades){
+        let newData = {}
+        // {date: {date:, v0: , v1: }}
+        // {date: , v0: , v1: }
+        for(let i = 0;i<data.length;i++){
+            let {date, grade} = data[i]
+            date = date.slice(5,10)
+            if (!(date in newData)){
+                newData[date] = {date}
+                for (let j = 0;j<grades.length;j++){
+                    newData[date][grades[j]] = 0
+                }
+            }
+            newData[date][grade] += 1
+        }
+        // debugger
+        newData = Object.values(newData)
+        newData.reverse()
+        return newData
+    }
+    createMonthlySessionGraph(data, grades, color){
+        const newData = this.monthlySessionGraphData(data, grades)
+        // debugger
+        const areas = grades.map((grade, idx) => (
+            <Area type="monotone" dataKey={grade} stackId="1" stroke={color} fill={color}
+                fillOpacity={`${(grades.length - 1 - idx) /(grades.length-1)}`}
+            />
+        ))
+        return (
+            <ResponsiveContainer>
+            <AreaChart
+                width={500}
+                height={200}
+                data={newData}
+                margin={{
+                    top: 10, right: 30, left: 0, bottom: 0,
+                }}
+            >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="date" />
+                <YAxis />
+                <Tooltip content={this.monthlySessionGraphTooltip}/>
+                {areas}
+            </AreaChart>
+            </ResponsiveContainer>
+        )
+    }
+    monthlySessionGraphTooltip(data){
+        if (!data.payload) { return null }
+        if (data.payload.length) {
+            let stats = data.payload[0].payload
+            //stat.date
+            let statLis = Object.keys(stats).map((stat,idx)=>{
+                if (stat === 'date' || !stats[stat]){return null}
+                else {
+                    return (
+                        <p>{stat}: {stats[stat]}</p>
+                    )
+                }
+            })
+            return (
+                <div style={{
+                    backgroundColor: '#fff', border: '1px solid #999', margin: 0, padding: 10, width: '70px'
+                }}
+                >
+                    
+                    {statLis}
+                    
+                </div>
+            );
+        } else {
+            return null
+        }
     }
     render(){
 
@@ -281,13 +360,22 @@ class DataComponent extends React.Component {
         let currMonth = date.getMonth()
         let i = 0
         while (i < climbs.length && parseInt(climbs[i].date.slice(5, 7)) - 1 === currMonth) i++ //getMo is 0 indexed
-        let monthlyData = this.createGraphData(climbs.slice(0, i), GRADES)
+        let monthlyClimbs = climbs.slice(0, i)
+        let monthlyData = this.createGraphData(monthlyClimbs, GRADES)
         
   
-        let monthlyGraph = this.state.graphType === 'area' ? this.createAreaGraph(monthlyData, color) : this.createBarGraph(monthlyData, color) 
+        let monthlyGraph 
         let alltimeGraph = this.state.graphType === 'area' ? this.createAreaGraph(climbData, color) : this.createBarGraph(climbData, color) 
+        switch(this.state.graphType){
+            // case "stackedArea":
+            //     monthlyGraph = this.createMonthlySessionGraph(monthlyData, color)
+            case "area":
+                monthlyGraph = this.createAreaGraph(monthlyData, color)
+                break
+            case "bar":
+                monthlyGraph = this.createBarGraph(monthlyData, color) 
+        }
         let sessionGraph = this.createBubbleChart(sessionData, color)
-
         return(
             <>
                 <div className="current-type" style={{background: color, color: 'white'}}>{currentType}</div>
@@ -299,6 +387,7 @@ class DataComponent extends React.Component {
                     <strong>Date: </strong>{this.mostRecentSessionDate(sessionRawData)}<br/>
                     <strong># of climbs:</strong> {this.numberClimbs(sessionData)}<br />
                     <strong>Average grade climbed:</strong> {this.averageGrade(sessionData, GRADES) || "n/a"} <br />
+                    
                     <div className="session-chart">
                         {sessionGraph}
                     </div>
@@ -309,9 +398,12 @@ class DataComponent extends React.Component {
                         <strong># of climbs:</strong> {this.numberClimbs(monthlyData)}<br />
                         {/* <strong>Distance climbed:</strong> approx.&nbsp;{monthlyCount * 15} ft. | {Math.floor(monthlyCount * 15 * .3048)} m.<br /> */}
                         <strong>Average grade climbed:</strong> {this.averageGrade(monthlyData, GRADES) || "n/a"} <br />
-                        <button className="bw-button" onClick={this.handleSwitchGraphType()}><i className="fas fa-exchange-alt"></i> Graph Type</button>
                     </div>
                         
+                    <div className="climb-chart">
+                        {this.createMonthlySessionGraph(monthlyClimbs, GRADES, color)}
+                    </div>
+                        <button className="bw-button" onClick={this.handleSwitchGraphType()}><i className="fas fa-exchange-alt"></i> Graph Type</button>
                         <div className="climb-chart">
                             {monthlyGraph}
                         </div>

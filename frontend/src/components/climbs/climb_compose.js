@@ -101,7 +101,7 @@ class ClimbCompose extends React.Component {
         }
         this.setState({session: []})
         const button = document.getElementsByClassName("submit-session-button")[0]
-        button.innerText = "Added to Profile!"
+        button.innerText = "Added!"
         setTimeout(()=>{
             button.innerText = "Submit Session"
         }, 1000)

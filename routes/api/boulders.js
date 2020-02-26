@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
 // user's boulders
 router.get('/user/:user_id', (req, res) => {
     Boulder.find({ user: req.params.user_id })
+        .sort({ date: -1 })
         .then(boulders => res.json(boulders))
         .catch(err =>
             res.status(404).json({ nobouldersfound: 'No boulders found from that user' }

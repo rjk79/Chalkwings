@@ -9,6 +9,7 @@ const sports = require("./routes/api/sports");
 
 const teams = require("./routes/api/teams");
 const messages = require("./routes/api/messages");
+const follows = require("./routes/api/follows");
 const challenges = require("./routes/api/challenges");
 const images = require("./routes/api/images");
 
@@ -37,6 +38,7 @@ app.use("/api/ropes", ropes);
 app.use("/api/sports", sports);
 app.use("/api/teams", teams);
 app.use("/api/messages", messages);
+app.use("/api/follows", follows);
 app.use("/api/challenges", challenges);
 app.use("/api/images", images);
 

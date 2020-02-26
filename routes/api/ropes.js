@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
 // user's ropes
 router.get('/user/:user_id', (req, res) => {
     Rope.find({ user: req.params.user_id })
+        .sort({ date: -1 })
         .then(ropes => res.json(ropes))
         .catch(err =>
             res.status(404).json({ noropesfound: 'No ropes found from that user' }
