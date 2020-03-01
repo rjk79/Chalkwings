@@ -115,7 +115,11 @@ class Profile extends React.Component {
                     <img src={source
                      || require("../../assets/images/mascotstand.png")} alt="profile" /> */}
                     <div className="username">{this.state.username}</div>
-                    {this.props.match.params.userId === this.props.currentUser.id ? <div onClick={this.handleClickToSession} className="add-session">Add session >></div> :null}
+                    {this.props.match.params.userId === this.props.currentUser.id ? <div onClick={this.handleClickToSession} className="add-session">Add session >></div> : 
+                    // <div className="cw-button">Follow</div> :
+                    <div className="cw-button">Following <i className="fas fa-check"></i></div>
+                    // null
+                    }
                 </div>
                 {/* {currentUser.id === this.props.match.params.userId ? 
                     <>

@@ -55,7 +55,6 @@
 
 .hidden {
     width: 0;
-    transition: width 1s;
 }
 @keyframes condense {
     50% {transform: translate(0, -7px)}

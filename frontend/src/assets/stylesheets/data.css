@@ -6,6 +6,8 @@
     font-weight: 450;
     text-align: center;
     margin: 5px;
+    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
 }
 .profile-controls {
     display: flex;

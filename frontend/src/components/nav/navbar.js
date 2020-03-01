@@ -37,8 +37,7 @@ class NavBar extends React.Component {
         if (this.props.loggedIn) {
             return (
                 <>
-                {this.state.linksShowing ?
-                    
+  
                     <div className="links1" >
                             <Link onClick={this.handleClickLink} to={`/profile/${this.props.currentUser.id}`}><i className="fas fa-user"></i>&nbsp;Profile</Link>
                             <Link onClick={this.handleClickLink} to={'/new_boulder'}><i className="fas fa-edit"></i>&nbsp;Add Session</Link>
@@ -52,7 +51,7 @@ class NavBar extends React.Component {
                                 View Teams</Link>
                             <button className="logout-button" onClick={this.logoutUser}><i className="fas fa-sign-out-alt"></i>&nbsp;Log out</button>
                     </div>
-                : null}
+ 
                 </>
             );
         } else {
