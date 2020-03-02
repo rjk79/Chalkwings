@@ -35,9 +35,9 @@ class NavBar extends React.Component {
     // render links dependent on whether the user is logged in
     getLinks() {
         if (this.props.loggedIn) {
+            if (this.state.linksShowing){
             return (
                 <>
-  
                     <div className="links1" >
                             <Link onClick={this.handleClickLink} to={`/profile/${this.props.currentUser.id}`}><i className="fas fa-user"></i>&nbsp;Profile</Link>
                             <Link onClick={this.handleClickLink} to={'/new_boulder'}><i className="fas fa-edit"></i>&nbsp;Add Session</Link>
@@ -53,7 +53,7 @@ class NavBar extends React.Component {
                     </div>
  
                 </>
-            );
+            )} else {return null} 
         } else {
             return (
                 <div className="links2">
