@@ -11,7 +11,7 @@ class TrainingGuide extends React.Component {
     }
     componentDidUpdate(){
         // change .guide instead
-       
+
     }
     stars(rating){
         let stars = []
@@ -29,7 +29,7 @@ class TrainingGuide extends React.Component {
         }
     }
     introInfo(){
-        
+
         return (
             <>
             <p>Whether you're new to climbing and trying to get a fast start or experienced and trying to get to the next level, these exercises will help you elevate your skills.
@@ -40,13 +40,16 @@ class TrainingGuide extends React.Component {
                 <p>
                     There are a few common characteristics of the exercises I have included:
                 </p>
-                <p>
+                <p className="intro-paragraph">
+                    <i className="fas fa-child"></i>
                     <strong>Bodyweight:</strong> Being able to manipulate your body is one of the most important aspects of climbing and because this is already very challenging, added weight is usually unnecessary.
                 </p>
-                <p>
+                <p className="intro-paragraph">
+                    <i className="fas fa-dumbbell"></i>
                     <strong>Free-weight:</strong> Being able to manage mobile weight focuses your core and saves time by working out multiple muscles at once. As a result of this, however, proper form is very important.
                 </p>
-                <p>
+                <p className="intro-paragraph">
+                    <i className="fas fa-bullseye"></i>
                     <strong>Targeted:</strong> While climbing can challenge almost every part of your body, it is most efficient to train only certain parts in order to
                      see noticeable progress, save time + energy and prevent unnecessary mass gain.
                 </p>
@@ -55,7 +58,7 @@ class TrainingGuide extends React.Component {
         )
     }
     climbingInfo(){
-        
+
         return(
             <>
                 <div className="subtitle"> Foot Cuts (Core Tension):  {this.stars(1)}</div> <br/>
@@ -65,7 +68,7 @@ class TrainingGuide extends React.Component {
                 Choose a boulder problem. Each time you grab or step on a new hold, you cannot shift around on it to find a better position.  <br/>
                 <br/>
                 <div className="subtitle"> One Hold Type (Hand and Foot Placement): {this.stars(1)} </div> <br/>
-                Choose a boulder problem and a type of hold (Sloper, Pincher, Undercling, Sidepull, Crimp).Whenever you grab a hold, you must grip it as if it was the chosen hold type.  
+                Choose a boulder problem and a type of hold (Sloper, Pincher, Undercling, Sidepull, Crimp).Whenever you grab a hold, you must grip it as if it was the chosen hold type.
                 <br /><br />
                 <div className="subtitle"> Ladder -- Endurance {this.stars(2)}</div> <br/>
                 Do one climb at each V grade, starting at V0, until you reach[your max V grade].Then do work your way down the grade scale. <br/>
@@ -73,21 +76,21 @@ class TrainingGuide extends React.Component {
                 <div className="subtitle"> Red Point (Power): {this.stars(2)}</div> <br/>
                 Attempt all boulder problems at[your max V grade] in the gym.Only give each problem 3 attempts at most.
                 <br/><br/>
-                
+
                 <div className="subtitle"> Four by Four (Power-Endurance): {this.stars(3)}</div> <br/>
                 Step 1: Choose 4 boulder problems that are[your max V grade - 2].  <br/>
                 Step 2: Attempt each of them once without taking breaks between problems.  <br/>
                 Step 3: Rest for 4 minutes. <br/>
                 Step 4: Repeat steps 2 and 3, three more times.<br/>
                 <br/>
-                
+
                 <div className="subtitle"> Pyramid -- Endurance</div> {this.stars(3)}<br/>
                 [Your max V grade minus 3]:  Do 4 climbs at this grade. <br/>
                 [Your max V grade minus 2]: Do 3 climbs at this grade. <br/>
                 [Your max V grade minus 1]: Do 2 climbs at this grade. <br/>
                 [Your max V grade]: Do 1 climb at this grade. <br/>
                 <br/>
-                
+
                 <br/>
             </>
         )
@@ -162,7 +165,7 @@ class TrainingGuide extends React.Component {
 <br/ >
         •	Vertical Push – Do as many Dips as you can
 <br/ >
-        •	Horizontal Pull - Do as many<a href = "https://www.youtube.com/watch?v=OH3QZB8oDkg" > Inclined Ring Rows</a > as you can 
+        •	Horizontal Pull - Do as many<a href = "https://www.youtube.com/watch?v=OH3QZB8oDkg" > Inclined Ring Rows</a > as you can
 <br/ >
         •	Shoulders – 5 < a href = "https://www.youtube.com/watch?v=UZ4XlVNmGtk" > One Leg Lever Pulls</a >
 <br/ >
@@ -179,7 +182,7 @@ class TrainingGuide extends React.Component {
 <br/ > Variation 2:
 <br/ > Do hangboard Repeaters using different pockets and edges
 <br/ >
-<br/ > Variation 3: 
+<br/ > Variation 3:
 <br/ > Do hangboard Repeaters using less fingers
 <br/ >
 <br/ > Variation 4: Max Hangs
@@ -190,11 +193,11 @@ class TrainingGuide extends React.Component {
 <br/ > Choose a pair of edges that are 10 - 15mm and can hold all four fingers.Use a pulley system to provide a counter weight so you are lighter.
 <br/ > Using an open - crimp position, hang off the edges for at least 5 seconds then rest for at least 5 mins.Repeat this 4 more times for a total of 5 hangs.
 <br/ >
-                <br /> <div className="subtitle">Campus Board {this.stars(2)}</div> 
-<br/ > Variation 1: 
+                <br /> <div className="subtitle">Campus Board {this.stars(2)}</div>
+<br/ > Variation 1:
 <br/ > Using an open - crimp position, go up the campus board using every rung and match on each before going up to the next one.
 <br/ >
-<br/ > Variation 2: 
+<br/ > Variation 2:
 <br/ > Variation 1 without matching rungs.
 <br/ >
 <br/ > Variation 3:
@@ -203,13 +206,13 @@ class TrainingGuide extends React.Component {
 <br/ > Variation 4: Dynoing
 <br/ > With both hands on the bottom rung.reach up to the highest rung you can.
 <br/ >
-<br/ > Variation 5: 
+<br/ > Variation 5:
 <br/ > Do Variation 4 then reach as high as you can with you’re other hand.
 <br/ >
-<br/ > Variation 6: Bumping < a href = "https://www.youtube.com/watch?v=xLPdz0n5hkE" > Demo Video</a > 
+<br/ > Variation 6: Bumping < a href = "https://www.youtube.com/watch?v=xLPdz0n5hkE" > Demo Video</a >
 <br/ > With both hands on the bottom rung, move one hand up to the next rung, then the next rung, etc until you cannot go further.
 <br/ >
-<br/ > Variation 7: Alternating < a href = "https://www.youtube.com/watch?v=RhAutTnvAgQ" > Demo Video</a > 
+<br/ > Variation 7: Alternating < a href = "https://www.youtube.com/watch?v=RhAutTnvAgQ" > Demo Video</a >
 <br/ > With both hands on the bottom rung, move one hand up to a higher rung then bring it back down to the bottom rung and repeat.Adjust difficulty by adding reps and reaching higher.
 <br/ >
 <br/ > Variation 8: Downclimbing
@@ -373,8 +376,8 @@ class TrainingGuide extends React.Component {
                       In this way, they stay roughly shoulder - width apart as you go down.This will target your abs more than the normal Flies.
   <br/> <div className="subtitle">Ring Dips: {this.stars(2)}</div>These are much harder than normal dips and it is recommended you flare the rings out each time you reach the top of the movement.
   <br /> <div className="subtitle">Dragon Flags: {this.stars(3)}</div>Dragon Flags are extremely difficult so one should work up to them using leg - ups and negatives.
-  <br /> <div className="subtitle">Planche Push-ups: {this.stars(2)}</div>This an easily - adjustable gymnastics exercise that builds pushing power.                                                                                                                                                                                                               
-                            
+  <br /> <div className="subtitle">Planche Push-ups: {this.stars(2)}</div>This an easily - adjustable gymnastics exercise that builds pushing power.
+
             </>
         )
     }
@@ -423,7 +426,7 @@ class TrainingGuide extends React.Component {
                         The way to perform these is to hang on a bar with your hands shoulder-width.
                         First, you want to sink your head between your shoulders then you want to shrug so you enter an active hang.
         <br /><div className="subtitle">Front Lever: {this.stars(2)}</div> The Front Lever is well-known for being the one of the hardest pushing/core exercises amongst gymnasts and for good reason. (inspired by Sean McColl)
-                    
+
             </p>
             </>
         )
@@ -486,14 +489,14 @@ class TrainingGuide extends React.Component {
                 <div className="subtitle">Type-writers: {this.stars(2)}</div> While lock-off strength is important it is debatable whether simply doing it is the best way of improving it.
   <br /> <div className="subtitle">Bar to Chest: {this.stars(2)}</div> These are pull - ups that are dynamic and build explosive power.
   <br /> <div className="subtitle">One-arm Pull-up: {this.stars(2)}</div> (Inspired by Alex Puccio) While difficult, make sure you squeeze the bar as hard as you can, start with your body perpendicular to the bar, and fold your body inwards.
-              
+
             </>
         )
     }
     legInfo(){
         return (
             <>
-            
+
             <table className="">
                 <thead>
                     <tr>
@@ -674,8 +677,8 @@ During the following week, you should try to add 1 more rep to each set.
         )
     }
     render(){
-        
-        let info 
+
+        let info
         switch(this.state.type){
             case "Intro":
                 info = this.introInfo()
@@ -683,7 +686,7 @@ During the following week, you should try to add 1 more rep to each set.
             case "Climbing":
                 info = this.climbingInfo()
                 break
-            case "Intermediate":
+            case "Popular":
                 info = this.intermediateInfo()
                 break
             case "Fingers":
@@ -704,15 +707,15 @@ During the following week, you should try to add 1 more rep to each set.
             case "Legs":
                 info = this.legInfo()
                 break
-            case "More":
+            case "40 Quick Tips":
                 info = this.moreInfo()
                 break
             default:
-                
-            // case 
+
+            // case
         }
         let buttons = []
-        let workoutTypes = ["Climbing", "Intermediate", "Fingers", "Calisthenics", "Chest", "Back", "Arms", "Legs", "More"]
+        let workoutTypes = ["Climbing", "Popular", "Fingers", "Calisthenics", "Chest", "Back", "Arms", "Legs", "40 Quick Tips"]
         let colorTypes = ["#8884d8","#83a6ed","#8dd1e1","#82ca9d","#a4de6c","#d0ed57","#ffc658"]
         for (let i = 0; i < workoutTypes.length; i++) {
                     buttons.push(<div key={i} onClick={this.handleClick(workoutTypes[i], colorTypes[i%7])} className={`color${i % 7}`} >
@@ -722,7 +725,7 @@ During the following week, you should try to add 1 more rep to each set.
                         {/* <i className="far fa-hand-rock"></i> */}
                     </div>)
         }
-        
+
         return (
             <div className="training-guide">
                 <strong>Workout Types:</strong>
@@ -735,7 +738,7 @@ During the following week, you should try to add 1 more rep to each set.
                     </div>
                     {info}
                 </div>
-            
+
             </div>
         )
     }

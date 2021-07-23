@@ -12,7 +12,9 @@ class NavBar extends React.Component {
         this.handleClickLink = this.handleClickLink.bind(this)
     }
     // componentDidMount(){
-
+    //     window.addEventListener('click', (e) => {
+    //         if e.target.contains
+    //     })
     // }
     // componentWillUnmount(){
 

@@ -98,3 +98,15 @@
     color: black;
     font-size: 14px;
 }
+
+.training-guide .fa-child,
+.training-guide .fa-dumbbell,
+.training-guide .fa-bullseye {
+    margin-right: 15px;
+}
+
+.intro-paragraph {
+    border: 2px solid gray;
+    padding: 5px;
+    border-radius: 8px;
+}
