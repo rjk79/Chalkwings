@@ -10,10 +10,13 @@ class TrainingGuide extends React.Component {
             color: "#8884d8"
         }
     }
-    componentDidUpdate(){
+    componentDidUpdate(prevProps, prevState){
         // change .guide instead
-
+        // if (this.state.type !== prevState.type) {
+        //     this.addLinkOutIcons()
+        // }
     }
+
     stars(rating){
         let stars = []
         for (let i = 0;i<rating;i++){
@@ -156,7 +159,7 @@ class TrainingGuide extends React.Component {
 <br/ >
         •	Core – 6(3 on each side) < a href = "https://www.youtube.com/watch?v=hrS3QsNqvTQ" > Lying Windshield Wipers</a >
 <br/ >
-        •	Core – 5 < a href = "https://youtu.be/aEgyCi1J1qI?t=83" > Knee Ab Wheel Rollouts</a >.Don’t count reps where you can’t come back up.
+        •	Core – 5 < a href = "https://youtu.be/aEgyCi1J1qI?t=83" > Knee Ab Wheel Rollouts</a >. Don’t count reps where you can’t come back up.
 <br/ >
         •	Vertical Pull - Do as many Pull - ups as you can.Afterwards, do as many normal pull - ups as you can with a elastic band
 <br/ >

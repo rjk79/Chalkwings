@@ -1,6 +1,4 @@
 import React, {useState} from 'react'
-import '../../assets/stylesheets/button.css'
-
 
 const Button = ({ color='rgb(136, 132, 216)', text, onClick, kind='primary'}) => {
     const [hovered, setHovered] = useState(false)
