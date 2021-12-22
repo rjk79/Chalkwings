@@ -721,7 +721,7 @@ During the following week, you should try to add 1 more rep to each set.
         const buttons = workoutTypes.map((workoutType, index) => {
             const color = colorTypes[index % 7]
             return (
-                <Button kind="secondary" color={color} key={index} text={ workoutType} onClick={this.handleClick(workoutType, color)} />
+                <Button kind="primary" color={color} key={index} text={ workoutType} onClick={this.handleClick(workoutType, color)} />
             )
         }
         )
