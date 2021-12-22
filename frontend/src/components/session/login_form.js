@@ -25,12 +25,12 @@ class LoginForm extends React.Component {
         this.props.login(user);
     }
     handleFocus(e){
-        let movingPlaceholder 
+        let movingPlaceholder
         switch (e.currentTarget.classList[0]){
-            case 'input-username': 
-                movingPlaceholder = document.getElementsByClassName("moving-placeholder")[0]              
+            case 'input-username':
+                movingPlaceholder = document.getElementsByClassName("moving-placeholder")[0]
                 break
-            case 'input-password': 
+            case 'input-password':
                 movingPlaceholder = document.getElementsByClassName("moving-placeholder2")[0]
                 break
             default:
@@ -44,7 +44,7 @@ class LoginForm extends React.Component {
         movingPlaceholder.style.MozTransition = 'top .1s, left .1s';
     }
     handleBlur(e){
-        
+
         let movingPlaceholder
         switch (e.currentTarget.classList[0]) {
             case 'input-username':
@@ -68,7 +68,7 @@ class LoginForm extends React.Component {
         movingPlaceholder.style.color = 'gray'
 
     }
-    
+
     componentDidMount(){
         document.getElementsByClassName("input-username")[0].addEventListener('focus', this.handleFocus)
         document.getElementsByClassName("input-username")[0].addEventListener('blur', this.handleBlur)
@@ -155,7 +155,7 @@ class LoginForm extends React.Component {
                         <input className="btn btn-primary" type="submit" value="Log In" />
                         {this.renderErrors()}
                     <Link className="" to="/signup"> Are you a new user? </Link>
-                    <button className="demo-button" onClick={this.handleDemo}>Demo Log In</button>
+                    <button className="demo-button" onClick={this.handleDemo}>Skip Log In</button>
                     </div>
                 </form>
             </div>

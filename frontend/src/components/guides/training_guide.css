@@ -16,22 +16,10 @@
 }
 /* .training-guide .content:hover {
 } */
-.training-guide .links > div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    width: 110px;
-    border-radius: 10px;
-    border: 2px solid rgb(0, 0, 0, .2);
-    font-size: 14px;
-    font-weight: 500;
+.training-guide .links > button {
     margin: 2px;
-    transition: background-color .3s, height .3s, width .3s;
-    color: black;
-
-    overflow: hidden;
 }
+
 .training-guide .links div:hover{
     cursor: pointer;
     /* height: 35px;

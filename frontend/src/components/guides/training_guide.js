@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from '../library/button'
 import './training_guide.css'
 
 class TrainingGuide extends React.Component {
@@ -683,7 +684,7 @@ During the following week, you should try to add 1 more rep to each set.
             case "Intro":
                 info = this.introInfo()
                 break
-            case "Climbing":
+            case "On The Wall":
                 info = this.climbingInfo()
                 break
             case "Popular":
@@ -714,27 +715,27 @@ During the following week, you should try to add 1 more rep to each set.
 
             // case
         }
-        let buttons = []
-        let workoutTypes = ["Climbing", "Popular", "Fingers", "Calisthenics", "Chest", "Back", "Arms", "Legs", "40 Quick Tips"]
-        let colorTypes = ["#8884d8","#83a6ed","#8dd1e1","#82ca9d","#a4de6c","#d0ed57","#ffc658"]
-        for (let i = 0; i < workoutTypes.length; i++) {
-                    buttons.push(<div key={i} onClick={this.handleClick(workoutTypes[i], colorTypes[i%7])} className={`color${i % 7}`} >
-                        {/* <div className="content"> */}
-                            {workoutTypes[i]}
-                            {/* </div> */}
-                        {/* <i className="far fa-hand-rock"></i> */}
-                    </div>)
+
+        let workoutTypes = ["On The Wall", "Popular", "Fingers", "Calisthenics", "Chest", "Back", "Arms", "Legs", "40 Quick Tips"]
+        let colorTypes = ["#8884d8","#83a6ed","#8dd1e1","#82ca9d","#a4de6c","#efb648"]
+        const buttons = workoutTypes.map((workoutType, index) => {
+            const color = colorTypes[index % 7]
+            return (
+                <Button kind="secondary" color={color} key={index} text={ workoutType} onClick={this.handleClick(workoutType, color)} />
+            )
         }
+        )
+
 
         return (
-            <div className="training-guide">
+            <div className="training-guide" style={{ background: '#eee' }}>
                 <strong>Workout Types:</strong>
                 <div className="links">
                     {buttons}
                 </div>
-                <div>
+                <div style={{background: 'white', borderRadius: "8px", padding: '14px', margin: '5px'}}>
                     <div className="title workout-type" style={{color: this.state.color}}>{this.state.type}
-                    <hr/>
+                    <hr style={{border: 'none', backgroundColor: '#333', height: '1px'}}/>
                     </div>
                     {info}
                 </div>

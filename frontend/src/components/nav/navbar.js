@@ -10,15 +10,23 @@ class NavBar extends React.Component {
         this.getLinks = this.getLinks.bind(this);
         this.handleClickHamburger = this.handleClickHamburger.bind(this)
         this.handleClickLink = this.handleClickLink.bind(this)
-    }
-    // componentDidMount(){
-    //     window.addEventListener('click', (e) => {
-    //         if e.target.contains
-    //     })
-    // }
-    // componentWillUnmount(){
 
-    // }
+        this.node = React.createRef();
+    }
+
+    componentDidMount(){
+        // window.addEventListener('click', (e) => {
+        //     if (!this.node || !this.node.current) return;
+        //     if (!this.node.current.contains(e.target)) {
+        //         this.setState({linksShowing: false})
+        //     }
+        // })
+    }
+
+    componentWillUnmount(){
+
+    }
+
     handleBlur(){
 
         this.setState({ linksShowing: false })
@@ -40,7 +48,7 @@ class NavBar extends React.Component {
             if ( this.state.linksShowing ){
                 return (
                     <>
-                        <div className="links1" >
+                        <div className="links1" ref={this.node}>
                                 <Link onClick={this.handleClickLink} to={`/profile/${this.props.currentUser.id}`}><i className="fas fa-user"></i>&nbsp;Profile</Link>
                                 <Link onClick={this.handleClickLink} to={'/new_boulder'}><i className="fas fa-edit"></i>&nbsp;Add Session</Link>
                             <Link onClick={this.handleClickLink} to={'/guide'}><i className="fas fa-book"></i>&nbsp;Workout Guides</Link>
