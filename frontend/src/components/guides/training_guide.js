@@ -107,46 +107,45 @@ class TrainingGuide extends React.Component {
             - Choose 3 Non - consecutive days to do this workout(8MinuteAbs can be everyday)(takes about 1 hour) <br/>
                 - take a minute of rest after every bullet point <br/ >
         •	(Optional) Lose Weight-- Jump Rope for 10 min or Traverse for 10 min <br/>
-        •	Core-- < a href = "https://www.youtube.com/watch?v=sWjTnBmCHTY" > Abs</a > <br/>
+        •	Core-- < a href = "https://www.youtube.com/watch?v=sWjTnBmCHTY" > Abs <i className="fas fa-external-link-alt"></i> </a > <br/>
  <br/ >
             Repeat the following list 3 times: <br/>
-        •	Vertical Pull-- Do as many<a href = "https://www.youtube.com/watch?v=QH0dDfyF7QM" > L - Sit Pull - ups</a > as you can.Afterwards, do as many normal pull - ups as you can with a elastic band<br/ >
+        •	Vertical Pull-- Do as many<a href = "https://www.youtube.com/watch?v=QH0dDfyF7QM" > L - Sit Pull-ups <i className="fas fa-external-link-alt"></i> </a > as you can.Afterwards, do as many normal pull-ups as you can with a elastic band<br/ >
  <br/ >
-        •	Horizontal Push-- Do as many<a href = "https://www.youtube.com/watch?v=2qa1avIsLaA" > X - Push - ups</a > as you can.Afterwards, do as many normal push - ups as you can <br/ >
+        •	Horizontal Push-- Do as many<a href = "https://www.youtube.com/watch?v=2qa1avIsLaA" > X - Push-ups <i className="fas fa-external-link-alt"></i> </a > as you can.Afterwards, do as many normal push-ups as you can <br/ >
  <br/ >
-        •	Fingers-- 6 < a href = "https://youtu.be/7bS-19Cl8Kk?t=120 " > Repeaters</a >  <br/ >
+        •	Fingers-- 6 < a href = "https://youtu.be/7bS-19Cl8Kk?t=120 " > Repeaters <i className="fas fa-external-link-alt"></i> </a >  <br/ >
  <br/ >
-        •	Vertical Push-- Do as many<a href = "https://www.youtube.com/watch?v=IOlHTsmfr68 " > Assisted Dips</a > as you can <br/ >
+        •	Vertical Push-- Do as many<a href = "https://www.youtube.com/watch?v=IOlHTsmfr68 " > Assisted Dips <i className="fas fa-external-link-alt"></i> </a > as you can <br/ >
 <br/ >
-        •	Horizontal Pull-- Do as many<a href = "https://www.youtube.com/watch?v=Qj8ixEU638M" > Ring Rows</a > as you can  <br/ >
+        •	Horizontal Pull-- Do as many<a href = "https://www.youtube.com/watch?v=Qj8ixEU638M" > Ring Rows <i className="fas fa-external-link-alt"></i> </a > as you can  <br/ >
 <br/ >
-        •	Shoulders-- 5 < a href = "https://www.youtube.com/watch?v=icD6a_JcCbQ" > Depression Scapular Pull - Ups</a >  <br/ >
+        •	Shoulders-- 5 < a href = "https://www.youtube.com/watch?v=icD6a_JcCbQ" > Depression Scapular Pull-ups <i className="fas fa-external-link-alt"></i> </a >  <br/ >
 <br/ >
-        •	Shoulders-- 5 < a href = "https://youtu.be/6P9r0UAdwXM?t=69" > Retraction Scapular Pull - Ups</a > <br/ >
+        •	Shoulders-- 5 < a href = "https://youtu.be/6P9r0UAdwXM?t=69" > Retraction Scapular Pull-ups <i className="fas fa-external-link-alt"></i> </a > <br/ >
  <br/ >
             <div className="subtitle"> Week 4-6 </div>
             - Choose 3 Non - consecutive days to do this workout(takes about 1 hour) <br/ >
                 - take a minute of rest after every bullet point <br/ >
         •	(Optional) Lose Weight - Jump Rope for 10 min or Traverse for 10 min <br/ >
             Repeat the following list 3 times: <br/ >
-        •	Core – Do as many<a href = "https://youtu.be/riAutegDqdI?t=73" > V - Ups </a > as you can <br/ >
-            <a href="https://youtu.be/riAutegDqdI?t=73"> </a>
+        •	Core – Do as many<a href = "https://youtu.be/riAutegDqdI?t=73" > V-ups  <i className="fas fa-external-link-alt"></i> </a > as you can <br/ >
 <br/ >
-        •	Core – Do as many<a href = "https://www.youtube.com/watch?v=NeAtimSCxsY" > Russian Twists </a > as you can with 10 lbs. <br/ >
+        •	Core – Do as many<a href = "https://www.youtube.com/watch?v=NeAtimSCxsY" > Russian Twists  <i className="fas fa-external-link-alt"></i> </a > as you can with 10 lbs. <br/ >
 <br/ >
-        •	Vertical Pull - Do as many Pull - ups as you can.Afterwards, do as many normal pull - ups as you can with a elastic band <br/ >
+        •	Vertical Pull - Do as many Pull-ups as you can.Afterwards, do as many normal pull-ups as you can with a elastic band <br/ >
 <br/ >
-        •	Horizontal Push - Do as many<a href = "https://www.youtube.com/watch?v=7enjS7Y2LYc" > Ring Push - ups </a > as you can.Afterwards, do as many normal push - ups as you can <br/ >
+        •	Horizontal Push - Do as many<a href = "https://www.youtube.com/watch?v=7enjS7Y2LYc" > Ring Push-ups  <i className="fas fa-external-link-alt"></i> </a > as you can.Afterwards, do as many normal push-ups as you can <br/ >
 <br/ >
-        •	Fingers - 6 < a href = "https://youtu.be/7bS-19Cl8Kk?t=120" > Repeaters </a > with 2.5 lbs held by feet. 10 or 15mm edge <br/ >
+        •	Fingers - 6 < a href = "https://youtu.be/7bS-19Cl8Kk?t=120" > Repeaters  <i className="fas fa-external-link-alt"></i> </a > with 2.5 lbs held by feet. 10 or 15mm edge <br/ >
 <br/ >
-        •	Vertical Push – 10 sec < a href = "https://www.youtube.com/watch?v=C07M-t0_Vxg" > Ring Support Hold </a > <br/ >
+        •	Vertical Push – 10 sec < a href = "https://www.youtube.com/watch?v=C07M-t0_Vxg" > Ring Support Hold  <i className="fas fa-external-link-alt"></i> </a > <br/ >
 <br/ >
-        •	Horizontal Pull - Do as many<a href = "https://www.youtube.com/watch?v=RTPzzjQQYIU" > One Arm Ring Rows</a > as you can <br/ >
+        •	Horizontal Pull - Do as many<a href = "https://www.youtube.com/watch?v=RTPzzjQQYIU" > One Arm Ring Rows <i className="fas fa-external-link-alt"></i> </a > as you can <br/ >
 <br/ >
-        •	Shoulders - 5 < a href = "https://www.youtube.com/watch?v=a8n_V0oiifw" > One Arm Depression Scapular Pull - Ups</a >. <br/ >
+        •	Shoulders - 5 < a href = "https://www.youtube.com/watch?v=a8n_V0oiifw" > One Arm Depression Scapular Pull-ups <i className="fas fa-external-link-alt"></i> </a >. <br/ >
 <br/ >
-        •	Shoulders - 5 < a href = "https://www.youtube.com/watch?v=OYRAFPM2yDI" > Tucked Lever Pulls</a > <br/ >
+        •	Shoulders - 5 < a href = "https://www.youtube.com/watch?v=OYRAFPM2yDI" > Tucked Lever Pulls <i className="fas fa-external-link-alt"></i> </a > <br/ >
 <br/ >
             <div className="subtitle"> Week 7-9 </div>
             - Choose 3 Non - consecutive days to do this workout(takes about 1 hour)
@@ -155,23 +154,23 @@ class TrainingGuide extends React.Component {
 <br/ >
             Repeat the following list 3 times:
 <br/ >
-        •	Core – 15 < a href = "https://www.youtube.com/watch?v=l4kQd9eWclE" > Leg - Ups</a >
+        •	Core – 15 < a href = "https://www.youtube.com/watch?v=l4kQd9eWclE" > Leg - Ups <i className="fas fa-external-link-alt"></i> </a >
 <br/ >
-        •	Core – 6(3 on each side) < a href = "https://www.youtube.com/watch?v=hrS3QsNqvTQ" > Lying Windshield Wipers</a >
+        •	Core – 6(3 on each side) < a href = "https://www.youtube.com/watch?v=hrS3QsNqvTQ" > Lying Windshield Wipers <i className="fas fa-external-link-alt"></i> </a >
 <br/ >
-        •	Core – 5 < a href = "https://youtu.be/aEgyCi1J1qI?t=83" > Knee Ab Wheel Rollouts</a >. Don’t count reps where you can’t come back up.
+        •	Core – 5 < a href = "https://youtu.be/aEgyCi1J1qI?t=83" > Knee Ab Wheel Rollouts <i className="fas fa-external-link-alt"></i> </a >. Don’t count reps where you can’t come back up.
 <br/ >
-        •	Vertical Pull - Do as many Pull - ups as you can.Afterwards, do as many normal pull - ups as you can with a elastic band
+        •	Vertical Pull - Do as many Pull-ups as you can.Afterwards, do as many normal pull-ups as you can with a elastic band
 <br/ >
-        •	Horizontal Push - Do as many<a href = "https://www.youtube.com/watch?v=svLqaM6-cnQ" > Knee Flies</a > as you can.Afterwards, do as many normal push - ups as you can
+        •	Horizontal Push - Do as many<a href = "https://www.youtube.com/watch?v=svLqaM6-cnQ" > Knee Flies <i className="fas fa-external-link-alt"></i> </a > as you can.Afterwards, do as many normal push-ups as you can
 <br/ >
         •	Fingers – 5sec Max Hang with 5lb held by feet. 10 or 15mm edge
 <br/ >
         •	Vertical Push – Do as many Dips as you can
 <br/ >
-        •	Horizontal Pull - Do as many<a href = "https://www.youtube.com/watch?v=OH3QZB8oDkg" > Inclined Ring Rows</a > as you can
+        •	Horizontal Pull - Do as many<a href = "https://www.youtube.com/watch?v=OH3QZB8oDkg" > Inclined Ring Rows <i className="fas fa-external-link-alt"></i> </a > as you can
 <br/ >
-        •	Shoulders – 5 < a href = "https://www.youtube.com/watch?v=UZ4XlVNmGtk" > One Leg Lever Pulls</a >
+        •	Shoulders – 5 < a href = "https://www.youtube.com/watch?v=UZ4XlVNmGtk" > One Leg Lever Pulls <i className="fas fa-external-link-alt"></i> </a >
 <br/ >
             </>
         )
@@ -180,8 +179,8 @@ class TrainingGuide extends React.Component {
         return (
             <>
             <div className="subtitle">Hangboard {this.stars(2)}</div>
-<br/ > Variation 1: Repeaters < a href = "https://www.youtube.com/watch?v=8YTn7qEpxtU" > Demo Video</a > <br/ >
-<br/ > Choose a pair of edges that are 10 - 15mm and can hold all four fingers.Using an open - crimp position, hang off the edges for 7 seconds then rest for 3 seconds.Repeat this 5 more times for a total of 6 hangs.
+<br/ > Variation 1: Repeaters < a href = "https://www.youtube.com/watch?v=8YTn7qEpxtU" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/ >
+<br/ > The de facto way to improve finger tendon strength. Choose a pair of edges that are 10 - 15mm and can hold all four fingers.Using an open - crimp position, hang off the edges for 7 seconds then rest for 3 seconds.Repeat this 5 more times for a total of 6 hangs.
 <br/ >
 <br/ > Variation 2:
 <br/ > Do hangboard Repeaters using different pockets and edges
@@ -213,10 +212,10 @@ class TrainingGuide extends React.Component {
 <br/ > Variation 5:
 <br/ > Do Variation 4 then reach as high as you can with you’re other hand.
 <br/ >
-<br/ > Variation 6: Bumping < a href = "https://www.youtube.com/watch?v=xLPdz0n5hkE" > Demo Video</a >
+<br/ > Variation 6: Bumping < a href = "https://www.youtube.com/watch?v=xLPdz0n5hkE" > Demo Video <i className="fas fa-external-link-alt"></i> </a >
 <br/ > With both hands on the bottom rung, move one hand up to the next rung, then the next rung, etc until you cannot go further.
 <br/ >
-<br/ > Variation 7: Alternating < a href = "https://www.youtube.com/watch?v=RhAutTnvAgQ" > Demo Video</a >
+<br/ > Variation 7: Alternating < a href = "https://www.youtube.com/watch?v=RhAutTnvAgQ" > Demo Video <i className="fas fa-external-link-alt"></i> </a >
 <br/ > With both hands on the bottom rung, move one hand up to a higher rung then bring it back down to the bottom rung and repeat.Adjust difficulty by adding reps and reaching higher.
 <br/ >
 <br/ > Variation 8: Downclimbing
@@ -238,77 +237,77 @@ class TrainingGuide extends React.Component {
 
                 < br/ >
                 <div className="subtitle">1. Dips and Iron Cross Prog. {this.stars(3)}</div> <br/>
-                Band pull - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=1xEizoLOqmA" > Demo Video</a > <br/>
+                Band pull - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=1xEizoLOqmA" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
         Assisted Dips - 5 reps * 5 sets <br/>
             Dips - 5 reps * 5 sets <br/>
-                Ring hold - 5 seconds < a href = "https://www.youtube.com/watch?v=iODfBpAI2hc" > Demo Video</a > <br/>
+                Ring hold - 5 seconds < a href = "https://www.youtube.com/watch?v=iODfBpAI2hc" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
         Weighted Dips - 5 reps * 5 sets <br/>
-            Ring Dips - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=CONXdUoBzdI" > Demo Video</a > <br/>
-        Half Cross - 10 seconds * 3 sets < a href = "https://www.youtube.com/watch?v=vK8LxtyKZf0" > Demo Video</a > <br/>
-        Strap Cross - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=vH1w7DQhafc" > Demo Video</a > <br/>
+            Ring Dips - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=CONXdUoBzdI" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Half Cross - 10 seconds * 3 sets < a href = "https://www.youtube.com/watch?v=vK8LxtyKZf0" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Strap Cross - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=vH1w7DQhafc" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
             <br/>
                 <div className="subtitle">2. Flies and Planche Prog. {this.stars(3)}</div> <br/>
-                Push - ups - 10 reps * 3 sets <br/>
-            X push - ups - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=IOQjVhXOEeo" > Demo Video</a > <br/>
-        Push - ups(on rings) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=7enjS7Y2LYc" > Demo Video</a > <br/>
-        Ring Flies(on knees, feet up) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=svLqaM6-cnQ" > Demo Video</a > <br/>
-        Ring Flies(on knees, feet down) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=sMB6GrrRX2Y" > Demo Video</a > <br/>
-        Ring Flies - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=Q1hgPfcooGc" > Demo Video</a > <br/>
-        Pseudo Planche Pushups - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=CVUM4BKIbf8" > Demo Video</a > <br/>
-        Raised Ring Flies - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=PNo7ZEUtOms" > Demo Video</a > <br/>
+                Push-ups - 10 reps * 3 sets <br/>
+            X push-ups - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=IOQjVhXOEeo" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Push-ups(on rings) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=7enjS7Y2LYc" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Ring Flies(on knees, feet up) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=svLqaM6-cnQ" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Ring Flies(on knees, feet down) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=sMB6GrrRX2Y" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Ring Flies - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=Q1hgPfcooGc" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Pseudo Planche Pushups - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=CVUM4BKIbf8" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Raised Ring Flies - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=PNo7ZEUtOms" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
             <br/>
                 <div className="subtitle">3. Dragon Flag Prog. {this.stars(3)}</div> <br/>
-                Lying Leg Raises - 10 reps * 3 sets < a href = "https://www.youtube.com/watch?v=qJt-Ah-lWCw" > Demo Video</a > <br/>
-        V - ups - 10 reps * 3 sets <br/>
-            Leg - ups - 10 reps * 3 sets < a href = "https://www.youtube.com/watch?v=g2R_Y9rE0Hg" > Demo Video</a > <br/>
-        Toes to Bar - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=X4n7GKTQhwg" > Demo Video</a > <br/>
-        Dragon Flag - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=gub2VJbEF-c" > Demo Video</a > <br/>
+                Lying Leg Raises - 10 reps * 3 sets < a href = "https://www.youtube.com/watch?v=qJt-Ah-lWCw" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        V-ups - 10 reps * 3 sets <br/>
+            Leg - ups - 10 reps * 3 sets < a href = "https://www.youtube.com/watch?v=g2R_Y9rE0Hg" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Toes to Bar - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=X4n7GKTQhwg" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Dragon Flag - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=gub2VJbEF-c" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
             <br/>
                 <div className="subtitle">4. Superman Flies Prog. {this.stars(3)}</div> <br/>
                 Plank - 90 seconds <br/>
             Crunches - 40 reps * 1 set <br/>
                 Ab Wheel Rollouts - 5 reps * 5 sets <br/>
-                    Knee Superman Flies - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=hZFOcyaL_ds" > Demo Video</a > <br/>
-        Superman Flies(one arm) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=Ubd5IHuYlTo" > Demo Video</a > <br/>
-        Superman Flies - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=svq_tDPVl9A" > Demo Video</a > <br/>
+                    Knee Superman Flies - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=hZFOcyaL_ds" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Superman Flies(one arm) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=Ubd5IHuYlTo" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Superman Flies - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=svq_tDPVl9A" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
             <br/>
                 <div className="subtitle">5. Windshield Wiper Prog. {this.stars(2)}</div> <br/>
                 Side planks - 90 seconds <br/>
-            Side Crunches - 40 reps * 1 set < a href = "https://www.youtube.com/watch?v=E3pHxKVfsz0" > Demo Video</a > <br/>
-        Thread the Needle - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=xXyIJAg8LFU" > Demo Video</a > <br/>
-        Russian Twists - 10 reps * 3 sets < a href = "https://www.youtube.com/watch?v=jIStaPoxupI" > Demo Video</a > <br/>
-        Windshield Wipers(ground) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=hrS3QsNqvTQ" > Demo Video</a > <br/>
-        Windshield Wipers(tucked, on bar) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=xM5ojvBKI94" > Demo Video</a > <br/>
-        Windshield Wipers(extended, on bar) - 3 reps * 5 sets < a href = "https://www.youtube.com/watch?v=cQPehma273s" > Demo Video</a > <br/>
+            Side Crunches - 40 reps * 1 set < a href = "https://www.youtube.com/watch?v=E3pHxKVfsz0" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Thread the Needle - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=xXyIJAg8LFU" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Russian Twists - 10 reps * 3 sets < a href = "https://www.youtube.com/watch?v=jIStaPoxupI" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Windshield Wipers(ground) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=hrS3QsNqvTQ" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Windshield Wipers(tucked, on bar) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=xM5ojvBKI94" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Windshield Wipers(extended, on bar) - 3 reps * 5 sets < a href = "https://www.youtube.com/watch?v=cQPehma273s" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
             <br/>
                 <div className="subtitle">6. Front Lever Prog. {this.stars(2)}</div> <br/>
                 Scapular Shrugs - 5 reps * 5 sets <br/>
-            Scapular Pull - ups(tucked) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=OYRAFPM2yDI" > Demo Video </a > <br/>
-        Assisted Lever Pull - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=q5hXGcAETFM" > Demo Video</a > <br/>
-        Scapular Pull - ups(one leg out or straddle) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=zymHuZDnD5U" > Demo Video</a > <br/>
-        Front Lever - 5 seconds < a href = "https://www.youtube.com/watch?v=TxKoh9NIFtU" > Demo Video</a > <br/>
+            Scapular Pull-ups(tucked) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=OYRAFPM2yDI" > Demo Video  <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Assisted Lever Pull - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=q5hXGcAETFM" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Scapular Pull-ups(one leg out or straddle) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=zymHuZDnD5U" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Front Lever - 5 seconds < a href = "https://www.youtube.com/watch?v=TxKoh9NIFtU" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
             <br/>
                 <div className="subtitle">7. Inverted Row Prog. {this.stars(2)}</div> <br/>
-                Inverted Ring Rows(leaning) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=wZPKoq1Ydcg" > Demo Video</a > <br/>
-        Inverted Ring Rows(one arm) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=C3F4ltRbDOE" > Demo Video</a > <br/>
-        Inverted Ring Rows(legs propped up) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=OdivQZB8oDkg" > Demo Video</a > <br/>
-        Inverted Ring Rows(hanging) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=dZQMlqx9aOk" > Demo Video</a > <br/>
+                Inverted Ring Rows(leaning) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=wZPKoq1Ydcg" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Inverted Ring Rows(one arm) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=C3F4ltRbDOE" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Inverted Ring Rows(legs propped up) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=OdivQZB8oDkg" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Inverted Ring Rows(hanging) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=dZQMlqx9aOk" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
             <br/>
                 <div className="subtitle">8. One Arm Pull-up Prog. {this.stars(2)}</div> <br/>
-                Assisted Pull - ups - 5 reps * 5 sets <br/>
-            Pull - ups - 5 reps * 5 sets <br/>
+                Assisted Pull-ups - 5 reps * 5 sets <br/>
+            Pull-ups - 5 reps * 5 sets <br/>
                 One Arm Bar Hold - 30 seconds <br/>
-                    Shoulder Pull - ups(One Arm) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=MjawoDfKqf0" > Demo Video</a > <br/>
-        Weighted Pull - ups - 5 reps * 5 sets <br/>
-            Archer Pull - ups - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=P-jeGDxcQZY" > Demo Video</a > <br/>
-        Typewriters - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=fTP7rupsLCg" > Demo Video</a > <br/>
-        One - Arm Pull - ups - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=RCCYTvxkQWE" > Demo Video</a > <br/>
-        Weighted One - Arm Pull - ups - 5 reps * 5 sets <br/>
+                    Shoulder Pull-ups(One Arm) - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=MjawoDfKqf0" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Weighted Pull-ups - 5 reps * 5 sets <br/>
+            Archer Pull-ups - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=P-jeGDxcQZY" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Typewriters - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=fTP7rupsLCg" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        One - Arm Pull-ups - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=RCCYTvxkQWE" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
+        Weighted One - Arm Pull-ups - 5 reps * 5 sets <br/>
             <br/>
                 <div className="subtitle">9. Muscle-up Prog.{this.stars(2)}</div> <br/>
-                Wide - set Pull - ups - 5 reps * 5 sets <br/>
+                Wide - set Pull-ups - 5 reps * 5 sets <br/>
             Bar to Chest - 5 reps * 5 sets <br/>
-                Muscle - ups - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=41RQW52vf3U" > Demo Video</a > <br/>
+                Muscle - ups - 5 reps * 5 sets < a href = "https://www.youtube.com/watch?v=41RQW52vf3U" > Demo Video <i className="fas fa-external-link-alt"></i> </a > <br/>
 
             </>
         )
@@ -374,8 +373,8 @@ class TrainingGuide extends React.Component {
                       Lean onto your hands and bring them apart so your nose almost touches the ground.
                       To target your pecs more, you can perform these with your arms rotated outwards so your palms are facing away from you.
                       To adjust difficulty you can allow / prevent your feet from lifting up as you go down.
-                      Another way to adjust difficulty is to lower down as if you were doing a ring push - up instead of keeping your arms straight throughout the movement.
-                      To do it Flies full difficulty, you can start from a normal push - up position instead.
+                      Another way to adjust difficulty is to lower down as if you were doing a ring push-up instead of keeping your arms straight throughout the movement.
+                      To do it Flies full difficulty, you can start from a normal push-up position instead.
   <br/> <div className="subtitle">Superman Flies: {this.stars(2)}</div>This is similar to the Ring Flies except when you lean onto your hands, you bring them forward.
                       In this way, they stay roughly shoulder - width apart as you go down.This will target your abs more than the normal Flies.
   <br/> <div className="subtitle">Ring Dips: {this.stars(2)}</div>These are much harder than normal dips and it is recommended you flare the rings out each time you reach the top of the movement.
@@ -491,7 +490,7 @@ class TrainingGuide extends React.Component {
                 </table>
 
                 <div className="subtitle">Type-writers: {this.stars(2)}</div> While lock-off strength is important it is debatable whether simply doing it is the best way of improving it.
-  <br /> <div className="subtitle">Bar to Chest: {this.stars(2)}</div> These are pull - ups that are dynamic and build explosive power.
+  <br /> <div className="subtitle">Bar to Chest: {this.stars(2)}</div> These are pull-ups that are dynamic and build explosive power.
   <br /> <div className="subtitle">One-arm Pull-up: {this.stars(2)}</div> (Inspired by Alex Puccio) While difficult, make sure you squeeze the bar as hard as you can, start with your body perpendicular to the bar, and fold your body inwards.
 
             </>
@@ -656,15 +655,15 @@ During the following week, you should try to add 1 more rep to each set.
                 Compressions<br/>
 
                 9/2018<br/>
-                <a href="https://www.youtube.com/watch?v=357JIuFF4-Q"> Swinging Ring Support Hold </a> 15 secs x 1 set <br/>
+                <a href="https://www.youtube.com/watch?v=357JIuFF4-Q"> Swinging Ring Support Hold  <i className="fas fa-external-link-alt"></i> </a> 15 secs x 1 set <br/>
                 30 Degree Ring Cross 10 secs x 3 sets 3min rests<br/>
                 Straight Lever Pulls 5reps x 3 sets 3min rests<br/>
-                <a href="https://youtu.be/dtsrFeWjx3g?t=698"> Tucked Planche Swings </a> 10reps x 3 sets 3min rests<br/>
+                <a href="https://youtu.be/dtsrFeWjx3g?t=698"> Tucked Planche Swings  <i className="fas fa-external-link-alt"></i> </a> 10reps x 3 sets 3min rests<br/>
                 Repeaters on 7mm edge 6reps x 3 sets 3min rests<br/>
-                <a href="https://youtu.be/dtsrFeWjx3g?t=1049"> Ring Taps </a> 5reps x 3 sets 3min rests<br/>
+                <a href="https://youtu.be/dtsrFeWjx3g?t=1049"> Ring Taps  <i className="fas fa-external-link-alt"></i> </a> 5reps x 3 sets 3min rests<br/>
                 Weighted (+35lb) Repeaters on 10mm edge with 6reps x 3 sets 3min rests<br/>
                 Dragon Flags 3reps x 3 sets 3 min rests<br/>
-                <a href="https://youtu.be/yUkD5fBD3rA?t=266"> Asymmetrical Ring Flies </a> 10 reps x 3 sets 3min rests<br/>
+                <a href="https://youtu.be/yUkD5fBD3rA?t=266"> Asymmetrical Ring Flies  <i className="fas fa-external-link-alt"></i> </a> 10 reps x 3 sets 3min rests<br/>
                 One Arm Flies 10 reps x 3 sets 3min rests<br/>
                 Weighted One-Arm Pullups 1rep x 3 sets 3min rests 5lb<br/>
             </div>

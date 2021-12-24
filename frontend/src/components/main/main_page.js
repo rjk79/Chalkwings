@@ -7,7 +7,7 @@ class MainPage extends React.Component {
     render() {
         return (
             <div className="main-page">
-                
+
                 <div className="welcome-box">
                     {/* <div className="rotater"></div> */}
                     <div className="img-holder">
@@ -20,11 +20,11 @@ class MainPage extends React.Component {
                     <div className="social-links">
                         <a className="social-link" href="https://github.com/rjk79" target="_blank" rel="noopener noreferrer">
                             <img className="icon" src={require("../../assets/images/github.png")} alt="github"/>
-                        </a>
+                        <i className="fas fa-external-alt-link" />  <i className="fas fa-external-link-alt"></i> </a>
                         <a className="social-link" href="https://www.linkedin.com/in/robert-ku-b9464461" target="_blank" rel="noopener noreferrer">
                             <img className="icon" src={require("../../assets/images/linkedin.png")} alt="linkedin"/>
-                        </a>
-                        
+                        <i className="fas fa-external-alt-link" />  <i className="fas fa-external-link-alt"></i> </a>
+
                     </div>
                 </footer>
             </div>
